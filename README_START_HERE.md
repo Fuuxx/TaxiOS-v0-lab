@@ -2,20 +2,30 @@
 
 This repository is a standalone reconstruction lab for v0.
 
-It exists so v0 can understand the current TaxiOS Company Dashboard without access to the production TaxiOS monorepo.
+It exists so v0 can understand the current TaxiOS Company Dashboard without editing the production TaxiOS monorepo.
 
 ## Strict Rules For v0
 
 1. Read this file first.
-2. Treat `app/page.tsx` as the runnable baseline.
-3. Treat `styles/taxis-tokens.css` as the visual source of truth.
-4. Treat `public/reference` screenshots as visual comparison.
+2. Treat `public/reference` screenshots as the visual source of truth.
+3. Treat the real TaxiOS.v2 Storybook/component source as the structural source of truth.
+4. Treat `app/page.tsx` and `/actual` as the current reconstruction target only.
 5. Do not redesign.
 6. Do not improve.
 7. First match the current reference.
 8. List mismatches before fixing.
 9. Fix only mismatches.
 10. Premium polish is forbidden until reconstruction is close.
+
+## Source Of Truth Order
+
+1. `public/reference/*.png` - visual truth.
+2. Real TaxiOS.v2 Storybook/component source - structural truth.
+3. `styles/taxis-tokens.css` - local token mirror for this lab.
+4. `app/page.tsx` and `/actual` - current reconstruction attempt.
+
+If `app/page.tsx` differs from the reference screenshots, `app/page.tsx` is wrong.
+v0 must reduce mismatch, not redesign.
 
 ## Current Goal
 
@@ -47,8 +57,10 @@ Reconstruct the current TaxiOS Company Dashboard as closely as possible:
 ## Files v0 Should Inspect
 
 - `README_START_HERE.md` - rules and workflow
-- `app/page.tsx` - runnable Company Dashboard baseline
+- `app/page.tsx` - current Company Dashboard reconstruction target
+- `app/actual/page.tsx` - current rendered reconstruction
 - `app/reference/page.tsx` - screenshot comparison page
+- `app/compare/page.tsx` - side-by-side mismatch inspection page
 - `styles/taxis-tokens.css` - local TaxiOS visual tokens
 - `styles/globals.css` - layout and reconstruction styles
 - `data/company-dashboard-data.ts` - static mock data copied from the TaxiOS Storybook shape
@@ -57,7 +69,7 @@ Reconstruct the current TaxiOS Company Dashboard as closely as possible:
 
 ## Required v0 Workflow
 
-Before editing code, v0 must answer:
+Before editing code, v0 must open `/compare` and answer:
 
 1. Which screenshot(s) did you compare against?
 2. What does the current lab already match?
@@ -69,6 +81,8 @@ Only then may v0 make a small edit.
 ## Premium Polish Gate
 
 Premium polish is not allowed until the reconstruction is close to the current Storybook reference.
+
+Do not make the lab look "better" than the screenshots. Make it match the screenshots first.
 
 When reconstruction is close, ask for explicit approval before changing:
 
