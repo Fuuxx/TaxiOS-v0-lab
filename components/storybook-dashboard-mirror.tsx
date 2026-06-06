@@ -303,7 +303,7 @@ export function StorybookDashboardMirror() {
             <div className="mirror-section-head mirror-fastbooking-head">
               <h2>Fastbooking</h2>
               <button className="mirror-section-plus" type="button" aria-label="Neue Fastbooking-Route öffnen">
-                <Plus size={34} aria-hidden="true" />
+                <Plus size={22} aria-hidden="true" />
               </button>
             </div>
             <div className="mirror-fast-grid">
