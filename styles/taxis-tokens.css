@@ -1,0 +1,59 @@
+:root {
+  --taxis-canvas: #eef1f4;
+  --taxis-canvas-soft: #f4f6f8;
+  --taxis-surface: #ffffff;
+  --taxis-surface-soft: #f8fafc;
+  --taxis-surface-deep: #f1f4f7;
+  --taxis-panel: #f7f9fb;
+  --taxis-glass: rgb(255 255 255 / 0.86);
+
+  --taxis-border: #d8e0ea;
+  --taxis-border-soft: #e8edf3;
+  --taxis-border-strong: #c4cfdd;
+
+  --taxis-text-strong: #071225;
+  --taxis-text: #334155;
+  --taxis-text-muted: #64748b;
+  --taxis-text-subtle: #94a3b8;
+
+  --taxis-accent: #ff5a00;
+  --taxis-accent-hover: #e94f00;
+  --taxis-accent-soft: #fff3ec;
+
+  --taxis-radius-control: 14px;
+  --taxis-radius-card: 18px;
+  --taxis-radius-section: 22px;
+  --taxis-radius-shell: 28px;
+  --taxis-radius-pill: 999px;
+
+  --taxis-control-sm: 36px;
+  --taxis-control-md: 44px;
+  --taxis-control-lg: 52px;
+
+  --taxis-shadow-soft: 0 18px 40px rgb(15 23 42 / 0.08);
+  --taxis-shadow-card: 0 20px 48px rgb(15 23 42 / 0.11);
+  --taxis-shadow-raised: 0 26px 70px rgb(15 23 42 / 0.14);
+  --taxis-shadow-inset: inset 0 1px 0 rgb(255 255 255 / 0.72);
+
+  --taxis-font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --taxis-data-font: "SFMono-Regular", "Cascadia Code", "Roboto Mono", Consolas, monospace;
+
+  --status-neutral-dot: #7b8794;
+  --status-neutral-bg: #eef1f4;
+  --status-neutral-text: #3f4b5a;
+  --status-info-dot: #3b82f6;
+  --status-info-bg: #eaf3ff;
+  --status-info-text: #1d5bbf;
+  --status-success-dot: #20bf7a;
+  --status-success-bg: #e8f8f1;
+  --status-success-text: #0c7f52;
+  --status-attention-dot: #d59b35;
+  --status-attention-bg: #fbf2df;
+  --status-attention-text: #8b5e16;
+  --status-danger-dot: #ef5f67;
+  --status-danger-bg: #feeeee;
+  --status-danger-text: #b22d36;
+  --status-strong-dot: #111827;
+  --status-strong-bg: #e9edf3;
+  --status-strong-text: #111827;
+}
