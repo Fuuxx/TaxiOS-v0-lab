@@ -4,74 +4,88 @@ Date: 2026-06-07
 
 ## Source Of Truth
 
-- Visual source of truth: `public/reference/company-dashboard-screen.png` and related Storybook screenshots.
-- Structural source of truth: real TaxiOS.v2 Storybook/component source in `packages/ui/src/components/taxios/dashboard/*` and `packages/ui/src/components/taxios/company-workspace/*`.
-- Reconstruction target: the lab render at `/` and `/actual`.
+- Visual source of truth: current authenticated TaxiOS.v2 main runtime at `http://localhost:3000/company-dashboard`.
+- Structural source of truth: real TaxiOS.v2 Company Workspace and Dashboard source.
+- Reconstruction target: the static lab render at `/` and `/actual`.
 
-If the lab render differs from the screenshots or real Storybook component structure, the lab render is wrong.
+If the lab render differs from current main, the lab render is wrong.
 
-## Visible Mismatches Found Before Repair
+## Why The Previous Lab Was Wrong
 
-1. **Fastbooking card footer/action treatment**
-   - Lab had direct orange `Buchen` buttons inside every saved Fastbooking card.
-   - Real Storybook card footer is a member/avatar dock with a dark circular plus/member-picker action. Booking is not exposed as a persistent orange CTA on each saved card.
+The previous lab matched an older Storybook/demo target and then drifted into a v0-style interpretation. It did not match the current main runtime that the user sees locally.
 
-2. **Orange button usage**
-   - Lab overused orange for routine saved-card actions.
-   - TaxiOS orange is reserved for active accent, primary allowed action, destination route marker, destination arrow, and live pulse.
+Major wrong assumptions:
 
-3. **Card proportions and empty space**
-   - Lab cards were shorter and filled like generic SaaS cards.
-   - Real Fastbooking cards are tall `304px` route cards with a clear upper route body and a docked footer.
+1. It used `Your Companyname` / `Katerina` demo data instead of `Smoke Company HQ` / `Team`.
+2. It showed a permanently visible `Neue Route` form in the Fastbooking hero.
+3. It omitted the dark sidebar `Neue Buchung` action.
+4. It rendered orange or generic CTA concepts inside saved Fastbooking cards in earlier iterations.
+5. It used a light/table-chip table language instead of the current main dark table header and vehicle medallion rows.
+6. It used a multi-event live feed instead of the current compact `Company rides loaded` read-model feed.
 
-4. **Sidebar width/radius/shadow/active state**
-   - Lab sidebar was too narrow and had a generic sidebar rhythm.
-   - Real source uses a wider floating workspace shell, rounded surface, subtle glass/sheen, and a thin orange active rail.
+## Current Main Runtime Details To Match
 
-5. **Topbar/search positioning**
-   - Lab topbar was compact and generic.
-   - Real Storybook topbar is part of the workspace shell with breadcrumb, large rounded search, and notification pill.
+1. **Sidebar**
+   - Floating porcelain sidebar.
+   - TaxiOS logo at top.
+   - Dark `Neue Buchung` button below logo.
+   - Navigation: Dashboard, Buchungen, Organisation, Berichte, Finanzen.
+   - Active Dashboard row has soft white surface and orange left rail.
+   - Footer has Einstellungen and `Smoke Company HQ` account card.
 
-6. **Greeting typography and spacing**
-   - Lab greeting was too small and close to the topbar.
-   - Reference has a large page title with strong/subtle split between greeting and user name, plus generous vertical air before Fastbooking.
+2. **Topbar**
+   - Floating full-width topbar to the right of the sidebar.
+   - Breadcrumb: `Smoke Company HQ > Dashboard`.
+   - Centered rounded search.
+   - Notification icon and `AA` user avatar on the right.
 
-7. **Fastbooking hero spacing**
-   - Lab Fastbooking section was too compressed and used a header CTA treatment that read like a new design.
-   - Real Fastbooking is the hero surface with large section title and dark circular add route toggle.
+3. **Greeting**
+   - `Heute - Sonntag, 07. Juni`.
+   - `Guten Morgen, Team.`
+   - Copy: `Hier ist der Überblick über eure heutige Mobilität.`
 
-8. **Saved route card density**
-   - Lab used generic route cards with CTA-heavy footer.
-   - Real cards use route labels, count chip, vertical route rail, destination orange dot, avatar stack, and dark member plus.
+4. **Fastbooking Hero**
+   - Large porcelain hero surface.
+   - Section title `Fastbooking`.
+   - Dark circular plus action at top right.
+   - Three saved route cards in a row:
+     - `test 2`: `test 1` -> `test 2`
+     - `Linkstraße 5`: `Werrastraße 36` -> `Linkstraße 5`
+     - `Berlin Central Office`: `Leipziger Platz 1` -> `Berlin Central Office`
+   - No persistent `Neue Route` form in the default hero view.
+   - No orange `Buchen` buttons inside saved route cards.
+   - Orange appears only on destination dots.
 
-9. **Neue Route form proportions**
-   - Lab showed a permanently visible right-side form because the first reconstruction copied a v0 layout pattern.
-   - Real source has an add-stage/pane model. The lab keeps the pane as a static reference only when needed, but it must not dominate saved cards.
+5. **Nächste Fahrten Table**
+   - Dark header rail.
+   - Separated rounded rows.
+   - Data typography for times and booking IDs.
+   - Route column shows `Von`/`Nach` rail and orange destination dot.
+   - Status/action cell uses vehicle medallions, not large text CTAs.
 
-10. **Nächste Fahrten table rhythm**
-    - Lab table was too flat and generic.
-    - Real table uses separated rows, compact data typography, light rail header, route origin/destination hierarchy, and compact status treatment.
-
-11. **Live Feed proportions**
-    - Lab feed rail was generic and too sparse.
-    - Real feed card is a compact right rail with live badge, event count, update pulse, and small timeline rows.
-
-12. **Status chip/avatar/route-dot treatment**
-    - Lab mixed status and action language.
-    - Real system uses dark identity avatars, status chips/dots for state, and orange only for destination/live/action accents.
+6. **Live Feed**
+   - Compact right rail.
+   - Title `Live Feed` and dark `Live` badge.
+   - `1 Ereignisse`.
+   - Orange update pulse.
+   - One item: `Company rides loaded`, `6 active bookings`, `Read model`.
 
 ## Repairs Applied In This Pass
 
-- Replaced `app/page.tsx` with a static Storybook mirror component.
-- Added `/actual` as the current reconstruction render.
-- Added `/compare` to show reference screenshot and lab render side by side.
-- Removed orange `Buchen` buttons from saved Fastbooking cards.
-- Restored a member/avatar dock and dark circular member action in saved cards.
-- Reworked Fastbooking cards toward the real 304px route-card structure.
-- Reworked workspace shell proportions, topbar, hero spacing, table rhythm, and live feed rail toward the Storybook source.
+- Replaced the static lab data with current main visible Smoke Company data.
+- Rebuilt the dashboard component around the current main runtime structure.
+- Restored sidebar `Neue Buchung`.
+- Removed the default `Neue Route` form from the Fastbooking hero.
+- Kept saved route card actions dark/neutral, not orange.
+- Reworked table rows toward the current dark-header/vehicle-medallion layout.
+- Reworked Live Feed toward the compact current main read-model feed.
+- Updated `README_START_HERE.md` so v0 treats current main as truth, not older Storybook screenshots.
 
 ## Remaining Known Limitations
 
-- This is still a static lab and not a byte-for-byte import of the production Tailwind/CSS build.
-- The lab intentionally avoids Convex, Clerk, routing logic, permission logic, and backend imports.
-- v0 must continue using `/compare` to find and reduce remaining visual mismatch one small edit at a time.
+- The lab is still a static clone. It does not import production CSS bundles, Convex, Clerk, or runtime layout state.
+- Current main depends on authenticated runtime data. The lab freezes that visible data statically.
+- True pixel identity requires one of:
+  - copying the exact rendered DOM/CSS snapshot from an authenticated browser session, or
+  - extracting the relevant production UI components into a dependency-free static harness.
+- v0 must use `/compare` to reduce remaining visual mismatch, not redesign.

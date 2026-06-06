@@ -1,4 +1,4 @@
-export type StatusTone = "neutral" | "info" | "success" | "attention" | "danger" | "strong";
+export type StatusTone = "neutral" | "info" | "success" | "attention";
 
 export type FastRoute = {
   id: string;
@@ -18,6 +18,7 @@ export type Ride = {
   from: string;
   to: string;
   publicId: string;
+  vehicleTone: StatusTone;
   status: {
     label: string;
     tone: StatusTone;
@@ -28,122 +29,126 @@ export type FeedItem = {
   id: string;
   title: string;
   body: string;
+  meta: string;
   time: string;
   tone: StatusTone | "accent";
 };
 
 export const dashboardCopy = {
-  companyName: "Your Companyname",
-  userName: "Katerina",
-  dateLabel: "Heute · Samstag, 02. Mai",
+  companyName: "Smoke Company HQ",
+  userName: "Team",
+  dateLabel: "Heute - Sonntag, 07. Juni",
   greeting: "Guten Morgen",
-  overview: "Hier ist der Überblick deiner heutigen Mobilität.",
-  accountType: "Geschäftskonto"
+  overview: "Hier ist der Überblick über eure heutige Mobilität.",
+  accountType: "Geschäftskonto",
+  accountInitials: "SC",
 };
 
 export const fastRoutes: FastRoute[] = [
   {
-    id: "ber",
-    title: "Flughafen BER",
-    from: "Hauptstr. 10, Berlin",
-    to: "BER Terminal 1–2",
-    passengerInitials: ["PL", "BS"],
-    passengerCount: 2
+    id: "test-2",
+    title: "test 2",
+    from: "test 1",
+    to: "test 2",
+    passengerInitials: ["A", "SC", "AA", "SC", "AB"],
+    passengerCount: 1,
   },
   {
-    id: "office",
-    title: "Büro Friedrichstr.",
-    from: "Berlin Hbf",
-    to: "Friedrichstr. 110",
-    passengerInitials: ["MK"],
-    passengerCount: 1
+    id: "linkstrasse-5",
+    title: "Linkstraße 5",
+    from: "Werrastraße 36",
+    to: "Linkstraße 5",
+    passengerInitials: ["X"],
+    passengerCount: 1,
   },
   {
-    id: "messe",
-    title: "Messe Berlin",
-    from: "Büro Mitte",
-    to: "Messedamm 22",
-    passengerInitials: ["TL", "VB"],
-    passengerCount: 2
-  }
+    id: "berlin-central-office",
+    title: "Berlin Central Office",
+    from: "Leipziger Platz 1",
+    to: "Berlin Central Office",
+    passengerInitials: ["GG"],
+    passengerCount: 1,
+  },
 ];
 
 export const rides: Ride[] = [
   {
     id: "ride-1",
-    time: "09:30",
+    time: "20:05",
     day: "Heute",
-    passengers: ["PL"],
-    from: "Hauptstr. 10, 10117 Berlin",
-    to: "Flughafen BER – Terminal 1",
-    publicId: "BKG-7K4Q2M",
-    status: { label: "Bestellt", tone: "neutral" }
+    passengers: ["AY"],
+    from: "test 1",
+    to: "test 2",
+    publicId: "BKG-8HTXCR",
+    vehicleTone: "info",
+    status: { label: "In Fahrt", tone: "info" },
   },
   {
     id: "ride-2",
-    time: "14:00",
+    time: "08:40",
     day: "Heute",
-    passengers: ["JW", "NK", "AB"],
-    extraPassengers: 1,
-    from: "Flughafen BER – Terminal 1",
-    to: "Friedrichstr. 110, Berlin",
-    publicId: "BKG-8FD3QA",
-    status: { label: "Zugewiesen", tone: "info" }
+    passengers: ["XY"],
+    from: "Werrastraße 36",
+    to: "Linkstraße 5",
+    publicId: "BKG-2VU66A",
+    vehicleTone: "neutral",
+    status: { label: "Bestellt", tone: "neutral" },
   },
   {
     id: "ride-3",
-    time: "16:45",
+    time: "13:00",
     day: "Heute",
-    passengers: ["TL", "MB", "KS"],
-    from: "Messedamm 22, 14055 Berlin",
-    to: "Hauptstr. 10, 10117 Berlin",
-    publicId: "BKG-P7N4JC",
-    status: { label: "Angekommen", tone: "success" }
+    passengers: ["GG"],
+    from: "Leipziger Platz 1",
+    to: "Berlin Central Office",
+    publicId: "BKG-WBYD39",
+    vehicleTone: "info",
+    status: { label: "In Fahrt", tone: "info" },
   },
   {
     id: "ride-4",
-    time: "07:20",
+    time: "TBD",
     day: "Heute",
-    passengers: ["MK"],
-    from: "Friedrichstr. 110, Berlin",
-    to: "Berlin Hbf, Europaplatz",
-    publicId: "BKG-WK6H9D",
-    status: { label: "In Fahrt", tone: "info" }
+    passengers: ["SP"],
+    from: "Slice 137 Company Pickup",
+    to: "Slice 137 Provider Destination",
+    publicId: "BKG-D2UAKC",
+    vehicleTone: "info",
+    status: { label: "In Fahrt", tone: "info" },
   },
   {
     id: "ride-5",
-    time: "08:45",
+    time: "10:00",
     day: "Heute",
-    passengers: ["AS", "MR"],
-    from: "Kudamm 12, Berlin",
-    to: "Messe Nord",
-    publicId: "BKG-H2C8VX",
-    status: { label: "Problem gemeldet", tone: "attention" }
-  }
+    passengers: ["CC"],
+    from: "Potsdamer Platz 1",
+    to: "Berlin Hauptbahnhof",
+    publicId: "BKG-SR83JR",
+    vehicleTone: "info",
+    status: { label: "In Fahrt", tone: "info" },
+  },
+  {
+    id: "ride-6",
+    time: "TBD",
+    day: "Heute",
+    passengers: ["CS"],
+    from: "Company Smoke Office",
+    to: "Provider Global Pool Destination",
+    publicId: "BKG-3D4XGN",
+    vehicleTone: "info",
+    status: { label: "In Fahrt", tone: "info" },
+  },
 ];
 
 export const feedItems: FeedItem[] = [
   {
     id: "feed-1",
-    title: "Fahrer unterwegs",
-    body: "BER Abholung erfolgt.",
-    time: "vor 2 Min",
-    tone: "info"
+    title: "Company rides loaded",
+    body: "6 active bookings",
+    meta: "Read model",
+    time: "Read model",
+    tone: "neutral",
   },
-  {
-    id: "feed-2",
-    title: "Buchung erstellt",
-    body: "P. Lehmann · 14:00 Uhr.",
-    time: "vor 8 Min",
-    tone: "neutral"
-  },
-  {
-    id: "feed-3",
-    title: "Kostenstelle OK",
-    body: "Zuweisung abgeschlossen.",
-    time: "vor 25 Min",
-    tone: "success"
-  }
 ];
 
 export const referenceScreenshots = [
@@ -160,5 +165,5 @@ export const referenceScreenshots = [
   "workspace-wizard.png",
   "workspace-wizard-mobile.png",
   "new-booking-overlay.png",
-  "new-booking-overlay-mobile.png"
+  "new-booking-overlay-mobile.png",
 ];

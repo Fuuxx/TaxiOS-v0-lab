@@ -3,16 +3,17 @@ export default function ComparePage() {
     <main className="compare-page">
       <header className="compare-header">
         <p className="eyebrow">TaxiOS v0 Lab</p>
-        <h1 className="hero-title">Storybook Reference vs Lab Reconstruction</h1>
+        <h1 className="hero-title">Current Main vs Lab Reconstruction</h1>
         <p className="hero-copy">
-          Left is the real Storybook screenshot. Right is the current static lab render. If these differ, the lab is wrong.
+          Left is the authenticated TaxiOS.v2 main runtime on port 3000. Right is the current static lab render.
+          If these differ, the lab is wrong.
         </p>
       </header>
 
       <section className="compare-grid" aria-label="Desktop comparison">
         <article className="compare-panel">
-          <h2>Reference: Storybook desktop</h2>
-          <img alt="Storybook company dashboard desktop reference" src="/reference/company-dashboard-screen.png" />
+          <h2>Reference: current main /company-dashboard</h2>
+          <iframe title="Current TaxiOS main dashboard" src="http://localhost:3000/company-dashboard" />
         </article>
         <article className="compare-panel">
           <h2>Actual: lab desktop render</h2>
@@ -22,8 +23,8 @@ export default function ComparePage() {
 
       <section className="compare-grid compare-grid-mobile" aria-label="Mobile comparison">
         <article className="compare-panel">
-          <h2>Reference: Storybook mobile</h2>
-          <img alt="Storybook company dashboard mobile reference" src="/reference/company-dashboard-screen-mobile.png" />
+          <h2>Reference: historical Storybook mobile</h2>
+          <img alt="Historical Storybook company dashboard mobile reference" src="/reference/company-dashboard-screen-mobile.png" />
         </article>
         <article className="compare-panel">
           <h2>Actual: lab mobile render</h2>

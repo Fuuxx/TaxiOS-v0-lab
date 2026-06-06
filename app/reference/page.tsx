@@ -4,9 +4,10 @@ export default function ReferencePage() {
   return (
     <main className="reference-page">
       <p className="eyebrow">TaxiOS v0 Lab</p>
-      <h1 className="hero-title">Reference Screenshots</h1>
+      <h1 className="hero-title">Historical Reference Screenshots</h1>
       <p className="hero-copy">
-        v0 must compare the runnable baseline against these current Storybook screenshots before proposing any fixes.
+        These screenshots are kept as historical Storybook references. For the current mirror task, the visual
+        source of truth is the authenticated TaxiOS.v2 main runtime at <code>http://localhost:3000/company-dashboard</code>.
       </p>
 
       <div className="reference-grid">
