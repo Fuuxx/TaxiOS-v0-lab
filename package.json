@@ -18,7 +18,7 @@
   "scripts": {
     "build": "turbo build",
     "check-types": "turbo check-types",
-    "dev": "turbo dev",
+    "dev": "pnpm --filter @taxios-v2/taxios-v0-registry dev",
     "lint": "pnpm exec biome lint .",
     "registry:build": "pnpm --filter @taxios-v2/taxios-v0-registry build",
     "registry:check-types": "pnpm --filter @taxios-v2/taxios-v0-registry check-types",

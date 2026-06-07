@@ -5,7 +5,7 @@
   "scripts": {
     "prebuild": "node scripts/build-registry-json.mjs",
     "build": "next build",
-    "dev": "pnpm prebuild && next dev -p 3010",
+    "dev": "pnpm prebuild && next dev -p 3000",
     "start": "next start -p 3010",
     "lint": "pnpm exec biome lint .",
     "check-types": "pnpm exec tsc -p tsconfig.json --noEmit"
