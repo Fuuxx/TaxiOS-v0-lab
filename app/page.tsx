@@ -1,5 +1,5 @@
-import { StorybookDashboardMirror } from "../components/storybook-dashboard-mirror";
+import { MainDashboardHarness } from "../components/main-dashboard-harness";
 
 export default function CompanyDashboardPage() {
-  return <StorybookDashboardMirror />;
+  return <MainDashboardHarness />;
 }

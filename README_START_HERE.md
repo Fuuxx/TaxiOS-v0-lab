@@ -9,14 +9,15 @@ It exists so v0 can understand and safely work against the current TaxiOS Compan
 1. Read this file first.
 2. The current TaxiOS.v2 main runtime at `/company-dashboard` is the visual source of truth.
 3. The real TaxiOS.v2 Company Workspace and Dashboard component source is the structural source of truth.
-4. `app/page.tsx`, `/actual`, and `components/storybook-dashboard-mirror.tsx` are only the current static reconstruction target.
+4. `app/page.tsx`, `/actual`, and `components/main-dashboard-harness.tsx` are only the current static harness target.
 5. If the lab differs from current main, the lab is wrong.
-6. Do not redesign.
-7. Do not improve.
-8. Do not premium-polish.
-9. First match current main pixel-by-pixel as closely as possible.
-10. List mismatches before fixing.
-11. Fix only mismatches.
+6. Do not replace the real `@taxios-v2/ui` imports with hand-made clone components.
+7. Do not redesign.
+8. Do not improve.
+9. Do not premium-polish.
+10. First match current main pixel-by-pixel as closely as possible.
+11. List mismatches before fixing.
+12. Fix only mismatches.
 
 ## Source Of Truth Order
 
@@ -28,8 +29,21 @@ It exists so v0 can understand and safely work against the current TaxiOS Compan
    - `packages/ui/src/components/taxios/dashboard/*`
    - `packages/ui/src/styles/globals.css`
 3. Current main screenshots captured from the authenticated browser session.
-4. This lab's static files.
+4. This lab's static harness around the real UI package.
 5. Older Storybook screenshots in `public/reference` are historical references only unless explicitly refreshed from current main.
+
+## Current Harness Strategy
+
+The lab imports the real TaxiOS UI package through a local file dependency:
+
+- `@taxios-v2/ui`: `file:../TaxiOS.v2/packages/ui`
+- imported CSS: `@taxios-v2/ui/styles/globals.css`
+- rendered shell: `CompanyWorkspaceShell`
+- rendered dashboard: `CompanyDashboardWorkspaceContent`
+
+The lab only provides static data and no-op callbacks. This is intentional.
+
+Do not rebuild these components from memory. Do not translate them into generic shadcn cards. Do not replace the imported UI with a custom dashboard. If a mismatch remains, adjust the harness data, CSS build setup, or a small lab-only adapter first.
 
 ## Current Goal
 
@@ -53,7 +67,7 @@ Reconstruct the current TaxiOS Company Dashboard as closely as possible:
 - no Convex
 - no Clerk
 - no backend imports
-- no production runtime dependencies
+- no production runtime dependencies beyond the local UI package
 - no real secrets
 - no business logic
 - no route, role, permission, or payload changes
@@ -65,14 +79,13 @@ Reconstruct the current TaxiOS Company Dashboard as closely as possible:
 
 - `README_START_HERE.md` - rules and workflow
 - `docs/lab-mismatch-audit.md` - known mismatch audit
-- `app/page.tsx` - current Company Dashboard reconstruction target
-- `app/actual/page.tsx` - current rendered reconstruction
+- `app/page.tsx` - current Company Dashboard harness target
+- `app/actual/page.tsx` - current rendered harness
 - `app/reference/page.tsx` - historical screenshot page
 - `app/compare/page.tsx` - local side-by-side mismatch inspection page
-- `styles/taxis-tokens.css` - local TaxiOS visual tokens
-- `styles/globals.css` - layout and reconstruction styles
-- `data/company-dashboard-data.ts` - static mock data copied from the current main runtime shape
-- `components/storybook-dashboard-mirror.tsx` - static dashboard clone
+- `components/main-dashboard-harness.tsx` - static data harness using real `@taxios-v2/ui` components
+- `styles/taxios-ui-entry.css` - Tailwind v4 entry that imports real TaxiOS UI CSS and scans real UI source
+- `styles/globals.css` - lab-only reference and compare page styles
 
 ## Required v0 Workflow
 

@@ -6,9 +6,22 @@ Date: 2026-06-07
 
 - Visual source of truth: current authenticated TaxiOS.v2 main runtime at `http://localhost:3000/company-dashboard`.
 - Structural source of truth: real TaxiOS.v2 Company Workspace and Dashboard source.
-- Reconstruction target: the static lab render at `/` and `/actual`.
+- Current lab target: `/` and `/actual`, both rendering `components/main-dashboard-harness.tsx`.
 
 If the lab render differs from current main, the lab render is wrong.
+
+## Current Harness
+
+The lab now renders the real TaxiOS UI package instead of a hand-built dashboard clone:
+
+- `CompanyWorkspaceShell` from `@taxios-v2/ui`
+- `CompanyDashboardWorkspaceContent` from `@taxios-v2/ui`
+- `@taxios-v2/ui/styles/globals.css`
+- local static `CompanyDashboardCopy`
+- local static `CompanyDashboardData`
+- local no-op callbacks
+
+This removes the main source of previous mismatch: manually interpreted v0-style markup.
 
 ## Why The Previous Lab Was Wrong
 
@@ -72,20 +85,17 @@ Major wrong assumptions:
 
 ## Repairs Applied In This Pass
 
-- Replaced the static lab data with current main visible Smoke Company data.
-- Rebuilt the dashboard component around the current main runtime structure.
-- Restored sidebar `Neue Buchung`.
-- Removed the default `Neue Route` form from the Fastbooking hero.
-- Kept saved route card actions dark/neutral, not orange.
-- Reworked table rows toward the current dark-header/vehicle-medallion layout.
-- Reworked Live Feed toward the compact current main read-model feed.
-- Updated `README_START_HERE.md` so v0 treats current main as truth, not older Storybook screenshots.
+- Replaced the hand-built dashboard clone with a real `@taxios-v2/ui` component harness.
+- Added the local `@taxios-v2/ui` file dependency.
+- Added a Tailwind v4 CSS entry that imports real TaxiOS UI CSS and scans the real UI source.
+- Replaced `/` and `/actual` with the real harness.
+- Preserved static Smoke Company data and no-op callbacks only.
+- Updated `README_START_HERE.md` so v0 must not replace the real UI imports with invented components.
 
 ## Remaining Known Limitations
 
-- The lab is still a static clone. It does not import production CSS bundles, Convex, Clerk, or runtime layout state.
-- Current main depends on authenticated runtime data. The lab freezes that visible data statically.
-- True pixel identity requires one of:
-  - copying the exact rendered DOM/CSS snapshot from an authenticated browser session, or
-  - extracting the relevant production UI components into a dependency-free static harness.
-- v0 must use `/compare` to reduce remaining visual mismatch, not redesign.
+- The lab is static and does not authenticate.
+- It cannot fetch the live Convex runtime state.
+- Current main can only be visually compared in an authenticated browser session.
+- Pixel identity now depends primarily on matching static data, viewport, browser zoom, and the local UI package version.
+- v0 must use `/compare` to reduce remaining visible mismatch, not redesign.
