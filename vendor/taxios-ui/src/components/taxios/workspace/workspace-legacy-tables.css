@@ -1,0 +1,620 @@
+/* =====================================================================
+ * TaxiOS Workspace Legacy Tables
+ *
+ * Compatibility table and route-row rules used by dashboard rides and
+ * Company bookings while the neutral table component layer continues to
+ * mature.
+ * ===================================================================== */
+
+/* -----------------------------
+ * Rides table â€” premium operational rows
+ * --------------------------- */
+.taxios-rides-table {
+  border-spacing: 0 7px;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.taxios-rides-static-list {
+  min-width: 0;
+  overflow: visible;
+}
+
+.taxios-rides-capacity-surface {
+  --taxios-rides-row-block-size: 5.85rem;
+  --taxios-rides-table-chrome-size: 8.5rem;
+  min-height: calc(
+    var(--taxios-rides-table-chrome-size) +
+    (var(--taxios-rides-row-capacity, 10) * var(--taxios-rides-row-block-size))
+  );
+}
+
+.taxios-rides-header-cell {
+  background: var(--taxis-workspace-rail-bg);
+  border-color: var(--taxis-workspace-rail-border);
+  color: var(--taxis-workspace-rail-text);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  box-shadow: var(--taxis-workspace-rail-shadow);
+}
+
+.taxios-rides-row {
+  position: relative;
+}
+
+.taxios-rides-row .taxios-rides-cell {
+  background:
+    linear-gradient(180deg, var(--taxis-workspace-surface) 0%, var(--taxis-workspace-surface-soft) 100%);
+  border-color: var(--taxis-workspace-surface-rim);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  transition:
+    background-color var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    border-color var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    box-shadow var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    0 8px 18px -22px rgba(15, 23, 42, 0.14);
+}
+
+.taxios-rides-row .taxios-rides-cell:first-child {
+  position: relative;
+  overflow: hidden;
+}
+
+.taxios-rides-row .taxios-rides-cell:first-child::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 0;
+  width: 2px;
+  border-radius: 999px;
+  background: var(--taxis-workspace-accent);
+  opacity: 0;
+  transform: translateX(-1px);
+  transition:
+    opacity var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    transform var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+}
+
+.taxios-rides-row:hover .taxios-rides-cell {
+  background:
+    linear-gradient(180deg, var(--taxis-workspace-surface) 0%, var(--taxis-workspace-surface-deep) 100%);
+  border-color: var(--taxis-workspace-surface-rim-strong);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.82),
+    0 12px 24px -26px rgba(15, 23, 42, 0.18);
+}
+
+.taxios-rides-row:hover .taxios-rides-cell:first-child::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.taxis-rides-chevron {
+  transition:
+    color var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    opacity var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    transform var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+}
+
+.taxios-rides-row:hover .taxis-rides-chevron {
+  color: var(--taxis-workspace-text-secondary);
+  transform: translateX(1px);
+}
+
+.taxios-rides-public-id {
+  white-space: nowrap;
+}
+
+.ride-route-line {
+  --ride-route-dot-size: 7px;
+  --ride-route-dot-top: 1.25rem;
+  --ride-route-indent: 1.35rem;
+  --ride-route-rail-left: 0.38rem;
+  --ride-route-rail-width: 1.5px;
+  position: relative;
+  display: grid;
+  gap: 0.45rem;
+  padding-left: var(--ride-route-indent);
+  width: 100%;
+}
+
+.ride-route-line::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--ride-route-dot-top) + (var(--ride-route-dot-size) / 2));
+  bottom: 0.35rem;
+  left: var(--ride-route-rail-left);
+  width: var(--ride-route-rail-width);
+  border-radius: 999px;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0) 0%,
+    rgba(15, 23, 42, 0.15) 18%,
+    rgba(15, 23, 42, 0.1) 82%,
+    rgba(15, 23, 42, 0) 100%
+  );
+}
+
+.ride-route-entry {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  gap: 0.1rem;
+}
+
+.ride-route-label {
+  overflow: hidden;
+  color: var(--taxis-workspace-text-muted);
+  font-weight: 700;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ride-route-dot {
+  position: absolute;
+  top: var(--ride-route-dot-top);
+  left: calc(
+    var(--ride-route-rail-left) + (var(--ride-route-rail-width) / 2) -
+      var(--ride-route-indent) - (var(--ride-route-dot-size) / 2)
+  );
+  width: var(--ride-route-dot-size);
+  height: var(--ride-route-dot-size);
+  border-radius: 999px;
+  border: 1px solid var(--taxis-workspace-surface);
+  background: rgba(100, 116, 139, 0.3);
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08);
+  transition:
+    background-color var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    box-shadow var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+}
+
+.ride-route-dot-end {
+  background: var(--taxis-workspace-accent);
+  box-shadow: 0 0 0 2px var(--taxis-workspace-accent-soft);
+}
+
+.ride-route-place {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13.5px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.ride-route-place-origin {
+  color: var(--taxis-workspace-text-secondary);
+  font-weight: 500;
+}
+
+.ride-route-place-destination {
+  color: var(--taxis-workspace-text-strong);
+  font-weight: 700;
+}
+
+.taxios-dashboard-history-row {
+  background:
+    linear-gradient(180deg, var(--taxis-workspace-surface) 0%, var(--taxis-workspace-surface-soft) 100%);
+  border: 1px solid var(--taxis-workspace-surface-rim);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    0 12px 24px -24px rgba(15, 23, 42, 0.16);
+}
+
+.taxios-dashboard-history-empty {
+  background:
+    linear-gradient(180deg, var(--taxis-workspace-surface) 0%, var(--taxis-workspace-surface-soft) 100%);
+  border: 1px dashed var(--taxis-workspace-surface-rim-strong);
+}
+
+.taxios-dashboard-rides-empty {
+  background:
+    linear-gradient(180deg, var(--taxis-workspace-surface) 0%, var(--taxis-workspace-surface-soft) 100%);
+  border: 1px dashed var(--taxis-workspace-surface-rim-strong);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+/* -----------------------------
+ * Company bookings table
+ * --------------------------- */
+.taxios-bookings-table-scroll {
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.taxios-bookings-table {
+  width: 100%;
+  min-width: 1080px;
+  border-spacing: 0 7px;
+  table-layout: fixed;
+}
+
+.taxios-bookings-header-cell {
+  background: var(--taxis-workspace-rail-bg);
+  border-color: var(--taxis-workspace-rail-border);
+  color: var(--taxis-workspace-rail-text);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  box-shadow: var(--taxis-workspace-rail-shadow);
+}
+
+.taxios-rides-header-cell,
+.taxios-bookings-header-cell {
+  position: relative;
+  overflow: hidden;
+}
+
+.taxios-rides-header-cell::before,
+.taxios-bookings-header-cell::before {
+  content: "";
+  position: absolute;
+  inset: 1px 1px auto;
+  height: 52%;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 72%);
+}
+
+.taxios-bookings-row {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.taxios-bookings-row .taxios-bookings-cell {
+  background:
+    linear-gradient(180deg, var(--taxis-workspace-surface) 0%, var(--taxis-workspace-surface-soft) 100%);
+  border-color: var(--taxis-workspace-surface-rim);
+  transition:
+    background-color var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    border-color var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    box-shadow var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    0 8px 18px -22px rgba(15, 23, 42, 0.14);
+}
+
+.taxios-bookings-row .taxios-bookings-cell:first-child {
+  position: relative;
+  overflow: hidden;
+}
+
+.taxios-bookings-row .taxios-bookings-cell:first-child::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 0;
+  width: 2px;
+  border-radius: 999px;
+  background: var(--taxis-workspace-accent);
+  opacity: 0;
+  transform: translateX(-1px);
+  transition:
+    opacity var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    transform var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+}
+
+.taxios-bookings-row:hover .taxios-bookings-cell {
+  background:
+    linear-gradient(180deg, var(--taxis-workspace-surface) 0%, var(--taxis-workspace-surface-deep) 100%);
+  border-color: var(--taxis-workspace-surface-rim-strong);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.82),
+    0 12px 24px -26px rgba(15, 23, 42, 0.18);
+}
+
+.taxios-bookings-row:focus-visible .taxios-bookings-cell {
+  border-color: var(--taxis-workspace-accent-ring);
+  box-shadow:
+    inset 0 0 0 1px var(--taxis-workspace-accent-ring),
+    0 0 0 3px var(--taxis-workspace-focus-ring);
+}
+
+.taxios-bookings-row:hover .taxios-bookings-cell:first-child::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.taxios-bookings-public-id {
+  white-space: nowrap;
+}
+
+.taxios-bookings-empty {
+  background:
+    linear-gradient(180deg, var(--taxis-workspace-surface) 0%, var(--taxis-workspace-surface-soft) 100%);
+  border: 1px dashed var(--taxis-workspace-surface-rim-strong);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 1023px) {
+  .taxios-dashboard-fastbooking-shell {
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 24px;
+  }
+
+  .fastbooking-add-stage,
+  .fastbooking-add-pane,
+  .fastbooking-cards-pane {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .fastbooking-cards-pane {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .fastbooking-porcelain-edge,
+  .fastbooking-card-clip {
+    min-width: 0;
+  }
+
+  .fastbooking-porcelain-edge {
+    width: calc(100% - 32px);
+  }
+
+}
+
+@media (max-width: 767px) {
+  .taxis-workspace-topbar,
+  .taxios-dashboard-topbar {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    border-radius: 0 0 18px 18px;
+  }
+
+  .taxis-workspace-content-area,
+  .taxios-dashboard-content-area {
+    padding-top: 2rem;
+  }
+
+  .taxis-company-workspace-content {
+    padding-inline: 1.25rem;
+    padding-bottom: 4rem;
+  }
+
+  .fastbooking-add-route-toggle {
+    display: none;
+  }
+
+  .taxios-dashboard-fastbooking-shell {
+    max-width: 100%;
+    overflow: hidden;
+    padding: 1rem;
+    border-radius: 24px;
+  }
+
+  .fastbooking-add-stage,
+  .fastbooking-add-pane,
+  .fastbooking-cards-pane {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .fastbooking-cards-pane {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .fastbooking-porcelain-edge,
+  .fastbooking-card-clip {
+    min-width: 0;
+  }
+
+  .taxios-rides-table,
+  .taxios-rides-table colgroup,
+  .taxios-rides-table thead,
+  .taxios-rides-table tbody,
+  .taxios-rides-table tr,
+  .taxios-rides-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .taxios-rides-table {
+    border-spacing: 0;
+  }
+
+  .taxios-rides-capacity-surface {
+    min-height: auto;
+  }
+
+  .taxios-rides-table thead {
+    display: none;
+  }
+
+  .taxios-rides-table colgroup {
+    display: none;
+  }
+
+  .taxios-rides-table tbody {
+    display: grid;
+    gap: 12px;
+  }
+
+  .taxios-rides-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px 14px;
+    padding: 14px;
+    border: 1px solid var(--taxis-workspace-border);
+    border-radius: 18px;
+    background: linear-gradient(
+      180deg,
+      var(--taxis-workspace-surface) 0%,
+      var(--taxis-workspace-surface-soft) 100%
+    );
+    box-shadow: var(--taxis-workspace-shadow-overlay);
+  }
+
+  .taxios-rides-row .taxios-rides-cell {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .taxios-rides-row .taxios-rides-cell:nth-child(1) {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .taxios-rides-row .taxios-rides-cell:nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 4;
+  }
+
+  .taxios-rides-row .taxios-rides-cell:nth-child(3) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .taxios-rides-row .taxios-rides-cell:nth-child(4) {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .taxios-rides-row .taxios-rides-cell:nth-child(5) {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    justify-self: start;
+  }
+
+  .taxios-rides-row .ride-route-line {
+    display: grid;
+    gap: 0.45rem;
+    width: 100%;
+  }
+
+  .taxios-rides-row .taxis-status-icons-cell,
+  .taxios-bookings-row .taxis-status-icons-cell {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .taxis-status-icons-cell {
+    min-height: 34px;
+  }
+
+  .taxis-status-icon-disc {
+    height: 28px;
+    width: 28px;
+  }
+
+  .taxios-bookings-table,
+  .taxios-bookings-table colgroup,
+  .taxios-bookings-table thead,
+  .taxios-bookings-table tbody,
+  .taxios-bookings-table tr,
+  .taxios-bookings-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .taxios-bookings-table-scroll {
+    overflow-x: visible;
+  }
+
+  .taxios-bookings-table {
+    min-width: 0;
+    border-spacing: 0;
+  }
+
+  .taxios-bookings-table thead,
+  .taxios-bookings-table colgroup {
+    display: none;
+  }
+
+  .taxios-bookings-table tbody {
+    display: grid;
+    gap: 12px;
+  }
+
+  .taxios-bookings-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px 14px;
+    padding: 14px;
+    border: 1px solid var(--taxis-workspace-border);
+    border-radius: 18px;
+    background: linear-gradient(
+      180deg,
+      var(--taxis-workspace-surface) 0%,
+      var(--taxis-workspace-surface-soft) 100%
+    );
+    box-shadow: var(--taxis-workspace-shadow-overlay);
+  }
+
+  .taxios-bookings-row .taxios-bookings-cell {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .taxios-bookings-row .taxios-bookings-cell:nth-child(1) {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .taxios-bookings-row .taxios-bookings-cell:nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 4;
+  }
+
+  .taxios-bookings-row .taxios-bookings-cell:nth-child(3) {
+    grid-column: 1 / -1;
+    grid-row: 5;
+  }
+
+  .taxios-bookings-row .taxios-bookings-cell:nth-child(4) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .taxios-bookings-row .taxios-bookings-cell:nth-child(5) {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .taxios-bookings-row .taxios-bookings-cell:nth-child(6) {
+    grid-column: 1 / -1;
+    grid-row: 6;
+    justify-self: start;
+  }
+
+  .taxios-bookings-row .ride-route-line {
+    display: grid;
+    gap: 0.45rem;
+    width: 100%;
+  }
+}
+
+.taxios-rides-row:hover .ride-route-dot-start {
+  background: rgba(15, 23, 42, 0.44);
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.06);
+}
+
+.taxios-rides-row:hover .ride-route-dot-end {
+  box-shadow:
+    0 0 0 2px var(--taxis-workspace-accent-soft),
+    0 1px 3px rgba(15, 23, 42, 0.12);
+}

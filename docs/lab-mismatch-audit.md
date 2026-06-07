@@ -12,11 +12,12 @@ If the lab render differs from current main, the lab render is wrong.
 
 ## Current Harness
 
-The lab now renders the real TaxiOS UI package instead of a hand-built dashboard clone:
+The lab now renders a vendored snapshot of the real TaxiOS UI package instead of a hand-built dashboard clone:
 
 - `CompanyWorkspaceShell` from `@taxios-v2/ui`
 - `CompanyDashboardWorkspaceContent` from `@taxios-v2/ui`
 - `@taxios-v2/ui/styles/globals.css`
+- `vendor/taxios-ui/src` copied from TaxiOS.v2 main
 - local static `CompanyDashboardCopy`
 - local static `CompanyDashboardData`
 - local no-op callbacks
@@ -86,7 +87,7 @@ Major wrong assumptions:
 ## Repairs Applied In This Pass
 
 - Replaced the hand-built dashboard clone with a real `@taxios-v2/ui` component harness.
-- Added the local `@taxios-v2/ui` file dependency.
+- Added the local `@taxios-v2/ui` file dependency backed by `vendor/taxios-ui`.
 - Added a Tailwind v4 CSS entry that imports real TaxiOS UI CSS and scans the real UI source.
 - Replaced `/` and `/actual` with the real harness.
 - Preserved static Smoke Company data and no-op callbacks only.

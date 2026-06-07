@@ -34,16 +34,17 @@ It exists so v0 can understand and safely work against the current TaxiOS Compan
 
 ## Current Harness Strategy
 
-The lab imports the real TaxiOS UI package through a local file dependency:
+The lab imports a vendored snapshot of the real TaxiOS UI package through a local file dependency:
 
-- `@taxios-v2/ui`: `file:../TaxiOS.v2/packages/ui`
+- `@taxios-v2/ui`: `file:vendor/taxios-ui`
+- vendored source: `vendor/taxios-ui/src`
 - imported CSS: `@taxios-v2/ui/styles/globals.css`
 - rendered shell: `CompanyWorkspaceShell`
 - rendered dashboard: `CompanyDashboardWorkspaceContent`
 
 The lab only provides static data and no-op callbacks. This is intentional.
 
-Do not rebuild these components from memory. Do not translate them into generic shadcn cards. Do not replace the imported UI with a custom dashboard. If a mismatch remains, adjust the harness data, CSS build setup, or a small lab-only adapter first.
+Do not rebuild these components from memory. Do not translate them into generic shadcn cards. Do not replace the imported UI with a custom dashboard. If a mismatch remains, adjust the harness data, CSS build setup, or a small lab-only adapter first. Only refresh `vendor/taxios-ui` from TaxiOS.v2 main when explicitly asked.
 
 ## Current Goal
 
@@ -67,7 +68,7 @@ Reconstruct the current TaxiOS Company Dashboard as closely as possible:
 - no Convex
 - no Clerk
 - no backend imports
-- no production runtime dependencies beyond the local UI package
+- no production runtime dependencies beyond the vendored UI snapshot
 - no real secrets
 - no business logic
 - no route, role, permission, or payload changes
@@ -86,6 +87,7 @@ Reconstruct the current TaxiOS Company Dashboard as closely as possible:
 - `components/main-dashboard-harness.tsx` - static data harness using real `@taxios-v2/ui` components
 - `styles/taxios-ui-entry.css` - Tailwind v4 entry that imports real TaxiOS UI CSS and scans real UI source
 - `styles/globals.css` - lab-only reference and compare page styles
+- `vendor/taxios-ui/src` - vendored snapshot of real TaxiOS UI source from current main
 
 ## Required v0 Workflow
 

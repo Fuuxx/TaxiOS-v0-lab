@@ -1,0 +1,83 @@
+.taxios-provider-inbox-ambient {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Aptos,
+    Inter, "Segoe UI", system-ui, sans-serif;
+}
+
+.taxios-provider-topbar {
+  margin-top: 1.25rem;
+}
+
+.taxios-provider-sidebar-context {
+  border: 1px solid var(--taxis-workspace-surface-rim);
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-surface) 0%,
+    var(--taxis-workspace-surface-deep) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 6px 18px -14px rgba(15, 23, 42, 0.14);
+}
+
+.taxios-provider-sidebar-context-icon {
+  color: var(--taxis-workspace-accent-strong);
+  background: var(--taxis-workspace-accent-soft);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 8px 16px -14px var(--taxis-workspace-accent-halo);
+}
+
+.taxios-provider-summary-tile {
+  background: var(--taxis-workspace-surface);
+  border-color: var(--taxis-workspace-surface-rim);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.96),
+    0 30px 56px -38px rgba(15, 23, 42, 0.26),
+    0 10px 22px -17px rgba(15, 23, 42, 0.15),
+    inset 0 1px 0 var(--taxis-workspace-surface-sheen-strong);
+}
+
+.taxios-provider-summary-icon,
+.taxios-provider-row-icon {
+  color: var(--taxis-workspace-text-secondary);
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-surface) 0%,
+    var(--taxis-workspace-surface-deep) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 var(--taxis-workspace-surface-sheen-strong),
+    0 8px 16px -14px rgba(15, 23, 42, 0.24);
+  transition:
+    color var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    transform var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    box-shadow var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+}
+
+.taxios-provider-summary-tile:hover .taxios-provider-summary-icon,
+.taxios-provider-row:hover .taxios-provider-row-icon {
+  color: var(--taxis-workspace-accent-strong);
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 var(--taxis-workspace-surface-sheen-strong),
+    0 12px 22px -16px rgba(15, 23, 42, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taxios-provider-summary-icon,
+  .taxios-provider-row-icon {
+    transition-duration: 1ms;
+  }
+
+  .taxios-provider-summary-tile:hover .taxios-provider-summary-icon,
+  .taxios-provider-row:hover .taxios-provider-row-icon {
+    transform: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .taxios-provider-topbar {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,158 @@
+.taxios-company-organization-section-nav {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  gap: 0.5rem;
+  justify-content: center;
+  overflow-x: auto;
+  border: 1px solid var(--taxis-workspace-control-dark);
+  border-radius: 18px;
+  background: var(--taxis-workspace-rail-bg);
+  padding: 0.35rem;
+  box-shadow: var(--taxis-workspace-rail-shadow);
+}
+
+.taxios-company-organization-section-link {
+  display: inline-flex;
+  min-height: 2.5rem;
+  min-width: max-content;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 14px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.8125rem;
+  font-weight: 650;
+  letter-spacing: 0;
+  padding: 0 0.9rem;
+  text-decoration: none;
+  transition:
+    background-color var(--taxis-motion-medium)
+    var(--taxis-motion-ease-standard),
+    color var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    box-shadow var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+}
+
+.taxios-company-organization-section-link:hover {
+  color: var(--taxis-workspace-surface);
+}
+
+.taxios-company-organization-section-link:focus-visible {
+  outline: 2px solid var(--taxis-workspace-surface);
+  outline-offset: 2px;
+}
+
+.taxios-company-organization-section-link-active {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--taxis-workspace-surface);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.24),
+    0 12px 24px -22px rgba(0, 0, 0, 0.42);
+}
+
+.taxios-company-organization-add-backdrop {
+  background: rgba(15, 23, 42, 0.14);
+  backdrop-filter: blur(14px);
+}
+
+.taxios-company-organization-add-panel {
+  background: var(--taxis-workspace-overlay-bg);
+  border-color: var(--taxis-workspace-overlay-border);
+  box-shadow: var(--taxis-workspace-overlay-shadow);
+  backdrop-filter: blur(20px);
+}
+
+.taxios-company-organization-add-close {
+  color: var(--taxis-workspace-surface);
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-control-dark-top),
+    var(--taxis-workspace-control-dark)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 16px 30px -24px rgba(15, 23, 42, 0.64);
+  transition:
+    background var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    color var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    box-shadow var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+}
+
+.taxios-company-organization-add-close:hover {
+  color: var(--taxis-workspace-accent);
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-control-dark-hover-top),
+    var(--taxis-workspace-control-dark-hover)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 20px 34px -24px rgba(15, 23, 42, 0.72);
+}
+
+.taxios-company-organization-add-tabs {
+  border: 1px solid var(--taxis-workspace-surface-rim);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    inset 0 1px 0 var(--taxis-workspace-surface-sheen-strong),
+    0 14px 26px -24px var(--taxis-workspace-shadow-color-strong);
+  backdrop-filter: blur(14px);
+}
+
+.taxios-company-organization-add-tab {
+  color: var(--taxis-workspace-text-muted);
+}
+
+.taxios-company-organization-add-tab:hover {
+  color: var(--taxis-workspace-text-strong);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.taxios-company-organization-add-tab-active {
+  color: var(--taxis-workspace-text-strong);
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-surface) 0%,
+    var(--taxis-workspace-surface-soft) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 var(--taxis-workspace-surface-sheen-strong),
+    0 12px 22px -20px rgba(15, 23, 42, 0.24);
+}
+
+.taxios-company-organization-add-button {
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+[data-company-organization-active-section="overview"]
+  [data-company-organization-section-panel]:not(
+    [data-company-organization-section-panel~="overview"]
+  ),
+[data-company-organization-active-section="standorte"]
+  [data-company-organization-section-panel]:not(
+    [data-company-organization-section-panel~="standorte"]
+  ),
+[data-company-organization-active-section="members"]
+  [data-company-organization-section-panel]:not(
+    [data-company-organization-section-panel~="members"]
+  ),
+[data-company-organization-active-section="roles"]
+  [data-company-organization-section-panel]:not(
+    [data-company-organization-section-panel~="roles"]
+  ),
+[data-company-organization-active-section="invites"]
+  [data-company-organization-section-panel]:not(
+    [data-company-organization-section-panel~="invites"]
+  ) {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taxios-company-organization-section-link,
+  .taxios-company-organization-add-close,
+  .taxios-company-organization-add-tab {
+    transition-duration: 1ms;
+  }
+}

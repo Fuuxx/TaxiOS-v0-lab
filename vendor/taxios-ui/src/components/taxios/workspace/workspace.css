@@ -1,0 +1,17 @@
+@import "../company-workspace/company-workspace-material.css";
+@import "../company-workspace/company-workspace-status.css";
+@import "../company-workspace/company-workspace-table.css";
+@import "./workspace-foundation.css";
+@import "./workspace-chrome.css";
+@import "./workspace-avatars.css";
+@import "./workspace-cards.css";
+@import "./workspace-wizard.css";
+@import "./workspace-motion.css";
+@import "./workspace-legacy-tables.css";
+
+/* =====================================================================
+ * TaxiOS Workspace UI Layer
+ *
+ * Shared entrypoint for TaxiOS workspace visual DNA. Product workspace
+ * surfaces import this file instead of importing dashboard CSS directly.
+ * ===================================================================== */

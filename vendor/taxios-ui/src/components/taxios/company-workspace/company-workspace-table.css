@@ -1,0 +1,210 @@
+/* =====================================================================
+ * TaxiOS Workspace Table Pattern
+ *
+ * Shared operational table material used by Company, Provider, and Driver
+ * workspace surfaces. Company and product-specific selectors remain
+ * compatibility aliases while new surfaces opt into `taxis-workspace-table-*`.
+ * ===================================================================== */
+
+.taxis-workspace-table-shell,
+.taxis-company-table-shell,
+.taxios-provider-table-shell,
+.taxios-company-organization-table-shell {
+  border-color: var(--taxis-workspace-surface-rim-strong);
+}
+
+.taxis-workspace-table-scroll,
+.taxis-company-table-scroll,
+.taxios-provider-table-scroll,
+.taxios-company-organization-table-scroll {
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 0.25rem;
+}
+
+.taxis-workspace-table,
+.taxis-company-table,
+.taxios-provider-table,
+.taxios-company-organization-table {
+  --taxis-workspace-table-row-gap: 0.625rem;
+  --taxis-workspace-table-section-gap: 0.375rem;
+  --taxis-company-table-row-gap: var(--taxis-workspace-table-row-gap);
+  --taxis-company-table-section-gap: var(--taxis-workspace-table-section-gap);
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 var(--taxis-workspace-table-row-gap);
+  table-layout: fixed;
+}
+
+.taxis-workspace-table tbody::before,
+.taxis-company-table tbody::before,
+.taxios-provider-table tbody::before,
+.taxios-company-organization-table tbody::before {
+  content: "";
+  display: table-row;
+  height: var(--taxis-workspace-table-section-gap);
+}
+
+@media (min-width: 768px) {
+  .taxis-company-workspace-content .taxios-rides-table,
+  .taxis-company-workspace-content .taxios-bookings-table {
+    --taxis-workspace-table-row-gap: 0.625rem;
+    --taxis-workspace-table-section-gap: 0.375rem;
+    --taxis-company-table-row-gap: var(--taxis-workspace-table-row-gap);
+    --taxis-company-table-section-gap: var(
+      --taxis-workspace-table-section-gap
+    );
+    border-spacing: 0 var(--taxis-workspace-table-row-gap);
+  }
+
+  .taxis-company-workspace-content .taxios-rides-table tbody::before,
+  .taxis-company-workspace-content .taxios-bookings-table tbody::before {
+    content: "";
+    display: table-row;
+    height: var(--taxis-workspace-table-section-gap);
+  }
+}
+
+.taxis-workspace-table-header-cell,
+.taxis-company-table-header-cell,
+.taxis-metal-rail-cell,
+.taxios-provider-header-cell,
+.taxios-company-organization-header-cell {
+  position: relative;
+  overflow: hidden;
+  background: var(--taxis-workspace-rail-bg);
+  border-color: var(--taxis-workspace-rail-border);
+  color: var(--taxis-workspace-rail-text);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  box-shadow: var(--taxis-workspace-rail-shadow);
+}
+
+.taxis-workspace-table-header-cell::before,
+.taxis-company-table-header-cell::before,
+.taxis-metal-rail-cell::before,
+.taxios-provider-header-cell::before,
+.taxios-company-organization-header-cell::before {
+  content: "";
+  position: absolute;
+  inset: 1px 1px auto;
+  height: 52%;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-rail-sheen),
+    transparent 72%
+  );
+}
+
+.taxis-workspace-table-row,
+.taxis-company-table-row,
+.taxios-provider-row,
+.taxios-company-organization-row {
+  position: relative;
+}
+
+.taxis-workspace-table-row-interactive,
+.taxios-bookings-row {
+  cursor: pointer;
+  outline: none;
+}
+
+.taxis-workspace-table-cell,
+.taxis-company-table-cell,
+.taxios-provider-cell,
+.taxios-company-organization-cell {
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-surface) 0%,
+    var(--taxis-workspace-surface-soft) 100%
+  );
+  border-color: var(--taxis-workspace-surface-rim);
+  box-shadow:
+    inset 0 1px 0 var(--taxis-workspace-surface-sheen-strong),
+    0 8px 18px -22px var(--taxis-workspace-shadow-color);
+  transition:
+    background-color var(--taxis-motion-medium)
+    var(--taxis-motion-ease-standard),
+    border-color var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    box-shadow var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+}
+
+.taxis-workspace-table-row .taxis-workspace-table-cell:first-child,
+.taxis-company-table-row .taxis-company-table-cell:first-child,
+.taxios-provider-row .taxios-provider-cell:first-child,
+.taxios-company-organization-row .taxios-company-organization-cell:first-child {
+  position: relative;
+  overflow: hidden;
+}
+
+.taxis-workspace-table-row .taxis-workspace-table-cell:first-child::before,
+.taxis-company-table-row .taxis-company-table-cell:first-child::before,
+.taxios-provider-row .taxios-provider-cell:first-child::before,
+.taxios-company-organization-row
+  .taxios-company-organization-cell:first-child::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 0;
+  width: 2px;
+  border-radius: 999px;
+  background: var(--taxis-workspace-accent);
+  opacity: 0;
+  transform: translateX(-1px);
+  transition:
+    opacity var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    transform var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+}
+
+.taxis-workspace-table-row:hover .taxis-workspace-table-cell,
+.taxis-company-table-row:hover .taxis-company-table-cell,
+.taxios-provider-row:hover .taxios-provider-cell,
+.taxios-company-organization-row:hover .taxios-company-organization-cell {
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-surface) 0%,
+    var(--taxis-workspace-surface-deep) 100%
+  );
+  border-color: var(--taxis-workspace-surface-rim-strong);
+  box-shadow:
+    inset 0 0 0 1px var(--taxis-workspace-surface-sheen-strong),
+    0 12px 24px -26px var(--taxis-workspace-shadow-color-strong);
+}
+
+.taxis-workspace-table-row:hover
+  .taxis-workspace-table-cell:first-child::before,
+.taxis-company-table-row:hover .taxis-company-table-cell:first-child::before,
+.taxios-provider-row:hover .taxios-provider-cell:first-child::before,
+.taxios-company-organization-row:hover
+  .taxios-company-organization-cell:first-child::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.taxis-workspace-table-row-interactive:focus-visible .taxis-workspace-table-cell,
+.taxis-workspace-table-row:focus-visible .taxis-workspace-table-cell,
+.taxis-company-table-row:focus-visible .taxis-company-table-cell,
+.taxios-bookings-row:focus-visible .taxios-bookings-cell {
+  border-color: var(--taxis-workspace-accent-ring);
+  box-shadow:
+    inset 0 0 0 1px var(--taxis-workspace-accent-ring),
+    0 0 0 3px var(--taxis-workspace-focus-ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taxis-workspace-table-cell,
+  .taxis-company-table-cell,
+  .taxios-provider-cell,
+  .taxios-company-organization-cell,
+  .taxis-workspace-table-row .taxis-workspace-table-cell:first-child::before,
+  .taxis-company-table-row .taxis-company-table-cell:first-child::before,
+  .taxios-provider-row .taxios-provider-cell:first-child::before,
+  .taxios-company-organization-row
+    .taxios-company-organization-cell:first-child::before {
+    transition-duration: 1ms;
+  }
+}

@@ -1,0 +1,179 @@
+/* =====================================================================
+ * TaxiOS Workspace Entity Cards
+ *
+ * Shared object-card material for entity-style workspace content such as
+ * company units, provider vehicles, users, and future operational objects.
+ * ===================================================================== */
+
+.taxis-workspace-entity-grid,
+.taxis-company-entity-grid,
+.taxios-company-units-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 18.5rem));
+  align-items: start;
+  gap: 1rem;
+  justify-content: start;
+}
+
+.taxis-workspace-entity-card,
+.taxis-company-entity-card,
+.taxios-company-unit-card {
+  position: relative;
+  display: flex;
+  min-height: 19.25rem;
+  aspect-ratio: 15 / 16;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  padding: 1rem;
+  /* Rounded + clipped: use the clipped raised shadow so the outset 1px white
+     top edge does not bleed past the bottom corner radius. */
+  box-shadow:
+    var(--taxis-workspace-shadow-raised-clipped),
+    inset 0 1px 0 var(--taxis-workspace-surface-sheen-strong);
+  transition:
+    border-color var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    box-shadow var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    transform var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+}
+
+/* Entity cards always carry `.taxis-workspace-inner-card` (from WorkspaceInnerCard).
+   Pair the two classes (specificity 0,2,0) so the clipped shadow beats the
+   inner-card raised shadow (`.taxis-company-workspace-inner-card`, 0,1,0) no
+   matter the CSS source order in the consuming app. Without this, the outset
+   1px white edge bleeds past the rounded corner in the Next.js app. */
+.taxis-workspace-inner-card.taxis-workspace-entity-card,
+.taxis-workspace-inner-card.taxis-company-entity-card,
+.taxis-workspace-inner-card.taxios-company-unit-card {
+  box-shadow:
+    var(--taxis-workspace-shadow-raised-clipped),
+    inset 0 1px 0 var(--taxis-workspace-surface-sheen-strong);
+}
+
+.taxis-workspace-entity-card:hover,
+.taxis-workspace-entity-card:focus-within,
+.taxis-workspace-entity-card[data-selected="true"],
+.taxis-company-entity-card:hover,
+.taxis-company-entity-card:focus-within,
+.taxis-company-entity-card[data-selected="true"],
+.taxios-company-unit-card:hover,
+.taxios-company-unit-card:focus-within,
+.taxios-company-unit-card[data-selected="true"] {
+  border-color: var(--taxis-workspace-border-strong);
+  box-shadow:
+    inset 0 1px 0 var(--taxis-workspace-surface-sheen-strong),
+    0 24px 44px -34px var(--taxis-workspace-shadow-color-strong);
+  transform: translateY(-1px);
+}
+
+.taxis-workspace-entity-card-action,
+.taxis-company-entity-card-action,
+.taxios-company-unit-card-action {
+  appearance: none;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  margin: 0;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+
+.taxis-workspace-entity-card-action:focus-visible,
+.taxis-company-entity-card-action:focus-visible,
+.taxios-company-unit-card-action:focus-visible {
+  outline: 2px solid var(--taxis-workspace-accent);
+  outline-offset: -5px;
+}
+
+.taxis-workspace-entity-card-icon,
+.taxis-company-entity-card-icon,
+.taxios-company-unit-card-icon {
+  display: inline-flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--taxis-workspace-surface-rim);
+  border-radius: var(--radius-lg);
+  color: var(--taxis-workspace-text-secondary);
+  background: var(--taxis-workspace-surface-deep);
+  box-shadow: inset 0 1px 0 var(--taxis-workspace-surface-sheen-strong);
+}
+
+.taxis-workspace-entity-card-metrics,
+.taxis-company-entity-card-metrics,
+.taxios-company-unit-card-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.625rem;
+  margin: 0;
+}
+
+.taxis-workspace-entity-card-metric,
+.taxis-company-entity-card-metric,
+.taxios-company-unit-card-metric {
+  min-width: 0;
+  border: 1px solid var(--taxis-workspace-surface-rim);
+  border-radius: var(--radius-lg);
+  background: var(--taxis-workspace-surface-deep);
+  padding: 0.75rem;
+  box-shadow: inset 0 1px 0 var(--taxis-workspace-surface-sheen-strong);
+}
+
+.taxis-workspace-entity-card-metric dt,
+.taxis-company-entity-card-metric dt,
+.taxios-company-unit-card-metric dt {
+  color: var(--taxis-workspace-text-subtle);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.taxis-workspace-entity-card-metric dd,
+.taxis-company-entity-card-metric dd,
+.taxios-company-unit-card-metric dd {
+  margin: 0.35rem 0 0;
+  color: var(--taxis-workspace-text-strong);
+  font-size: 1.25rem;
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.taxis-workspace-entity-card-details,
+.taxis-company-entity-card-details,
+.taxios-company-unit-card-details {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.875rem;
+}
+
+.taxis-workspace-entity-card-label,
+.taxis-company-entity-card-label,
+.taxios-company-unit-card-label {
+  display: block;
+  color: var(--taxis-workspace-text-subtle);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taxis-workspace-entity-card,
+  .taxis-company-entity-card,
+  .taxios-company-unit-card {
+    transition-duration: 1ms;
+  }
+}

@@ -1,0 +1,198 @@
+/* =====================================================================
+ * TaxiOS Workspace Motion
+ *
+ * Shared motion, focus, scrollbar, and reduced-motion utilities for
+ * workspace surfaces.
+ * ===================================================================== */
+
+/* -----------------------------
+ * Motion utilities
+ * --------------------------- */
+.taxis-workspace-ease-standard,
+.taxios-dashboard-ease-standard {
+  transition-timing-function: var(--taxis-motion-standard, cubic-bezier(0.2, 0, 0, 1));
+}
+
+@keyframes taxios-dashboard-ping-slow {
+  0% { transform: scale(1); opacity: 0.8; }
+  80%, 100% { transform: scale(1.4); opacity: 0; }
+}
+
+.taxis-workspace-animate-ping-slow,
+.taxios-dashboard-animate-ping-slow {
+  animation: taxios-dashboard-ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+:is(.taxis-workspace-status-ping-before, .taxios-dashboard-status-ping-before)::before {
+  animation: taxios-dashboard-ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes taxios-dashboard-fade-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.taxis-workspace-animate-fade-up,
+.taxios-dashboard-animate-fade-up {
+  animation: none;
+  opacity: 1;
+}
+
+.taxis-workspace-animate-fade-rise,
+.taxios-dashboard-animate-fade-rise {
+  animation: none;
+  opacity: 1;
+}
+
+.taxis-workspace-animate-fade-in,
+.taxios-dashboard-animate-fade-in {
+  animation: none;
+  opacity: 1;
+}
+
+.taxis-workspace-scrollbar,
+.taxios-dashboard-custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 23, 42, 0.16) transparent;
+}
+
+.taxis-workspace-scrollbar::-webkit-scrollbar,
+.taxios-dashboard-custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.taxis-workspace-scrollbar::-webkit-scrollbar-track,
+.taxios-dashboard-custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.taxis-workspace-scrollbar::-webkit-scrollbar-thumb,
+.taxios-dashboard-custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.16);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.taxis-workspace-scrollbar::-webkit-scrollbar-thumb:hover,
+.taxios-dashboard-custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.26);
+  background-clip: padding-box;
+}
+
+.taxis-workspace-ambient :is(button, input):focus-visible,
+.taxis-premium .taxis-workspace-ambient :is(button, input):focus-visible,
+.taxios-dashboard-ambient :is(button, input):focus-visible,
+.taxios-premium .taxios-dashboard-ambient :is(button, input):focus-visible {
+  outline: 2px solid var(--taxis-workspace-accent-ring);
+  outline-offset: 3px;
+}
+
+.taxios-search-input {
+  transition:
+    width var(--taxis-motion-slow) var(--taxis-motion-ease-standard),
+    border-color var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    box-shadow var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    background-color var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+  will-change: width, box-shadow;
+}
+
+.taxis-workspace-ambient .taxios-search-input:focus,
+.taxis-workspace-ambient .taxios-search-input:focus-visible,
+.taxis-premium .taxis-workspace-ambient .taxios-search-input:focus-visible,
+.taxios-dashboard-ambient .taxios-search-input:focus,
+.taxios-dashboard-ambient .taxios-search-input:focus-visible,
+.taxios-premium .taxios-dashboard-ambient .taxios-search-input:focus-visible {
+  border-color: var(--taxis-workspace-accent-ring);
+  box-shadow:
+    0 0 0 3px var(--taxis-workspace-focus-ring),
+    0 8px 30px -16px rgba(15, 23, 42, 0.22);
+  outline: none;
+}
+
+.taxis-workspace-ambient .fastbooking-member-search input:focus,
+.taxis-workspace-ambient .fastbooking-member-search input:focus-visible,
+.taxis-premium .taxis-workspace-ambient .fastbooking-member-search input:focus-visible,
+.taxios-dashboard-ambient .fastbooking-member-search input:focus,
+.taxios-dashboard-ambient .fastbooking-member-search input:focus-visible,
+.taxios-premium .taxios-dashboard-ambient .fastbooking-member-search input:focus-visible {
+  border-color: var(--taxis-workspace-accent-ring);
+  box-shadow: 0 0 0 3px var(--taxis-workspace-focus-ring);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taxis-status-icon-pulse,
+  .live-feed-meta-pulse-ring,
+  .taxis-workspace-ease-standard,
+  .taxis-workspace-animate-fade-up,
+  .taxis-workspace-animate-fade-in,
+  .taxis-workspace-animate-fade-rise,
+  .taxios-dashboard-animate-fade-up,
+  .taxios-dashboard-animate-fade-in,
+  .taxios-dashboard-animate-fade-rise,
+  .taxios-dashboard-ease-standard,
+  .taxios-dashboard-new-booking,
+  .taxios-new-booking,
+  .taxios-new-booking-icon,
+  .taxios-search-input,
+  .taxios-avatar,
+  .taxios-avatar-name,
+  .fastbooking-porcelain-edge,
+  .fastbooking-porcelain-edge::after,
+  .fastbooking-card-dock,
+  .fastbooking-route-copy,
+  .fastbooking-floating-members,
+  .fastbooking-floating-members-open,
+  .fastbooking-member-chip,
+  .fastbooking-footer-people,
+  .fastbooking-member-search,
+  .fastbooking-plus-open,
+  .fastbooking-booking-bar,
+  .taxis-workspace-topbar-search-slot,
+  .taxios-dashboard-topbar-search-slot,
+  .taxis-rides-chevron,
+  .taxis-status-icon-disc,
+  .ride-detail-floating-panel,
+  .live-feed-item,
+  .live-feed-item::before,
+  .live-feed-avatar,
+  .live-feed-time,
+  .taxis-system-chip,
+  .taxis-count-chip,
+  .taxios-stat-icon,
+  .taxios-stat-card-static svg,
+  .taxis-workspace-nav-row,
+  .taxis-workspace-nav-icon,
+  .taxios-dashboard-nav-row,
+  .taxios-dashboard-nav-icon,
+  .taxis-section-action {
+    animation: none;
+    transition-duration: 1ms;
+  }
+
+  .taxios-new-booking,
+  .taxios-new-booking-icon,
+  .fastbooking-porcelain-edge,
+  .fastbooking-route-copy,
+  .taxis-rides-chevron,
+  .taxis-status-icon-disc,
+  .ride-detail-floating-panel,
+  .live-feed-avatar,
+  .taxis-system-chip,
+  .taxis-count-chip,
+  .taxios-stat-icon,
+  .taxios-stat-card-static svg,
+  .taxis-workspace-nav-row,
+  .taxis-workspace-nav-icon,
+  .taxios-dashboard-nav-row,
+  .taxios-dashboard-nav-icon {
+    transform: none;
+  }
+}

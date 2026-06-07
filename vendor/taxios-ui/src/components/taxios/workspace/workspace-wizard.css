@@ -1,0 +1,215 @@
+/* =====================================================================
+ * TaxiOS Workspace Wizard
+ *
+ * Shared modal/wizard material for task flows such as New Booking.
+ * ===================================================================== */
+
+.taxis-workspace-wizard-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 240;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.taxis-workspace-wizard-backdrop {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  border: 0;
+  background: color-mix(
+    in srgb,
+    var(--taxis-workspace-control-dark) 28%,
+    transparent
+  );
+  cursor: default;
+  padding: 0;
+  transition: opacity var(--taxis-motion-fast)
+    var(--taxis-motion-ease-standard);
+}
+
+.taxis-workspace-wizard-panel {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 86.25rem;
+  height: min(57.5rem, calc(100dvh - 2rem));
+  min-height: 0;
+  flex-direction: column;
+  margin-inline: auto;
+  overflow: clip;
+  border: 1px solid var(--taxis-workspace-overlay-border);
+  border-radius: var(--radius-4xl);
+  background: var(--taxis-workspace-overlay-bg);
+  box-shadow: var(--taxis-workspace-overlay-shadow);
+}
+
+.taxis-workspace-wizard-panel-rim {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px var(--taxis-workspace-surface-sheen-strong),
+    inset 0 -1px 0 var(--taxis-workspace-surface-rim);
+}
+
+.taxis-workspace-wizard-form {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  flex: 1 1 auto;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.taxis-workspace-wizard-header,
+.taxis-workspace-wizard-footer {
+  flex-shrink: 0;
+  border-color: var(--taxis-workspace-divider);
+  background: var(--taxis-workspace-overlay-header-bg);
+}
+
+.taxis-workspace-wizard-header {
+  border-bottom: 1px solid var(--taxis-workspace-divider);
+  padding: 1rem 1.25rem;
+}
+
+.taxis-workspace-wizard-body {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.taxis-workspace-wizard-scroll {
+  height: 100%;
+  overflow-y: auto;
+  padding: 1rem;
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  scroll-padding-bottom: calc(7rem + env(safe-area-inset-bottom));
+}
+
+.taxis-workspace-wizard-layout {
+  display: grid;
+  width: 100%;
+  max-width: 77.5rem;
+  gap: 1.25rem;
+  margin-inline: auto;
+}
+
+.taxis-workspace-wizard-main-panel {
+  overflow: hidden;
+  border: 1px solid var(--taxis-workspace-surface-rim);
+  border-radius: var(--radius-4xl);
+  background: var(--taxis-workspace-surface);
+  box-shadow: var(--taxis-workspace-shadow-overlay);
+}
+
+.taxis-workspace-wizard-section {
+  border-top: 1px solid var(--taxis-workspace-border);
+  padding: 1.25rem;
+}
+
+.taxis-workspace-wizard-section:first-child {
+  border-top: 0;
+}
+
+.taxis-workspace-wizard-rail {
+  border: 1px solid var(--taxis-workspace-surface-rim);
+  border-radius: var(--radius-3xl);
+  background: var(--taxis-workspace-surface);
+  padding: 1.25rem;
+  box-shadow: var(--taxis-workspace-shadow-overlay);
+}
+
+.taxis-workspace-wizard-footer {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 1px solid var(--taxis-workspace-divider);
+  padding: 1rem 1.25rem calc(1rem + env(safe-area-inset-bottom));
+  box-shadow:
+    inset 0 1px 0 var(--taxis-workspace-surface-sheen-strong),
+    var(--taxis-workspace-shadow-raised);
+}
+
+.taxis-workspace-wizard-status-grid {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.taxis-workspace-wizard-status-item {
+  display: flex;
+  min-height: var(--taxis-control-h-md);
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--taxis-workspace-surface-rim);
+  border-radius: var(--radius-xl);
+  background: var(--taxis-workspace-surface);
+  color: var(--taxis-workspace-text-secondary);
+  padding: 0.5rem 0.75rem;
+  transition:
+    border-color var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    background-color var(--taxis-motion-medium)
+    var(--taxis-motion-ease-standard),
+    color var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+}
+
+@media (min-width: 48rem) {
+  .taxis-workspace-wizard-overlay {
+    padding: 2rem;
+  }
+
+  .taxis-workspace-wizard-panel {
+    height: min(57.5rem, calc(100dvh - 4rem));
+  }
+
+  .taxis-workspace-wizard-header,
+  .taxis-workspace-wizard-footer {
+    padding-inline: 1.75rem;
+  }
+
+  .taxis-workspace-wizard-scroll {
+    padding: 1.5rem 1.75rem;
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+    scroll-padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+  }
+
+  .taxis-workspace-wizard-section {
+    padding: 1.75rem;
+  }
+
+  .taxis-workspace-wizard-status-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .taxis-workspace-wizard-footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+}
+
+@media (min-width: 80rem) {
+  .taxis-workspace-wizard-layout {
+    grid-template-columns: minmax(0, 1fr) 22.5rem;
+    align-items: start;
+  }
+
+  .taxis-workspace-wizard-rail {
+    position: sticky;
+    top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taxis-workspace-wizard-backdrop,
+  .taxis-workspace-wizard-status-item {
+    transition-duration: 1ms;
+  }
+}

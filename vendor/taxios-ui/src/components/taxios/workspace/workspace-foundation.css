@@ -1,0 +1,209 @@
+/* =====================================================================
+ * TaxiOS Workspace Foundation
+ *
+ * Shared ambient, overlay, search, and operational typography rules for
+ * TaxiOS workspace surfaces. Extracted from legacy dashboard CSS without
+ * changing values.
+ * ===================================================================== */
+
+/* -----------------------------
+ * Operational typography + shared material utilities
+ * --------------------------- */
+.taxis-data-value {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: var(--taxis-data-font-feature-settings);
+}
+
+.taxis-data-inline {
+  font-family: var(--taxis-data-font);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: var(--taxis-data-font-feature-settings);
+}
+
+.taxis-data-id {
+  font-family: var(--taxis-data-font);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: var(--taxis-data-font-feature-settings);
+  letter-spacing: var(--taxis-data-letter-spacing);
+}
+
+.taxis-segmented-track {
+  border-color: var(--taxis-workspace-surface-rim-strong);
+  background:
+    linear-gradient(
+      180deg,
+      var(--taxis-workspace-surface-deep),
+      var(--taxis-workspace-surface-soft)
+    );
+  box-shadow:
+    inset 0 2px 5px rgba(15, 23, 42, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.07),
+    0 1px 0 rgba(255, 255, 255, 0.58);
+}
+
+.taxis-segmented-item {
+  border-color: transparent;
+  box-shadow: inset 0 0 0 1px transparent;
+}
+
+.taxis-segmented-item:not(.taxis-segmented-active):hover {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.68),
+      rgba(255, 255, 255, 0.42)
+    );
+  color: var(--taxis-workspace-text-strong);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    inset 0 0 0 1px rgba(15, 23, 42, 0.045);
+}
+
+.taxis-segmented-active {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18),
+    0 1px 2px rgba(15, 23, 42, 0.12);
+}
+
+.taxis-overlay-panel {
+  background: var(--taxis-workspace-overlay-bg);
+  border-color: var(--taxis-workspace-overlay-border);
+  box-shadow: var(--taxis-workspace-overlay-shadow);
+  backdrop-filter: blur(20px) saturate(1.04);
+  -webkit-backdrop-filter: blur(20px) saturate(1.04);
+}
+
+.taxis-overlay-header {
+  background: var(--taxis-workspace-overlay-header-bg);
+}
+
+.taxis-search-results-panel {
+  box-shadow:
+    var(--taxis-workspace-shadow-executive),
+    0 24px 72px -52px rgba(15, 23, 42, 0.38);
+}
+
+.taxis-search-results-header {
+  border-bottom: 1px solid var(--taxis-workspace-divider);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.34)),
+    radial-gradient(ellipse at 88% 12%, var(--taxis-workspace-graphite-wash-soft), transparent 54%);
+}
+
+.taxis-search-filter {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: var(--taxis-workspace-border);
+  color: var(--taxis-workspace-text-secondary);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    0 8px 18px -18px rgba(15, 23, 42, 0.32);
+}
+
+.taxis-search-filter-row {
+  padding-block: 1px 2px;
+}
+
+.taxis-search-filter:hover,
+.taxis-search-filter-active {
+  background:
+    linear-gradient(
+      180deg,
+      var(--taxis-workspace-control-dark-top),
+      var(--taxis-workspace-control-dark)
+    );
+  border-color: var(--taxis-workspace-control-dark);
+  color: var(--taxis-workspace-surface);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 10px 20px -18px rgba(15, 23, 42, 0.42);
+}
+
+.taxis-search-result-row {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.74));
+  border-color: var(--taxis-workspace-border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    0 12px 30px -28px rgba(15, 23, 42, 0.34);
+}
+
+.taxis-search-result-row:hover {
+  border-color: var(--taxis-workspace-surface-rim-strong);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    0 20px 42px -34px rgba(15, 23, 42, 0.42);
+}
+
+.taxis-search-result-avatar {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 12px 20px -16px rgba(15, 23, 42, 0.52);
+}
+
+.taxis-search-empty-state {
+  background:
+    linear-gradient(180deg, var(--taxis-workspace-surface), var(--taxis-workspace-surface-soft));
+  border-color: var(--taxis-workspace-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+
+/* -----------------------------
+ * Ambient page surface
+ * --------------------------- */
+.taxis-workspace-ambient,
+.taxios-dashboard-ambient {
+  --taxis-company-sidebar-width: clamp(292px, 16vw, 344px);
+  --taxis-company-content-inset: clamp(1.25rem, 1.25vw, 1.75rem);
+  --taxis-company-workspace-min: 1120px;
+  --taxis-company-workspace-max: 1680px;
+  --taxis-company-workspace-fluid: 78vw;
+  --taxis-company-workspace-width: min(
+    100%,
+    clamp(
+      var(--taxis-company-workspace-min),
+      var(--taxis-company-workspace-fluid),
+      var(--taxis-company-workspace-max)
+    )
+  );
+  background-color: var(--taxis-workspace-page-bg);
+  color: var(--taxis-workspace-text-primary);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Aptos, Inter, "Segoe UI", system-ui, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "ss01", "tnum";
+  text-rendering: geometricPrecision;
+  letter-spacing: -0.005em;
+}
+
+.taxis-workspace-ambient-bg,
+.taxios-dashboard-ambient-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.68), transparent 22%, transparent 78%, rgba(255, 255, 255, 0.52)),
+    radial-gradient(92% 58% at 50% -14%, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0) 64%),
+    radial-gradient(58% 44% at 54% 34%, var(--taxis-workspace-blue-wash), transparent 76%),
+    radial-gradient(62% 46% at 70% 18%, var(--taxis-workspace-graphite-wash-soft), transparent 74%),
+    linear-gradient(180deg, var(--taxis-workspace-page-bg-soft) 0%, var(--taxis-workspace-page-bg-deep) 100%);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+@media (max-width: 1279px) {
+  .taxis-workspace-ambient,
+  .taxios-dashboard-ambient {
+    --taxis-company-workspace-width: 100%;
+  }
+}
+
+.taxis-workspace-blob-orange,
+.taxios-dashboard-blob-orange {
+  display: none;
+}
+
+.taxis-workspace-blob-blue,
+.taxios-dashboard-blob-blue {
+  display: none;
+}

@@ -1,0 +1,426 @@
+:root {
+  --taxis-font-sans: var(--font-sans);
+  --taxis-font-heading: var(--font-sans);
+
+  --taxis-color-charcoal-950: #0f172a;
+  --taxis-color-charcoal-900: #111827;
+  --taxis-color-charcoal-800: #1f2937;
+  --taxis-color-muted: #64748b;
+  --taxis-color-surface: #ffffff;
+  --taxis-color-surface-muted: #f6f7fb;
+  --taxis-color-surface-wash: #fbfcff;
+  --taxis-color-surface-elevated: #f4f6fa;
+  --taxis-color-action: #ff6a00;
+  --taxis-color-action-weak: #ff7a1a;
+  --taxis-color-action-foreground: #ffffff;
+  --taxis-color-border-soft: #dde3ea;
+
+  --taxis-radius-card: var(--radius-lg);
+  --taxis-radius-pill: 999px;
+  --taxis-radius-control: var(--radius-md);
+  /* Stat / metric tile corner. The radius scale (sm/md/lg/xl) tops out at
+     ~17px, so the softer porcelain tile corner gets one semantic component
+     radius token instead of an arbitrary `rounded-[22px]` literal. */
+  --taxis-radius-tile: 22px;
+
+  --taxis-control-h-sm: 36px;
+  --taxis-control-h-md: 44px;
+  --taxis-control-h-lg: 52px;
+
+  --taxis-shadow-soft: 0 1px 2px rgb(15 23 42 / 0.06), 0 1px 1px rgb(15 23 42 / 0.04);
+  --taxis-shadow-lift: 0 10px 28px rgb(15 23 42 / 0.08), 0 2px 6px rgb(15 23 42 / 0.05);
+  --taxis-shadow-focus: 0 0 0 3px rgb(15 23 42 / 0.12);
+
+  --taxis-ui-page-bg: linear-gradient(180deg, #f8fafc 0%, #f6f7fb 42%, #f3f5f9 100%);
+  --taxis-ui-body-bg: #f6f7fb;
+  --taxis-ui-highlight-bg: rgba(255, 255, 255, 0.96);
+
+  --taxis-button-bg: var(--taxis-color-charcoal-900);
+  --taxis-button-fg: oklch(0.985 0 0);
+  --taxis-button-bg-hover: oklch(0.205 0 0);
+  --taxis-button-focus: var(--taxis-color-charcoal-900);
+  --taxis-button-focus-outline: 0 0 0 3px rgb(17 24 39 / 0.18);
+
+  --taxis-motion-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --taxis-motion-standard: cubic-bezier(0.2, 0, 0, 1);
+  /* Short enter / reveal: calm ease-out, no overshoot */
+  --taxis-motion-duration-short: 200ms;
+
+  /* Operational type scale — semantic font sizes for repeated text roles.
+     Values match the existing dashboard usages 1:1 so adoption stays
+     visual-neutral. Consume via the generated `text-taxis-*` /
+     `tracking-taxis-*` utilities, not raw `text-[Npx]` arbitrary values.
+     `eyebrow` is the uppercase micro-label / overline role (not a generic
+     form label) and pairs with `tracking-taxis-eyebrow`. */
+  --taxis-text-eyebrow: 10.5px;
+  --taxis-text-eyebrow-tracking: 0.14em;
+  --taxis-text-body-sm: 13px;
+  --taxis-text-section-sm: 15px;
+  --taxis-text-section-md: 18px;
+  --taxis-text-value: 30px;
+
+  /* =====================================================================
+   * TaxiOS Workspace Material - unified porcelain + milk glass material system.
+   *
+   * Design principles:
+   *   - Shadows express physical depth (neutral, never coloured).
+   *   - Gradients express surface light / glaze / reflection (never shadow).
+   *   - Bottom-right graphite is a barely-perceptible reflection, not a surface.
+   *   - Glass belongs only to the topbar; content is porcelain.
+   *
+   * These are component-tier tokens consumed by workspace surfaces
+   * (sidebar, topbar, tables, overlays, feeds, and cards). Components must
+   * consume these, not raw hex. Dashboard-prefixed names remain as
+   * compatibility aliases while dashboard-owned CSS migrates later.
+   * ===================================================================== */
+
+  /* Page — ice-blue white. Very light cool tint; nearly white so the
+     porcelain containers read as the true material hero. */
+  --taxis-dashboard-page-bg: #f8fafc;
+  --taxis-dashboard-page-bg-soft: #fcfdff;
+  --taxis-dashboard-page-bg-deep: #eef2f6;
+
+  /* Surfaces — clean white porcelain family */
+  --taxis-dashboard-surface: #ffffff;
+  --taxis-dashboard-surface-soft: #fbfcfe;
+  --taxis-dashboard-surface-deep: #f2f5f8;
+
+  /* Legacy aliases — existing component references continue to work */
+  --taxis-dashboard-card: var(--taxis-dashboard-surface);
+  --taxis-dashboard-card-soft: var(--taxis-dashboard-surface-soft);
+  --taxis-dashboard-card-deep: var(--taxis-dashboard-surface-deep);
+  --taxis-dashboard-panel: var(--taxis-dashboard-surface-deep);
+  --taxis-dashboard-porcelain-top: var(--taxis-dashboard-surface);
+  --taxis-dashboard-porcelain-mid: var(--taxis-dashboard-surface-soft);
+  --taxis-dashboard-porcelain-deep: var(--taxis-dashboard-surface-deep);
+  --taxis-dashboard-porcelain-glaze: var(--taxis-dashboard-surface-sheen);
+  --taxis-dashboard-ceramic-shell: var(--taxis-dashboard-surface);
+  --taxis-dashboard-ceramic-shell-deep: var(--taxis-dashboard-surface-deep);
+
+  /* Dock — porcelain family, no more beige */
+  --taxis-dashboard-dock: var(--taxis-dashboard-surface-soft);
+  --taxis-dashboard-dock-deep: var(--taxis-dashboard-surface-deep);
+
+  /* Milk glass — frosted, not clear. Higher opacity + stronger blur
+     so content behind is softened and not readable 1:1. */
+  --taxis-dashboard-glass: rgba(255, 255, 255, 0.94);
+  --taxis-dashboard-glass-fallback: rgba(255, 255, 255, 0.99);
+  --taxis-dashboard-glass-blur: blur(30px) saturate(1.08);
+
+  /* Text */
+  --taxis-dashboard-text-primary: #111827;
+  --taxis-dashboard-text-strong: #0f172a;
+  --taxis-dashboard-text-secondary: #334155;
+  --taxis-dashboard-text-subtle: #475569;
+  --taxis-dashboard-text-muted: #64748b;
+
+  /* Borders — neutral warm hairlines */
+  --taxis-dashboard-border: rgba(15, 23, 42, 0.11);
+  --taxis-dashboard-border-strong: rgba(15, 23, 42, 0.18);
+  --taxis-dashboard-divider: rgba(15, 23, 42, 0.13);
+  --taxis-dashboard-surface-rim: rgba(15, 23, 42, 0.09);
+  --taxis-dashboard-surface-rim-strong: rgba(15, 23, 42, 0.16);
+  --taxis-dashboard-surface-sheen: rgba(255, 255, 255, 0.74);
+  --taxis-dashboard-surface-sheen-strong: rgba(255, 255, 255, 0.92);
+  --taxis-dashboard-surface-hover: rgba(255, 255, 255, 0.72);
+  --taxis-dashboard-blue-wash: rgba(59, 130, 246, 0.026);
+  --taxis-dashboard-blue-wash-strong: rgba(59, 130, 246, 0.042);
+  --taxis-dashboard-graphite-wash: rgba(15, 23, 42, 0.032);
+  --taxis-dashboard-graphite-wash-soft: rgba(15, 23, 42, 0.018);
+  --taxis-dashboard-command-bg: rgba(255, 255, 255, 0.975);
+  --taxis-dashboard-glass-edge: rgba(15, 23, 42, 0.095);
+
+  /* Legacy aliases */
+  --taxis-dashboard-border-warm: var(--taxis-dashboard-border);
+  --taxis-dashboard-border-warm-strong: var(--taxis-dashboard-border-strong);
+  --taxis-dashboard-border-cool: var(--taxis-dashboard-surface-rim);
+  --taxis-dashboard-divider-warm: var(--taxis-dashboard-divider);
+
+  /* Accent — orange reserved for active / selected / focus / status / halo */
+  --taxis-dashboard-accent: var(--taxis-color-action);
+  --taxis-dashboard-accent-strong: #ff5f00;
+  --taxis-dashboard-accent-warm: #ff8a1f;
+  --taxis-dashboard-accent-soft: rgba(255, 106, 0, 0.12);
+  --taxis-dashboard-accent-ring: rgba(255, 106, 0, 0.58);
+  --taxis-dashboard-accent-halo: rgba(255, 106, 0, 0.18);
+  --taxis-dashboard-focus-ring: rgba(255, 106, 0, 0.24);
+  --taxis-dashboard-control-dark-top: #252a32;
+  --taxis-dashboard-control-dark: #111827;
+  --taxis-dashboard-control-dark-hover-top: #303743;
+  --taxis-dashboard-control-dark-hover: #030712;
+
+  /* Operational data typography */
+  --taxis-data-font: ui-monospace, "SF Mono", SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  --taxis-data-font-feature-settings: "tnum", "zero", "ss01";
+  --taxis-data-letter-spacing: 0.075em;
+
+  /* Dark command rails — table headers, segment bars, compact command bars */
+  --taxis-dashboard-rail-bg:
+    linear-gradient(180deg, var(--taxis-dashboard-control-dark-top), var(--taxis-dashboard-control-dark));
+  --taxis-dashboard-rail-border: var(--taxis-dashboard-control-dark);
+  --taxis-dashboard-rail-text: var(--taxis-dashboard-surface);
+  --taxis-dashboard-rail-sheen: rgba(255, 255, 255, 0.105);
+  --taxis-dashboard-rail-shadow:
+    inset 0 1px 0 var(--taxis-dashboard-rail-sheen),
+    inset 0 -12px 24px rgba(0, 0, 0, 0.12),
+    0 14px 26px -22px rgba(15, 23, 42, 0.42);
+
+  /* Semantic status tones */
+  --taxis-status-info: rgb(59 130 246);
+  --taxis-status-info-bg: rgb(59 130 246 / 0.10);
+  --taxis-status-info-text: rgb(29 78 216);
+  --taxis-status-info-ring: rgb(59 130 246 / 0.15);
+  --taxis-status-success: rgb(16 185 129);
+  --taxis-status-success-bg: rgb(16 185 129 / 0.10);
+  --taxis-status-success-text: rgb(4 120 87);
+  --taxis-status-success-ring: rgb(16 185 129 / 0.15);
+  --taxis-status-neutral: rgb(82 82 91);
+  --taxis-status-neutral-bg: rgb(100 116 139 / 0.10);
+  --taxis-status-neutral-text: rgb(51 65 85);
+  --taxis-status-neutral-ring: rgb(100 116 139 / 0.15);
+  --taxis-status-muted: rgb(100 116 139);
+  --taxis-status-muted-bg: rgb(100 116 139 / 0.10);
+  --taxis-status-muted-text: rgb(71 85 105);
+  --taxis-status-muted-ring: rgb(100 116 139 / 0.15);
+  --taxis-status-strong: rgb(15 23 42);
+  --taxis-status-strong-bg: rgb(15 23 42 / 0.08);
+  --taxis-status-strong-text: rgb(15 23 42);
+  --taxis-status-strong-ring: rgb(15 23 42 / 0.14);
+  --taxis-status-accent: var(--taxis-workspace-accent);
+  --taxis-status-accent-bg: var(--taxis-workspace-accent-soft);
+  --taxis-status-accent-text: var(--taxis-workspace-accent-strong);
+  --taxis-status-accent-ring: var(--taxis-workspace-accent-halo);
+  --taxis-status-danger: rgb(239 68 68);
+  --taxis-status-danger-bg: rgb(239 68 68 / 0.10);
+  --taxis-status-danger-text: rgb(185 28 28);
+  --taxis-status-danger-ring: rgb(239 68 68 / 0.15);
+  --taxis-status-attention: rgb(194 135 31);
+  --taxis-status-attention-bg: rgb(194 135 31 / 0.08);
+  --taxis-status-attention-text: rgb(120 83 20);
+  --taxis-status-attention-ring: rgb(194 135 31 / 0.14);
+
+  /* Floating overlays — search, popovers, drawers */
+  --taxis-dashboard-overlay-bg: rgba(255, 255, 255, 0.96);
+  --taxis-dashboard-overlay-header-bg: rgba(255, 255, 255, 0.74);
+  --taxis-dashboard-overlay-border: var(--taxis-dashboard-surface-rim);
+  --taxis-dashboard-overlay-shadow:
+    -18px 24px 70px -48px rgba(15, 23, 42, 0.5),
+    0 16px 44px -38px rgba(15, 23, 42, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.94);
+
+  /* Neutral reflection — extremely subtle graphite on porcelain surfaces.
+     Keeps the material premium and cool; orange stays reserved for active
+     states, status, focus, and icons. */
+  --taxis-dashboard-neutral-reflection: rgba(15, 23, 42, 0.030);
+  --taxis-dashboard-neutral-reflection-soft: rgba(15, 23, 42, 0.014);
+  --taxis-dashboard-orange-reflection: var(--taxis-dashboard-neutral-reflection);
+  --taxis-dashboard-orange-reflection-soft: var(--taxis-dashboard-neutral-reflection-soft);
+  --taxis-dashboard-sparkline-fill: rgba(15, 23, 42, 0.024);
+  --taxis-dashboard-sparkline-up: #047857;
+  --taxis-dashboard-sparkline-down: #be123c;
+  --taxis-dashboard-sparkline-flat: #475569;
+
+  /* Shadows — neutral depth only, never brown, never orange */
+  --taxis-dashboard-shadow-soft:
+    0 28px 70px -42px rgba(15, 23, 42, 0.22),
+    0 8px 24px -18px rgba(15, 23, 42, 0.12);
+  --taxis-dashboard-shadow-card: var(--taxis-dashboard-shadow-soft);
+  --taxis-dashboard-shadow-raised:
+    0 1px 0 rgba(255, 255, 255, 0.95),
+    0 24px 44px -22px rgba(15, 23, 42, 0.20),
+    0 10px 22px -14px rgba(15, 23, 42, 0.14);
+  /* Raised shadow without the outset 1px white top edge. Use on rounded,
+     overflow-clipped surfaces (entity cards) where the outset edge would bleed
+     past the corner radius. */
+  --taxis-dashboard-shadow-raised-clipped:
+    0 24px 44px -22px rgba(15, 23, 42, 0.20),
+    0 10px 22px -14px rgba(15, 23, 42, 0.14);
+  --taxis-dashboard-shadow-overlay:
+    0 16px 40px -22px rgba(15, 23, 42, 0.16),
+    0 2px 6px -3px rgba(15, 23, 42, 0.08);
+  --taxis-dashboard-shadow-porcelain: var(--taxis-dashboard-shadow-soft);
+  --taxis-dashboard-shadow-executive:
+    0 34px 86px -54px rgba(15, 23, 42, 0.30),
+    0 12px 30px -22px rgba(15, 23, 42, 0.16),
+    0 1px 0 rgba(255, 255, 255, 0.94) inset;
+  --taxis-dashboard-shadow-command:
+    0 24px 56px -42px rgba(15, 23, 42, 0.38),
+    0 8px 24px -20px rgba(15, 23, 42, 0.22),
+    0 1px 0 rgba(15, 23, 42, 0.045);
+  /* Legacy color aliases for older offset-shadow formulas.
+     Prefer the full shadow tokens above for new surface work. */
+  --taxis-dashboard-shadow-color: rgba(15, 23, 42, 0.30);
+  --taxis-dashboard-shadow-color-strong: rgba(15, 23, 42, 0.42);
+  --taxis-dashboard-shadow: var(--taxis-dashboard-shadow-color);
+  --taxis-dashboard-shadow-strong: var(--taxis-dashboard-shadow-color-strong);
+
+  /* Workspace material aliases - source names for all shared workspace UI.
+     Values intentionally point at the existing dashboard-compatible tokens so
+     this slice changes naming and ownership only, not visual rendering. */
+  --taxis-workspace-page-bg: var(--taxis-dashboard-page-bg);
+  --taxis-workspace-page-bg-soft: var(--taxis-dashboard-page-bg-soft);
+  --taxis-workspace-page-bg-deep: var(--taxis-dashboard-page-bg-deep);
+  --taxis-workspace-surface: var(--taxis-dashboard-surface);
+  --taxis-workspace-surface-soft: var(--taxis-dashboard-surface-soft);
+  --taxis-workspace-surface-deep: var(--taxis-dashboard-surface-deep);
+  --taxis-workspace-card: var(--taxis-dashboard-card);
+  --taxis-workspace-card-soft: var(--taxis-dashboard-card-soft);
+  --taxis-workspace-card-deep: var(--taxis-dashboard-card-deep);
+  --taxis-workspace-panel: var(--taxis-dashboard-panel);
+  --taxis-workspace-porcelain-top: var(--taxis-dashboard-porcelain-top);
+  --taxis-workspace-porcelain-mid: var(--taxis-dashboard-porcelain-mid);
+  --taxis-workspace-porcelain-deep: var(--taxis-dashboard-porcelain-deep);
+  --taxis-workspace-porcelain-glaze: var(--taxis-dashboard-porcelain-glaze);
+  --taxis-workspace-ceramic-shell: var(--taxis-dashboard-ceramic-shell);
+  --taxis-workspace-ceramic-shell-deep: var(--taxis-dashboard-ceramic-shell-deep);
+  --taxis-workspace-dock: var(--taxis-dashboard-dock);
+  --taxis-workspace-dock-deep: var(--taxis-dashboard-dock-deep);
+  --taxis-workspace-glass: var(--taxis-dashboard-glass);
+  --taxis-workspace-glass-fallback: var(--taxis-dashboard-glass-fallback);
+  --taxis-workspace-glass-blur: var(--taxis-dashboard-glass-blur);
+  --taxis-workspace-text-primary: var(--taxis-dashboard-text-primary);
+  --taxis-workspace-text-strong: var(--taxis-dashboard-text-strong);
+  --taxis-workspace-text-secondary: var(--taxis-dashboard-text-secondary);
+  --taxis-workspace-text-subtle: var(--taxis-dashboard-text-subtle);
+  --taxis-workspace-text-muted: var(--taxis-dashboard-text-muted);
+  --taxis-workspace-border: var(--taxis-dashboard-border);
+  --taxis-workspace-border-strong: var(--taxis-dashboard-border-strong);
+  --taxis-workspace-divider: var(--taxis-dashboard-divider);
+  --taxis-workspace-surface-rim: var(--taxis-dashboard-surface-rim);
+  --taxis-workspace-surface-rim-strong: var(--taxis-dashboard-surface-rim-strong);
+  --taxis-workspace-surface-sheen: var(--taxis-dashboard-surface-sheen);
+  --taxis-workspace-surface-sheen-strong: var(--taxis-dashboard-surface-sheen-strong);
+  --taxis-workspace-surface-hover: var(--taxis-dashboard-surface-hover);
+  --taxis-workspace-blue-wash: var(--taxis-dashboard-blue-wash);
+  --taxis-workspace-blue-wash-strong: var(--taxis-dashboard-blue-wash-strong);
+  --taxis-workspace-graphite-wash: var(--taxis-dashboard-graphite-wash);
+  --taxis-workspace-graphite-wash-soft: var(--taxis-dashboard-graphite-wash-soft);
+  --taxis-workspace-command-bg: var(--taxis-dashboard-command-bg);
+  --taxis-workspace-glass-edge: var(--taxis-dashboard-glass-edge);
+  --taxis-workspace-border-warm: var(--taxis-dashboard-border-warm);
+  --taxis-workspace-border-warm-strong: var(--taxis-dashboard-border-warm-strong);
+  --taxis-workspace-border-cool: var(--taxis-dashboard-border-cool);
+  --taxis-workspace-divider-warm: var(--taxis-dashboard-divider-warm);
+  --taxis-workspace-accent: var(--taxis-dashboard-accent);
+  --taxis-workspace-accent-strong: var(--taxis-dashboard-accent-strong);
+  --taxis-workspace-accent-warm: var(--taxis-dashboard-accent-warm);
+  --taxis-workspace-accent-soft: var(--taxis-dashboard-accent-soft);
+  --taxis-workspace-accent-ring: var(--taxis-dashboard-accent-ring);
+  --taxis-workspace-accent-halo: var(--taxis-dashboard-accent-halo);
+  --taxis-workspace-focus-ring: var(--taxis-dashboard-focus-ring);
+  --taxis-workspace-control-dark-top: var(--taxis-dashboard-control-dark-top);
+  --taxis-workspace-control-dark: var(--taxis-dashboard-control-dark);
+  --taxis-workspace-control-dark-hover-top: var(--taxis-dashboard-control-dark-hover-top);
+  --taxis-workspace-control-dark-hover: var(--taxis-dashboard-control-dark-hover);
+  --taxis-workspace-rail-bg: var(--taxis-dashboard-rail-bg);
+  --taxis-workspace-rail-border: var(--taxis-dashboard-rail-border);
+  --taxis-workspace-rail-text: var(--taxis-dashboard-rail-text);
+  --taxis-workspace-rail-sheen: var(--taxis-dashboard-rail-sheen);
+  --taxis-workspace-rail-shadow: var(--taxis-dashboard-rail-shadow);
+  --taxis-workspace-overlay-bg: var(--taxis-dashboard-overlay-bg);
+  --taxis-workspace-overlay-header-bg: var(--taxis-dashboard-overlay-header-bg);
+  --taxis-workspace-overlay-border: var(--taxis-dashboard-overlay-border);
+  --taxis-workspace-overlay-shadow: var(--taxis-dashboard-overlay-shadow);
+  /* Modal/drawer backdrop scrim. Reusable dark wash behind floating overlays;
+     replaces ad-hoc `bg-slate-950/NN` literals. */
+  --taxis-workspace-scrim: rgb(2 6 23 / 0.14);
+  --taxis-workspace-neutral-reflection: var(--taxis-dashboard-neutral-reflection);
+  --taxis-workspace-neutral-reflection-soft: var(--taxis-dashboard-neutral-reflection-soft);
+  --taxis-workspace-orange-reflection: var(--taxis-dashboard-orange-reflection);
+  --taxis-workspace-orange-reflection-soft: var(--taxis-dashboard-orange-reflection-soft);
+  --taxis-workspace-sparkline-fill: var(--taxis-dashboard-sparkline-fill);
+  --taxis-workspace-sparkline-up: var(--taxis-dashboard-sparkline-up);
+  --taxis-workspace-sparkline-down: var(--taxis-dashboard-sparkline-down);
+  --taxis-workspace-sparkline-flat: var(--taxis-dashboard-sparkline-flat);
+  --taxis-workspace-shadow-soft: var(--taxis-dashboard-shadow-soft);
+  --taxis-workspace-shadow-card: var(--taxis-dashboard-shadow-card);
+  --taxis-workspace-shadow-raised: var(--taxis-dashboard-shadow-raised);
+  --taxis-workspace-shadow-raised-clipped: var(--taxis-dashboard-shadow-raised-clipped);
+  --taxis-workspace-shadow-overlay: var(--taxis-dashboard-shadow-overlay);
+  --taxis-workspace-shadow-porcelain: var(--taxis-dashboard-shadow-porcelain);
+  --taxis-workspace-shadow-executive: var(--taxis-dashboard-shadow-executive);
+  --taxis-workspace-shadow-command: var(--taxis-dashboard-shadow-command);
+  --taxis-workspace-shadow-color: var(--taxis-dashboard-shadow-color);
+  --taxis-workspace-shadow-color-strong: var(--taxis-dashboard-shadow-color-strong);
+  --taxis-workspace-shadow: var(--taxis-dashboard-shadow);
+  --taxis-workspace-shadow-strong: var(--taxis-dashboard-shadow-strong);
+
+  /* Avatar */
+  --taxis-avatar-size: 32px;
+  --taxis-avatar-gap-default: -8px;
+  --taxis-avatar-gap-expanded: 8px;
+
+  /* Motion (component-level) */
+  --taxis-motion-micro: 140ms;
+  --taxis-motion-standard-duration: 180ms;
+  --taxis-motion-slow: 240ms;
+  --taxis-ease-luxury: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --taxis-motion-fast: var(--taxis-motion-micro);
+  --taxis-motion-medium: var(--taxis-motion-standard-duration);
+  --taxis-motion-ease-standard: var(--taxis-ease-luxury);
+}
+
+/* color-mix() enhancement for modern browsers (~92.8% global support).
+   Produces cleaner transparent graphite mixes than hand-tuned rgba(). */
+@supports (color: color-mix(in srgb, red, blue)) {
+  :root {
+    --taxis-dashboard-neutral-reflection: color-mix(in srgb, var(--taxis-dashboard-text-strong) 3%, transparent);
+    --taxis-dashboard-neutral-reflection-soft: color-mix(in srgb, var(--taxis-dashboard-text-strong) 1.4%, transparent);
+    --taxis-dashboard-orange-reflection: var(--taxis-dashboard-neutral-reflection);
+    --taxis-dashboard-orange-reflection-soft: var(--taxis-dashboard-neutral-reflection-soft);
+  }
+}
+
+.dark {
+  --taxis-color-charcoal-950: #f8fafc;
+  --taxis-color-charcoal-900: oklch(0.922 0 0);
+  --taxis-color-muted: oklch(0.708 0 0);
+  --taxis-color-surface: oklch(0.205 0 0);
+  --taxis-color-surface-muted: oklch(0.269 0 0);
+  --taxis-color-surface-wash: oklch(0.205 0 0);
+  --taxis-color-surface-elevated: oklch(0.269 0 0);
+  --taxis-color-border-soft: oklch(1 0 0 / 10%);
+  --taxis-color-action: #ff6a00;
+  --taxis-color-action-weak: #ff7a1a;
+  --taxis-color-action-foreground: #ffffff;
+
+  --taxis-ui-page-bg: radial-gradient(circle at 40% 0%, oklch(0.25 0 0 / 0.42), oklch(0.145 0 0));
+  --taxis-ui-body-bg: oklch(0.145 0 0);
+  --taxis-ui-highlight-bg: rgba(15, 23, 42, 0.86);
+}
+
+@theme inline {
+  --font-taxis: var(--taxis-font-sans);
+  --font-taxis-heading: var(--taxis-font-heading);
+  --color-taxis-charcoal: var(--taxis-color-charcoal-950);
+  --color-taxis-muted: var(--taxis-color-muted);
+  --color-taxis-surface: var(--taxis-color-surface);
+  --color-taxis-surface-muted: var(--taxis-color-surface-muted);
+  --color-taxis-surface-wash: var(--taxis-color-surface-wash);
+  --color-taxis-border-soft: var(--taxis-color-border-soft);
+  --color-taxis-action: var(--taxis-color-action);
+  --color-taxis-action-weak: var(--taxis-color-action-weak);
+  --color-taxis-action-foreground: var(--taxis-color-action-foreground);
+  --radius-taxis-card: var(--taxis-radius-card);
+  --radius-taxis-pill: var(--taxis-radius-pill);
+  --radius-taxis-control: var(--taxis-radius-control);
+  --radius-taxis-tile: var(--taxis-radius-tile);
+  --spacing-taxis-control-sm: var(--taxis-control-h-sm);
+  --spacing-taxis-control-md: var(--taxis-control-h-md);
+  --spacing-taxis-control-lg: var(--taxis-control-h-lg);
+  --text-taxis-eyebrow: var(--taxis-text-eyebrow);
+  --text-taxis-body-sm: var(--taxis-text-body-sm);
+  --text-taxis-section-sm: var(--taxis-text-section-sm);
+  --text-taxis-section-md: var(--taxis-text-section-md);
+  --text-taxis-value: var(--taxis-text-value);
+  --tracking-taxis-eyebrow: var(--taxis-text-eyebrow-tracking);
+  --shadow-taxis-soft: var(--taxis-shadow-soft);
+  --shadow-taxis-lift: var(--taxis-shadow-lift);
+  --shadow-taxis-focus: var(--taxis-shadow-focus);
+  --animation-taxis-motion-soft: var(--taxis-motion-soft);
+  --animation-taxis-motion-standard: var(--taxis-motion-standard);
+  --color-button: var(--taxis-button-bg);
+  --color-button-foreground: var(--taxis-button-fg);
+  --color-button-hover: var(--taxis-button-bg-hover);
+  --color-button-focus: var(--taxis-button-focus);
+}

@@ -1,0 +1,44 @@
+.taxios-company-workspace-ambient {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Aptos,
+    Inter, "Segoe UI", system-ui, sans-serif;
+}
+
+.taxis-user-profile-summary::-webkit-details-marker {
+  display: none;
+}
+
+.taxis-user-profile-details[open] .taxis-user-profile-summary {
+  background: var(--taxis-workspace-surface-soft);
+  color: var(--taxis-workspace-text-primary);
+}
+
+.taxis-user-profile-chevron {
+  color: var(--taxis-workspace-text-muted);
+  transition:
+    color var(--taxis-motion-medium) var(--taxis-motion-ease-standard),
+    transform var(--taxis-motion-medium) var(--taxis-motion-ease-standard);
+}
+
+.taxis-user-profile-details[open] .taxis-user-profile-chevron {
+  color: var(--taxis-workspace-text-secondary);
+  transform: rotate(90deg);
+}
+
+.taxis-user-profile-panel {
+  box-shadow:
+    inset 0 1px 0 var(--taxis-workspace-surface-sheen),
+    0 16px 34px -30px var(--taxis-workspace-shadow-color);
+}
+
+.taxis-user-profile-image {
+  border: 1px solid var(--taxis-workspace-surface-rim);
+  box-shadow:
+    inset 0 1px 0 var(--taxis-workspace-surface-sheen),
+    0 12px 24px -20px var(--taxis-workspace-shadow-color);
+}
+
+.taxis-user-profile-action {
+  border: 1px solid var(--taxis-workspace-surface-rim);
+  background: var(--taxis-workspace-surface);
+}
