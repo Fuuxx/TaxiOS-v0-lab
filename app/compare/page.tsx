@@ -5,15 +5,19 @@ export default function ComparePage() {
         <p className="eyebrow">TaxiOS v0 Lab</p>
         <h1 className="hero-title">Current Main vs Lab Reconstruction</h1>
         <p className="hero-copy">
-          Left is the authenticated TaxiOS.v2 main runtime on port 3000. Right is the current static lab render.
-          If these differ, the lab is wrong.
+          Left is the captured TaxiOS.v2 main runtime (localhost:3000/company-dashboard). Right is the current static
+          lab render. If these differ, the lab is wrong. The reference is a pinned screenshot because the authenticated
+          main runtime is not reachable from inside the lab environment.
         </p>
       </header>
 
       <section className="compare-grid" aria-label="Desktop comparison">
         <article className="compare-panel">
-          <h2>Reference: current main /company-dashboard</h2>
-          <iframe title="Current TaxiOS main dashboard" src="http://localhost:3000/company-dashboard" />
+          <h2>Reference: captured main /company-dashboard</h2>
+          <img
+            alt="Captured TaxiOS.v2 main company dashboard running on localhost:3000"
+            src="/reference/company-dashboard-main-localhost.png"
+          />
         </article>
         <article className="compare-panel">
           <h2>Actual: lab desktop render</h2>

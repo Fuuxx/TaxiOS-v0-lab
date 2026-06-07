@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="de">
-      <body className="taxis-premium antialiased">{children}</body>
+      <body className="taxios-premium antialiased">{children}</body>
     </html>
   );
 }
