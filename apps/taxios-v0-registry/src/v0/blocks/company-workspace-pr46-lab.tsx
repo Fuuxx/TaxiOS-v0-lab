@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { useMemo, useState } from "react";
 import { CompanyBookingsWorkspaceContent } from "@taxios-v2/ui/components/taxios/company-bookings/company-bookings-screen";
 import { CompanyFinanceWorkspaceContent } from "@taxios-v2/ui/components/taxios/company-finance/company-finance-screen";
-import { CompanyOrganizationScreen } from "@taxios-v2/ui/components/taxios/company-organization/company-organization-screen";
+import { CompanyOrganizationWorkspaceContent } from "@taxios-v2/ui/components/taxios/company-organization/company-organization-screen";
 import { CompanyReportsWorkspaceContent } from "@taxios-v2/ui/components/taxios/company-reports/company-reports-screen";
 import { CompanySettingsWorkspaceContent } from "@taxios-v2/ui/components/taxios/company-settings/company-settings-screen";
 import { CompanyWorkspaceShell } from "@taxios-v2/ui/components/taxios/company-workspace/company-workspace-shell";
@@ -708,7 +708,7 @@ function SurfacePreview({ surface }: { surface: LabSurface }) {
   if (surface === "organization") {
     return (
       <WorkspaceFrame activeItem="organization">
-        <CompanyOrganizationScreen
+        <CompanyOrganizationWorkspaceContent
           activeSection="overview"
           copy={demoCompanyOrganizationCopy}
           inviteForm={<div />}
