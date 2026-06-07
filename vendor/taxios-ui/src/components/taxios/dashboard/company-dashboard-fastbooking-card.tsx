@@ -41,6 +41,9 @@ type FastbookingRoutePointProps = {
 
 type FastbookingPickerMode = "booking" | "edit_idle" | "add" | "remove";
 
+/** Max avatars rendered in the footer before collapsing into a neutral "+N" chip. */
+const MAX_VISIBLE_FOOTER_AVATARS = 4;
+
 function initialsFromMemberName(name: string) {
   return name
     .split(/\s+/)
@@ -136,6 +139,29 @@ export function FastBookingCard({
   const footerMembers = footerMemberIds
     .map((memberId) => availableMembers.find((member) => member.id === memberId))
     .filter((member): member is CompanyDashboardFastbookingMember => Boolean(member));
+
+  // Lab render-time avatar cap (Slice 1).
+  //
+  // Render large avatar rosters cleanly without mutating data: show at most
+  // MAX_VISIBLE_FOOTER_AVATARS avatars across the combined footer sequence
+  // (static `avatars` first, then interactive members), then a single neutral
+  // "+N" overflow chip. No source data is changed: `avatars`, `memberIds`,
+  // `footerMemberIds` and the member picker remain fully intact, so member
+  // interaction (select, drag, add/remove, book) is preserved. `N` is derived
+  // from the complete underlying roster (all static avatars + all members).
+  const visibleStaticAvatars = avatars.slice(0, MAX_VISIBLE_FOOTER_AVATARS);
+  const remainingFooterAvatarSlots = Math.max(
+    0,
+    MAX_VISIBLE_FOOTER_AVATARS - visibleStaticAvatars.length,
+  );
+  const visibleFooterMembers = footerMembers.slice(0, remainingFooterAvatarSlots);
+  const hiddenFooterAvatarCount = Math.max(
+    0,
+    avatars.length +
+      footerMembers.length -
+      visibleStaticAvatars.length -
+      visibleFooterMembers.length,
+  );
   const memberActionLabel =
     pickerMode === "booking"
       ? copy.bookLabel
@@ -377,7 +403,7 @@ export function FastBookingCard({
             {!isSelecting ? (
               <div className="fastbooking-card-dock-zone-avatars fastbooking-footer-people">
                 <div className="fastbooking-avatar-stack flex items-center">
-                  {avatars.map((avatar) => (
+                  {visibleStaticAvatars.map((avatar) => (
                     <span
                       className="fastbooking-avatar-button"
                       data-interactive="false"
@@ -390,7 +416,7 @@ export function FastBookingCard({
                       />
                     </span>
                   ))}
-                  {footerMembers.map((member) => (
+                  {visibleFooterMembers.map((member) => (
                     <button
                       aria-label={`${member.name} ${copy.selectAvatarLabel}`}
                       aria-pressed={selectedBookingMemberIdSet.has(member.id)}
@@ -455,6 +481,18 @@ export function FastBookingCard({
                       />
                     </button>
                   ))}
+                  {hiddenFooterAvatarCount > 0 ? (
+                    <span
+                      className="fastbooking-avatar-button"
+                      data-interactive="false"
+                    >
+                      <CompanyDashboardAvatar
+                        className="h-[38px] w-[38px] ring-2 ring-[var(--taxis-workspace-surface)]"
+                        initials={`+${hiddenFooterAvatarCount}`}
+                        name={`+${hiddenFooterAvatarCount} ${copy.membersLabel}`}
+                      />
+                    </span>
+                  ) : null}
                   <button
                     aria-label={copy.addMemberLabel}
                     className="fastbooking-avatar-button fastbooking-avatar-add-button"
