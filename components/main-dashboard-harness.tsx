@@ -131,6 +131,35 @@ const copy: CompanyDashboardCopy = {
   },
 };
 
+/**
+ * Lab-only avatar overflow cap (Slice 1).
+ *
+ * The vendored Fastbooking footer renders avatars from two channels: the static
+ * `avatars` array and interactive members from `memberIds`. With both populated by
+ * the same roster, each card double-rendered its people. This Lab adapter collapses
+ * the roster into a single capped display channel: up to 4 ceramic chips followed by
+ * a neutral "+N" overflow chip. The "+N" string is rendered by the real
+ * `CompanyDashboardAvatar` primitive as its built-in neutral `taxios-avatar-extra`
+ * plate (card-soft surface, muted text, no orange) — no component or CSS changes.
+ *
+ * `memberIds` is intentionally cleared so only the capped channel renders. This is a
+ * Lab display compromise around vendored render logic; in TaxiOS.v2 the cap must live
+ * inside the avatar-stack primitive so `memberIds` (and the true passenger count) stay
+ * intact for interaction and the count badge.
+ */
+const MAX_VISIBLE_FASTBOOKING_AVATARS = 4;
+
+function capFastbookingAvatars(roster: readonly string[]): string[] {
+  if (roster.length <= MAX_VISIBLE_FASTBOOKING_AVATARS) {
+    return [...roster];
+  }
+
+  const visible = roster.slice(0, MAX_VISIBLE_FASTBOOKING_AVATARS);
+  const overflow = roster.length - MAX_VISIBLE_FASTBOOKING_AVATARS;
+
+  return [...visible, `+${overflow}`];
+}
+
 const dashboardData: CompanyDashboardData = {
   allowedActions: [{ id: "create_booking", label: "Neue Buchung" }],
   availableMembers: [
@@ -149,23 +178,23 @@ const dashboardData: CompanyDashboardData = {
   ],
   fastRoutes: [
     {
-      avatars: ["A", "SC", "AA", "SC", "AB"],
+      avatars: capFastbookingAvatars(["A", "SC", "AA", "SC", "AB"]),
       from: "test 1",
-      memberIds: ["a", "sc-1", "aa", "sc-2", "ab"],
+      memberIds: [],
       title: "test 2",
       to: "test 2",
     },
     {
-      avatars: ["X"],
+      avatars: capFastbookingAvatars(["X"]),
       from: "Werrastraße 36",
-      memberIds: ["x"],
+      memberIds: [],
       title: "Linkstraße 5",
       to: "Linkstraße 5",
     },
     {
-      avatars: ["GG"],
+      avatars: capFastbookingAvatars(["GG"]),
       from: "Leipziger Platz 1",
-      memberIds: ["gg"],
+      memberIds: [],
       title: "Berlin Central Office",
       to: "Berlin Central Office",
     },
