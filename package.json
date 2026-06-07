@@ -1,36 +1,35 @@
 {
   "name": "taxios-v0-lab",
-  "version": "0.1.0",
   "private": true,
   "type": "module",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+  "packageManager": "pnpm@10.19.0",
+  "engines": {
+    "node": ">=22.0.0"
   },
-  "dependencies": {
-    "@base-ui/react": "1.4.1",
-    "@hookform/resolvers": "5.4.0",
-    "@taxios-v2/ui": "file:vendor/taxios-ui",
-    "class-variance-authority": "0.7.1",
-    "clsx": "2.1.1",
-    "lucide-react": "^1.11.0",
-    "next": "^15.5.6",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-hook-form": "7.75.0",
-    "tailwind-merge": "3.5.0",
-    "tw-animate-css": "1.4.0",
-    "zod": "4.4.3"
+  "pnpm": {
+    "packageExtensions": {
+      "@hookform/resolvers@5.4.0": {
+        "peerDependencies": {
+          "zod": "^3.25.0 || ^4.0.0"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "turbo build",
+    "check-types": "turbo check-types",
+    "dev": "turbo dev",
+    "lint": "pnpm exec biome lint .",
+    "registry:build": "pnpm --filter @taxios-v2/taxios-v0-registry build",
+    "registry:check-types": "pnpm --filter @taxios-v2/taxios-v0-registry check-types",
+    "registry:prebuild": "pnpm --filter @taxios-v2/taxios-v0-registry prebuild"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "4.2.1",
-    "@types/node": "^22.10.2",
-    "@types/react": "^19.0.2",
-    "@types/react-dom": "^19.0.2",
-    "tailwindcss": "4.2.1",
-    "typescript": "^5.7.2"
-  },
-  "packageManager": "pnpm@10.19.0"
+    "@biomejs/biome": "^2.2.0",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^24.12.2",
+    "playwright": "^1.60.0",
+    "turbo": "^2.8.12",
+    "typescript": "^5.9.3"
+  }
 }
