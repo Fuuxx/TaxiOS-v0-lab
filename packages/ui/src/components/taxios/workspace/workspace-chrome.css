@@ -356,8 +356,19 @@
     white-space: nowrap;
   }
 
-  /* Operational clarity: the contextual org prefix may compress, but the
-     active route segment (the user's current location) must stay fully
+  /* Operational clarity: the contextual org prefix takes one consistent
+     preferred width so it truncates at the same point across surfaces whenever
+     there is room. It may still shrink below that width when the breadcrumb
+     cell is cramped, which keeps the active route label (below) fully legible
+     instead of being clipped. */
+  .taxis-workspace-topbar-breadcrumb > span:first-child,
+  .taxios-dashboard-topbar-breadcrumb > span:first-child {
+    flex: 0 1 auto;
+    flex-basis: clamp(7rem, 9vw, 11rem);
+    min-width: 0;
+  }
+
+  /* The active route segment (the user's current location) must stay fully
      legible and never collapse to an ellipsis. */
   .taxis-workspace-topbar-breadcrumb > span:last-child,
   .taxios-dashboard-topbar-breadcrumb > span:last-child {
