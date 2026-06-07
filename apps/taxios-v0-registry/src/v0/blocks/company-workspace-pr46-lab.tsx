@@ -787,6 +787,7 @@ function SurfacePreview({ surface }: { surface: LabSurface }) {
                 errorMessage={index === 0 ? "Speichern fehlgeschlagen." : undefined}
                 key={section}
                 payload={index === 0 ? settingsPayload : settingsReadOnlyPayload}
+                savingSection={null}
                 successMessage={index === 1 ? "Gespeichert." : undefined}
               />
             ),
