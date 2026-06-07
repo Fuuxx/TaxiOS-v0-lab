@@ -82,12 +82,22 @@ Reconstruct the current TaxiOS Company Dashboard as closely as possible:
 - `docs/lab-mismatch-audit.md` - known mismatch audit
 - `app/page.tsx` - current Company Dashboard harness target
 - `app/actual/page.tsx` - current rendered harness
+- `app/new-booking/page.tsx` - current dashboard with the real New Booking overlay opened
 - `app/reference/page.tsx` - historical screenshot page
 - `app/compare/page.tsx` - local side-by-side mismatch inspection page
 - `components/main-dashboard-harness.tsx` - static data harness using real `@taxios-v2/ui` components
+- `components/new-booking-overlay-harness.tsx` - static data harness using the real `NewBookingOverlay`
 - `styles/taxios-ui-entry.css` - Tailwind v4 entry that imports real TaxiOS UI CSS and scans real UI source
 - `styles/globals.css` - lab-only reference and compare page styles
 - `vendor/taxios-ui/src` - vendored snapshot of real TaxiOS UI source from current main
+
+## Routes
+
+- `/` - current Company Dashboard harness
+- `/actual` - same Company Dashboard harness, used by compare views
+- `/new-booking` - Company Dashboard with the New Booking overlay open
+- `/reference` - historical/current reference screenshots, including `new-booking-overlay*.png`
+- `/compare` - side-by-side dashboard and overlay comparison
 
 ## Required v0 Workflow
 

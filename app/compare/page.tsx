@@ -31,6 +31,17 @@ export default function ComparePage() {
           <iframe title="Current lab dashboard mobile render" src="/actual" />
         </article>
       </section>
+
+      <section className="compare-grid" aria-label="New booking overlay comparison">
+        <article className="compare-panel">
+          <h2>Reference: Storybook new booking overlay</h2>
+          <img alt="Storybook new booking overlay reference" src="/reference/new-booking-overlay.png" />
+        </article>
+        <article className="compare-panel">
+          <h2>Actual: lab new booking overlay</h2>
+          <iframe title="Current lab new booking overlay render" src="/new-booking" />
+        </article>
+      </section>
     </main>
   );
 }
