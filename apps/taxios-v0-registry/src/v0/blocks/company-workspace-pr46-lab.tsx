@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { CompanyBookingsWorkspaceContent } from "@taxios-v2/ui/components/taxios/company-bookings/company-bookings-screen";
 import { CompanyFinanceWorkspaceContent } from "@taxios-v2/ui/components/taxios/company-finance/company-finance-screen";
 import { CompanyOrganizationWorkspaceContent } from "@taxios-v2/ui/components/taxios/company-organization/company-organization-screen";
@@ -628,9 +628,17 @@ function WorkspaceFrame({
 
 function SearchPreview({ state = "ready" }: { state?: WorkspaceSearchState }) {
   const [query, setQuery] = useState("ay");
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Lab-only: the search dropdown opens on focus (no controlled prop exists),
+  // so we focus the input on mount to present the active results state.
+  useEffect(() => {
+    const input = containerRef.current?.querySelector("input");
+    input?.focus();
+  }, []);
 
   return (
-    <div className="mx-auto h-[32rem] max-w-2xl pt-10">
+    <div className="mx-auto h-[32rem] max-w-2xl pt-10" ref={containerRef}>
       <WorkspaceSearchBox
         groups={state === "ready" ? searchGroups : []}
         onAllResultsSelect={() => undefined}
@@ -646,9 +654,27 @@ function SearchPreview({ state = "ready" }: { state?: WorkspaceSearchState }) {
 function NotificationsPreview() {
   const [activeFilter, setActiveFilter] =
     useState<WorkspaceNotificationFilter>("all");
+  const containerRef = useRef<HTMLDivElement>(null);
+  const openedRef = useRef(false);
+
+  // Lab-only: the popover opens via its trigger button (no controlled prop
+  // exists), so we click the trigger once on mount to present the open list
+  // state. The ref guard keeps this to a single click under React StrictMode's
+  // double-invoked effects, since the trigger only toggles.
+  useEffect(() => {
+    if (openedRef.current) {
+      return;
+    }
+    openedRef.current = true;
+    const trigger = containerRef.current?.querySelector("button");
+    trigger?.click();
+  }, []);
 
   return (
-    <div className="flex min-h-[32rem] justify-end p-12">
+    <div
+      className="flex min-h-[32rem] justify-end p-12"
+      ref={containerRef}
+    >
       <WorkspaceNotificationsPopover
         activeFilter={activeFilter}
         items={notificationItems}
@@ -660,6 +686,35 @@ function NotificationsPreview() {
         state="ready"
         unreadBadgeCount={2}
       />
+    </div>
+  );
+}
+
+function AccountMenuPreview() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Lab-only: the account menu is a native <details> in the shell header
+  // (no controlled prop exists), so we open it on mount to present the
+  // expanded menu state instead of a closed avatar trigger.
+  useEffect(() => {
+    const trigger = containerRef.current?.querySelector<HTMLElement>(
+      "#company-workspace-user-trigger",
+    );
+    const menu = trigger?.closest("details");
+    if (menu instanceof HTMLDetailsElement) {
+      menu.open = true;
+    }
+  }, []);
+
+  return (
+    <div ref={containerRef}>
+      <WorkspaceFrame activeItem="dashboard">
+        <CompanyDashboardWorkspaceContent
+          copy={demoCompanyDashboardCopyDe}
+          dashboardData={demoCompanyDashboardData}
+          headerDateLabel="Samstag, 02. Mai"
+        />
+      </WorkspaceFrame>
     </div>
   );
 }
@@ -760,19 +815,7 @@ function SurfacePreview({ surface }: { surface: LabSurface }) {
   }
 
   if (surface === "account-menu") {
-    return (
-      <WorkspaceFrame activeItem="dashboard">
-        <div className="taxis-company-workspace-content taxios-dashboard-content-area">
-          <div className="taxis-company-workspace-frame">
-            <p className="taxis-company-page-eyebrow">Account/Menu</p>
-            <h2 className="taxis-company-page-title">Company account menu</h2>
-            <p className="taxis-company-page-description">
-              Use the account trigger in the shell header to inspect the current menu state.
-            </p>
-          </div>
-        </div>
-      </WorkspaceFrame>
-    );
+    return <AccountMenuPreview />;
   }
 
   if (surface === "settings-feedback") {
