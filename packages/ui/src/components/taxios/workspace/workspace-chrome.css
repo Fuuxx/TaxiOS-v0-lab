@@ -355,6 +355,16 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
+  /* Operational clarity: the contextual org prefix may compress, but the
+     active route segment (the user's current location) must stay fully
+     legible and never collapse to an ellipsis. */
+  .taxis-workspace-topbar-breadcrumb > span:last-child,
+  .taxios-dashboard-topbar-breadcrumb > span:last-child {
+    flex: 0 0 auto;
+    overflow: visible;
+    text-overflow: clip;
+  }
 }
 
 /* Subtle top-edge highlight â€” the "glass tell". */
