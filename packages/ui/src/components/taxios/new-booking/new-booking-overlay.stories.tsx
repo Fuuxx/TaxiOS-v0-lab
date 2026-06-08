@@ -581,16 +581,22 @@ export const ReviewStepRhythm: Story = {
     },
   },
   play: async ({ canvasElement }) => {
-    const dateInput =
-      canvasElement.querySelector<HTMLInputElement>('input[type="date"]');
-    const timeInput =
-      canvasElement.querySelector<HTMLInputElement>('input[type="time"]');
+    // Slice 6a: pickup date/time are now German formatted-text fields
+    // (TaxiDateField / TaxiTimeField, data-slot="date-field" | "time-field"),
+    // so they are typed in display format (TT.MM.JJJJ / HH:mm), not as the
+    // canonical "yyyy-MM-dd" the legacy native inputs expected.
+    const dateInput = canvasElement.querySelector<HTMLInputElement>(
+      'input[data-slot="date-field"]',
+    );
+    const timeInput = canvasElement.querySelector<HTMLInputElement>(
+      'input[data-slot="time-field"]',
+    );
 
     if (!dateInput || !timeInput) {
       throw new Error("Date/time inputs were not rendered.");
     }
 
-    setNativeInputValue(dateInput, "2026-06-01");
+    setNativeInputValue(dateInput, "01.06.2026");
     setNativeInputValue(timeInput, "09:30");
     await waitForFrame();
 

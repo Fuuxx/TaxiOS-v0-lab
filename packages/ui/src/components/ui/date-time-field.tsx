@@ -103,7 +103,6 @@ export function TaxiDateField({
   inputRef,
   ...aria
 }: SharedFieldProps) {
-  const hintId = React.useId();
   const [text, setText] = React.useState(() => formatDateDisplay(value));
   // Resync display when the canonical value changes externally
   // (e.g. quick-chip buttons calling setValue), but never while it already
@@ -114,38 +113,30 @@ export function TaxiDateField({
     );
   }, [value]);
 
-  const describedBy = [aria["aria-describedby"], hintId]
-    .filter(Boolean)
-    .join(" ");
-
   return (
-    <>
-      <input
-        aria-describedby={describedBy}
-        aria-invalid={aria["aria-invalid"]}
-        autoComplete="off"
-        className={cn(fieldClassName, className)}
-        data-slot="date-field"
-        disabled={disabled}
-        id={id}
-        inputMode="numeric"
-        name={name}
-        onBlur={onBlur}
-        onChange={(event) => {
-          const masked = maskDateDisplay(event.target.value);
-          setText(masked);
-          onValueChange(parseDateCanonical(masked));
-        }}
-        placeholder={placeholder}
-        ref={inputRef}
-        required={required}
-        type="text"
-        value={text}
-      />
-      <span className="sr-only" id={hintId}>
-        Format: Tag, Monat, Jahr — TT.MM.JJJJ
-      </span>
-    </>
+    <input
+      aria-describedby={aria["aria-describedby"]}
+      aria-invalid={aria["aria-invalid"]}
+      autoComplete="off"
+      className={cn(fieldClassName, className)}
+      data-slot="date-field"
+      disabled={disabled}
+      id={id}
+      inputMode="numeric"
+      name={name}
+      onBlur={onBlur}
+      onChange={(event) => {
+        const masked = maskDateDisplay(event.target.value);
+        setText(masked);
+        onValueChange(parseDateCanonical(masked));
+      }}
+      placeholder={placeholder}
+      ref={inputRef}
+      required={required}
+      title="Format: Tag, Monat, Jahr — TT.MM.JJJJ"
+      type="text"
+      value={text}
+    />
   );
 }
 
@@ -189,7 +180,6 @@ export function TaxiTimeField({
   inputRef,
   ...aria
 }: SharedFieldProps) {
-  const hintId = React.useId();
   const [text, setText] = React.useState(() => formatTimeDisplay(value));
   React.useEffect(() => {
     setText((current) =>
@@ -197,37 +187,29 @@ export function TaxiTimeField({
     );
   }, [value]);
 
-  const describedBy = [aria["aria-describedby"], hintId]
-    .filter(Boolean)
-    .join(" ");
-
   return (
-    <>
-      <input
-        aria-describedby={describedBy}
-        aria-invalid={aria["aria-invalid"]}
-        autoComplete="off"
-        className={cn(fieldClassName, className)}
-        data-slot="time-field"
-        disabled={disabled}
-        id={id}
-        inputMode="numeric"
-        name={name}
-        onBlur={onBlur}
-        onChange={(event) => {
-          const masked = maskTimeDisplay(event.target.value);
-          setText(masked);
-          onValueChange(parseTimeCanonical(masked));
-        }}
-        placeholder={placeholder}
-        ref={inputRef}
-        required={required}
-        type="text"
-        value={text}
-      />
-      <span className="sr-only" id={hintId}>
-        Format: Stunden und Minuten — HH:mm, 24-Stunden
-      </span>
-    </>
+    <input
+      aria-describedby={aria["aria-describedby"]}
+      aria-invalid={aria["aria-invalid"]}
+      autoComplete="off"
+      className={cn(fieldClassName, className)}
+      data-slot="time-field"
+      disabled={disabled}
+      id={id}
+      inputMode="numeric"
+      name={name}
+      onBlur={onBlur}
+      onChange={(event) => {
+        const masked = maskTimeDisplay(event.target.value);
+        setText(masked);
+        onValueChange(parseTimeCanonical(masked));
+      }}
+      placeholder={placeholder}
+      ref={inputRef}
+      required={required}
+      title="Format: Stunden und Minuten — HH:mm, 24-Stunden"
+      type="text"
+      value={text}
+    />
   );
 }

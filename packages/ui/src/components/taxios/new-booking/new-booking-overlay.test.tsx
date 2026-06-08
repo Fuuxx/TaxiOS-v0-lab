@@ -258,9 +258,11 @@ describe("NewBookingOverlay", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "Morgen 08:00" }));
 
+    // Pickup date renders in the German display format (TT.MM.JJJJ); the
+    // form still stores the canonical "2026-06-02" behind the field.
     expect(
       (screen.getByLabelText("Abholdatum") as HTMLInputElement).value,
-    ).toBe("2026-06-02");
+    ).toBe("02.06.2026");
     expect((screen.getByLabelText("Abholzeit") as HTMLInputElement).value).toBe(
       "08:00",
     );
@@ -357,7 +359,7 @@ describe("NewBookingOverlay", () => {
     await user.click(screen.getByRole("button", { name: "Ada Lovelace" }));
     await user.type(screen.getByPlaceholderText("Abholadresse"), "Office");
     await user.type(screen.getByPlaceholderText("Zieladresse"), "BER");
-    await user.type(screen.getByLabelText("Abholdatum"), "2026-06-01");
+    await user.type(screen.getByLabelText("Abholdatum"), "01.06.2026");
     await user.type(screen.getByLabelText("Abholzeit"), "09:30");
     await user.click(
       screen.getByRole("button", { name: "Weiter zur Übersicht" }),
@@ -406,7 +408,7 @@ describe("NewBookingOverlay", () => {
 
     await user.type(screen.getByPlaceholderText("Abholadresse"), "Office");
     await user.type(screen.getByPlaceholderText("Zieladresse"), "BER");
-    await user.type(screen.getByLabelText("Abholdatum"), "2026-06-01");
+    await user.type(screen.getByLabelText("Abholdatum"), "01.06.2026");
     await user.type(screen.getByLabelText("Abholzeit"), "09:30");
     await user.click(
       screen.getByRole("button", { name: "Weiter zur Übersicht" }),
@@ -462,7 +464,7 @@ describe("NewBookingOverlay", () => {
 
     await user.type(screen.getByPlaceholderText("Abholadresse"), "Office");
     await user.type(screen.getByPlaceholderText("Zieladresse"), "BER");
-    await user.type(screen.getByLabelText("Abholdatum"), "2026-06-01");
+    await user.type(screen.getByLabelText("Abholdatum"), "01.06.2026");
     await user.type(screen.getByLabelText("Abholzeit"), "09:30");
     await user.click(
       screen.getByRole("button", { name: "Weiter zur Übersicht" }),
@@ -675,7 +677,7 @@ describe("NewBookingOverlay", () => {
     });
     await user.type(screen.getByPlaceholderText("Abholadresse"), "Office");
     await user.type(screen.getByPlaceholderText("Zieladresse"), "BER");
-    await user.type(screen.getByLabelText("Abholdatum"), "2026-06-01");
+    await user.type(screen.getByLabelText("Abholdatum"), "01.06.2026");
     await user.type(screen.getByLabelText("Abholzeit"), "09:30");
     await user.click(
       screen.getByRole("button", { name: "Weiter zur Übersicht" }),
@@ -862,7 +864,7 @@ describe("NewBookingOverlay", () => {
 
     await user.type(screen.getByPlaceholderText("Abholadresse"), "Office");
     await user.type(screen.getByPlaceholderText("Zieladresse"), "BER");
-    await user.type(screen.getByLabelText("Abholdatum"), "2026-06-01");
+    await user.type(screen.getByLabelText("Abholdatum"), "01.06.2026");
     await user.type(screen.getByLabelText("Abholzeit"), "09:30");
     await user.type(screen.getByRole("textbox", { name: "Platz 1" }), "Ada");
     await user.click(screen.getByRole("button", { name: "Ada Lovelace" }));
@@ -906,7 +908,7 @@ describe("NewBookingOverlay", () => {
     await user.type(screen.getByLabelText("Personen pro Fahrzeug"), "3");
     await user.type(screen.getByPlaceholderText("Abholadresse"), "Office");
     await user.type(screen.getByPlaceholderText("Zieladresse"), "BER");
-    await user.type(screen.getByLabelText("Abholdatum"), "2026-06-01");
+    await user.type(screen.getByLabelText("Abholdatum"), "01.06.2026");
     await user.type(screen.getByLabelText("Abholzeit"), "09:30");
     await user.click(
       screen.getByRole("button", { name: "Weiter zur Übersicht" }),
@@ -989,7 +991,7 @@ describe("NewBookingOverlay", () => {
     await user.type(screen.getByLabelText("Personen pro Fahrzeug"), "8");
     await user.type(screen.getByPlaceholderText("Abholadresse"), "Office");
     await user.type(screen.getByPlaceholderText("Zieladresse"), "BER");
-    await user.type(screen.getByLabelText("Abholdatum"), "2026-06-01");
+    await user.type(screen.getByLabelText("Abholdatum"), "01.06.2026");
     await user.type(screen.getByLabelText("Abholzeit"), "09:30");
     await user.click(
       screen.getByRole("button", { name: "Weiter zur Übersicht" }),
@@ -1100,7 +1102,7 @@ describe("NewBookingOverlay", () => {
     await user.type(screen.getByPlaceholderText("Zieladresse"), "Airport 1");
     await user.type(screen.getByRole("textbox", { name: "Platz 1" }), "Ada");
     await user.click(screen.getByRole("button", { name: "Ada Lovelace" }));
-    await user.type(screen.getByLabelText("Abholdatum"), "2026-06-01");
+    await user.type(screen.getByLabelText("Abholdatum"), "01.06.2026");
     await user.type(screen.getByLabelText("Abholzeit"), "09:30");
     await user.click(
       screen.getByRole("button", { name: "Weiter zur Übersicht" }),
@@ -1181,7 +1183,7 @@ describe("NewBookingOverlay", () => {
     await user.click(await screen.findByRole("option", { name: /Melli/i }));
     await user.type(screen.getByRole("textbox", { name: "Platz 1" }), "Ada");
     await user.click(screen.getByRole("button", { name: "Ada Lovelace" }));
-    await user.type(screen.getByLabelText("Abholdatum"), "2026-06-01");
+    await user.type(screen.getByLabelText("Abholdatum"), "01.06.2026");
     await user.type(screen.getByLabelText("Abholzeit"), "09:30");
     await user.click(
       screen.getByRole("button", { name: "Weiter zur Übersicht" }),
@@ -1454,7 +1456,7 @@ describe("NewBookingOverlay", () => {
     );
     await user.type(screen.getByRole("textbox", { name: "Platz 1" }), "Ada");
     await user.click(screen.getByRole("button", { name: "Ada Lovelace" }));
-    await user.type(screen.getByLabelText("Abholdatum"), "2026-06-01");
+    await user.type(screen.getByLabelText("Abholdatum"), "01.06.2026");
     await user.type(screen.getByLabelText("Abholzeit"), "09:30");
     await user.click(
       screen.getByRole("button", { name: "Weiter zur Übersicht" }),
@@ -1584,7 +1586,7 @@ describe("NewBookingOverlay", () => {
     );
     await user.type(screen.getByRole("textbox", { name: "Platz 1" }), "Ada");
     await user.click(screen.getByRole("button", { name: "Ada Lovelace" }));
-    await user.type(screen.getByLabelText("Abholdatum"), "2026-06-01");
+    await user.type(screen.getByLabelText("Abholdatum"), "01.06.2026");
     await user.type(screen.getByLabelText("Abholzeit"), "09:30");
     await user.click(
       screen.getByRole("button", { name: "Weiter zur Übersicht" }),

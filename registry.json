@@ -167,6 +167,20 @@
       ]
     },
     {
+      "name": "date-time-field",
+      "type": "registry:ui",
+      "title": "Date & Time Field",
+      "description": "TaxiOS German formatted-text date/time field adapters over canonical yyyy-MM-dd / HH:mm strings (no calendar, no date library).",
+      "registryDependencies": ["taxios-base"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/ui/date-time-field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/date-time-field.tsx"
+        }
+      ]
+    },
+    {
       "name": "card",
       "type": "registry:ui",
       "title": "Card",
@@ -380,6 +394,7 @@
       "description": "TaxiOS v0 Lab snapshot for the current Company Workspace UI-system state after PR #46 / merge commit 2698991c214595e17e0b3228dc84935b0b27fa76. Fixture-only, no Convex, Clerk, backend, or v0-generated code.",
       "registryDependencies": [
         "button",
+        "date-time-field",
         "input",
         "label",
         "select",

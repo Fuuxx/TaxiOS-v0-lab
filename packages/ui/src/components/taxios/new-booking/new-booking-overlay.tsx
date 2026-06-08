@@ -15,11 +15,6 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Controller, useForm, type SubmitHandler } from "react-hook-form";
 import type { z } from "zod/v4";
 
-import {
-  TaxiDateField,
-  TaxiTimeField,
-} from "@taxios-v2/ui/components/ui/date-time-field";
-
 import type {
   NewBookingAddressAutocompleteController,
   NewBookingAddressField,
@@ -38,6 +33,10 @@ import type {
 } from "../../../contracts/new-booking";
 import { cn } from "../../../lib/utils";
 import { Button } from "../../ui/button";
+import {
+  TaxiDateField,
+  TaxiTimeField,
+} from "../../ui/date-time-field";
 import { Input } from "../../ui/input";
 import { Label } from "../../ui/label";
 import "../workspace/workspace.css";
@@ -769,6 +768,7 @@ export function NewBookingOverlay({
   const {
     formState: { errors, submitCount },
     clearErrors,
+    control,
     handleSubmit,
     register,
     reset,
@@ -1469,6 +1469,7 @@ export function NewBookingOverlay({
                     </WorkspaceWizardSection>
                     <WorkspaceWizardSection ref={dateTimeSectionRef}>
                       <DateTimeFields
+                        control={control}
                         copy={copy}
                         errors={errors}
                         onQuickPickupTime={applyQuickPickupTime}
@@ -2599,12 +2600,14 @@ function RouteAddressRow({
 }
 
 export function DateTimeFields({
+  control,
   copy,
   errors,
   onQuickPickupTime,
   register,
   tripType,
 }: {
+  control: RegisteredForm["control"];
   copy: NewBookingOverlayCopy;
   errors: RegisteredForm["formState"]["errors"];
   onQuickPickupTime: (action: NewBookingQuickTimeAction) => void;
@@ -2641,18 +2644,36 @@ export function DateTimeFields({
       </div>
       <div className="grid gap-3 md:grid-cols-2">
         <FormField label={copy.dateTime.pickupDateLabel}>
-          <Input
-            className="h-[var(--taxis-control-h-md)] rounded-[var(--taxis-radius-control)] bg-[var(--taxis-workspace-surface)] px-3.5"
-            type="date"
-            {...register("pickupDate")}
+          <Controller
+            control={control}
+            name="pickupDate"
+            render={({ field, fieldState }) => (
+              <TaxiDateField
+                aria-invalid={fieldState.invalid || undefined}
+                inputRef={field.ref}
+                name={field.name}
+                onBlur={field.onBlur}
+                onValueChange={field.onChange}
+                value={field.value ?? ""}
+              />
+            )}
           />
           <FieldError message={errors.pickupDate?.message} />
         </FormField>
         <FormField label={copy.dateTime.pickupTimeLabel}>
-          <Input
-            className="h-[var(--taxis-control-h-md)] rounded-[var(--taxis-radius-control)] bg-[var(--taxis-workspace-surface)] px-3.5"
-            type="time"
-            {...register("pickupTime")}
+          <Controller
+            control={control}
+            name="pickupTime"
+            render={({ field, fieldState }) => (
+              <TaxiTimeField
+                aria-invalid={fieldState.invalid || undefined}
+                inputRef={field.ref}
+                name={field.name}
+                onBlur={field.onBlur}
+                onValueChange={field.onChange}
+                value={field.value ?? ""}
+              />
+            )}
           />
           <FieldError message={errors.pickupTime?.message} />
         </FormField>
