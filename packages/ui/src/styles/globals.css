@@ -496,7 +496,10 @@
     }
   }
 
-  .taxios-premium input,
+  /* The TaxiOS Input primitive (data-slot="input") owns its own surface,
+     border and focus ring via Slice 5b. Native inputs (search, date/time,
+     file) keep the premium treatment below. */
+  .taxios-premium input:not([data-slot="input"]),
   .taxios-premium select,
   .taxios-premium textarea {
     min-height: 2.25rem;
@@ -504,7 +507,7 @@
     box-shadow: var(--shadow-taxis-soft);
   }
 
-  .taxios-premium input:focus,
+  .taxios-premium input:not([data-slot="input"]):focus,
   .taxios-premium select:focus,
   .taxios-premium textarea:focus {
     border-color: var(--color-taxis-action);
