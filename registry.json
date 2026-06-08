@@ -152,6 +152,21 @@
       ]
     },
     {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "TaxiOS token-backed select primitive built on Base UI Select.",
+      "registryDependencies": ["taxios-base"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/ui/select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/select.tsx"
+        }
+      ]
+    },
+    {
       "name": "card",
       "type": "registry:ui",
       "title": "Card",
@@ -367,6 +382,7 @@
         "button",
         "input",
         "label",
+        "select",
         "workspace-surface",
         "workspace-status-chips",
         "workspace-table",
