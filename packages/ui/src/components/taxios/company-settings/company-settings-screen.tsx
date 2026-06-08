@@ -33,6 +33,13 @@ import { cn } from "../../../lib/utils";
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
 import { Label } from "../../ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../../ui/select";
 import { WorkspaceSurface } from "../workspace/workspace-primitives";
 
 export type CompanySettingsWorkspaceContentProps = {
@@ -428,40 +435,64 @@ function GeneralSection({
           />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="company-settings-locale">Sprache</Label>
-          <select
-            className="h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          <Label
+            htmlFor="company-settings-locale"
+            id="company-settings-locale-label"
+          >
+            Sprache
+          </Label>
+          <Select
             disabled={!editing || saving}
-            id="company-settings-locale"
-            onChange={(event) =>
+            onValueChange={(value) =>
               onDraftChange({
                 ...draft,
-                locale: event.currentTarget.value as "de-DE" | "en-US",
+                locale: value as "de-DE" | "en-US",
               })
             }
             value={draft.locale}
           >
-            <option value="de-DE">Deutsch</option>
-            <option value="en-US">English</option>
-          </select>
+            <SelectTrigger
+              aria-labelledby="company-settings-locale-label"
+              id="company-settings-locale"
+            >
+              <SelectValue>
+                {(value) => (value === "en-US" ? "English" : "Deutsch")}
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="de-DE">Deutsch</SelectItem>
+              <SelectItem value="en-US">English</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="company-settings-timezone">Zeitzone</Label>
-          <select
-            className="h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          <Label
+            htmlFor="company-settings-timezone"
+            id="company-settings-timezone-label"
+          >
+            Zeitzone
+          </Label>
+          <Select
             disabled={!editing || saving}
-            id="company-settings-timezone"
-            onChange={(event) =>
+            onValueChange={(value) =>
               onDraftChange({
                 ...draft,
-                timezone: event.currentTarget.value as "Europe/Berlin" | "UTC",
+                timezone: value as "Europe/Berlin" | "UTC",
               })
             }
             value={draft.timezone}
           >
-            <option value="Europe/Berlin">Europe/Berlin</option>
-            <option value="UTC">UTC</option>
-          </select>
+            <SelectTrigger
+              aria-labelledby="company-settings-timezone-label"
+              id="company-settings-timezone"
+            >
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="Europe/Berlin">Europe/Berlin</SelectItem>
+              <SelectItem value="UTC">UTC</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
       </div>
     </form>
