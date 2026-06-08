@@ -85,14 +85,14 @@ const shellUser = {
 
 const bookingsCopy: CompanyBookingsCopy = {
   allLoadedLabel: "Alle Buchungen geladen",
-  detailBackdropLabel: "Buchungsdetails schliessen",
+  detailBackdropLabel: "Buchungsdetails schließen",
   detailBookedAtLabel: "Wann gebucht",
   detailBookedByLabel: "Gebucht von",
   detailBookingIdLabel: "Fahrt ID",
   detailCancelErrorFallback: "Die Buchung konnte gerade nicht storniert werden.",
   detailCancelLabel: "Buchung stornieren",
   detailCancelWorkingLabel: "Wird storniert...",
-  detailCloseButtonLabel: "Buchungsdetails schliessen",
+  detailCloseButtonLabel: "Buchungsdetails schließen",
   detailDriverLabel: "Fahrer",
   detailDriverPendingLabel:
     "Fahrer und Fahrzeug werden sichtbar, sobald die Anfahrt startet.",
@@ -101,9 +101,9 @@ const bookingsCopy: CompanyBookingsCopy = {
   detailHistoryLabel: "Buchungshistorie",
   detailNoteEmptyLabel: "Keine Notiz hinterlegt.",
   detailNoteLabel: "Notiz",
-  detailOpenRowLabel: "Details oeffnen",
-  detailPassengersLabel: "Fahrgaeste",
-  detailPickupAtLabel: "Fuer wann",
+  detailOpenRowLabel: "Details öffnen",
+  detailPassengersLabel: "Fahrgäste",
+  detailPickupAtLabel: "Für wann",
   detailRouteLabel: "Route",
   detailVehicleLabel: "Fahrzeug",
   emptyDescription:
@@ -135,7 +135,7 @@ function bookingRow(overrides: Partial<CompanyBookingRow>): CompanyBookingRow {
     createdTimeLabel: "09:10",
     driverName: null,
     driverVehicleVisible: false,
-    from: "Werrastrasse 36",
+    from: "Werrastraße 36",
     history: [
       {
         actorName: "Ada Lovelace",
@@ -158,7 +158,7 @@ function bookingRow(overrides: Partial<CompanyBookingRow>): CompanyBookingRow {
       { color: "navy", id: "primary", label: "Gebucht", status: "booked" },
     ],
     statusLabel: "Gebucht",
-    to: "Linkstrasse 5",
+    to: "Linkstraße 5",
     vehicleDisplayName: null,
     vehicleLicensePlate: null,
     vehicleUnits: [],
@@ -240,7 +240,7 @@ const searchGroups: WorkspaceSearchGroup[] = [
 
 const notificationItems: WorkspaceNotificationItem[] = [
   {
-    body: "BKG-8HTXCR wurde fuer den aktiven Workspace erstellt.",
+    body: "BKG-8HTXCR wurde für den aktiven Workspace erstellt.",
     createdAtLabel: "gerade eben",
     entityPublicId: "BKG-8HTXCR",
     href: "/company-rides/BKG-8HTXCR",
@@ -283,7 +283,7 @@ const settingsCopy: CompanySettingsCopy = {
   savedLabel: "Gespeichert",
   securitySectionDescription: "Konto, Rollen und Zugriff.",
   securitySectionTitle: "Sicherheit",
-  subtitle: "Selten geaenderte Regeln fuer den aktiven Company-Workspace.",
+  subtitle: "Selten geänderte Regeln für den aktiven Company-Workspace.",
   title: "Einstellungen",
 };
 
@@ -312,17 +312,17 @@ const settingsPayload: CompanySettingsPayload = {
       id: "open_roles_settings",
       label: "Rollen in Organisation verwalten",
     },
-    { href: "/company-finance", id: "open_billing", label: "Finanzen oeffnen" },
+    { href: "/company-finance", id: "open_billing", label: "Finanzen öffnen" },
     {
       href: "/company-reports",
       id: "open_audit_export",
-      label: "Berichte und Exporte oeffnen",
+      label: "Berichte und Exporte öffnen",
     },
     {
       disabled: true,
       id: "open_integrations",
       label: "Integrationen verwalten",
-      reason: "Integrationen werden in einem spaeteren Slice angebunden.",
+      reason: "Integrationen werden in einem späteren Slice angebunden.",
     },
   ],
   booking: {
@@ -365,7 +365,7 @@ const financeCopy: CompanyFinanceCopy = {
   providerColumn: "Provider",
   routeColumn: "Route",
   snapshotCountLabel: "Rechnungssnapshots",
-  subtitle: "Rechnungen und Buchungskosten bleiben fuer Admins nachvollziehbar.",
+  subtitle: "Rechnungen und Buchungskosten bleiben für Admins nachvollziehbar.",
   summarySectionTitle: "Uebersicht",
   title: "Finanzen",
   totalKnownAmountLabel: "Bepreister Gesamtwert",
@@ -400,7 +400,7 @@ const reportsCopy: CompanyReportsCopy = {
   routeColumn: "Route",
   statusColumn: "Status",
   subtitle:
-    "Buchungen, Status und Finance-Signale bleiben fuer Admins als read-only MVP-Auswertung sichtbar.",
+    "Buchungen, Status und Finance-Signale bleiben für Admins als read-only MVP-Auswertung sichtbar.",
   summarySectionTitle: "Uebersicht",
   title: "Berichte",
 };
@@ -409,7 +409,7 @@ const reportsEmptyPayload: CompanyReportsPayload = {
   allowedActions: [{ id: "view_company_reports", label: "View company reports" }],
   bookingStatusBreakdown: [
     {
-      description: "Noch nicht bestaetigte Company-Buchungen.",
+      description: "Noch nicht bestätigte Company-Buchungen.",
       id: "requested",
       label: "Angefragt",
       tone: "orange",
@@ -462,24 +462,24 @@ const reportsEmptyPayload: CompanyReportsPayload = {
 const newBookingCopy = {
   advanced: { summary: "Flug, Kontakt, Notizen und Serienfahrt", title: "Weitere Details" },
   addressAutocomplete: {
-    errorLabel: "Adressvorschlaege sind gerade nicht verfuegbar.",
+    errorLabel: "Adressvorschläge sind gerade nicht verfügbar.",
     loadingLabel: "Adressen werden geladen...",
     noResultsLabel: "Keine passende Adresse gefunden.",
-    suggestionListLabel: "Adressvorschlaege",
+    suggestionListLabel: "Adressvorschläge",
   },
   addressVerification: {
-    googleSelectedLabel: "Google-Adresse ausgewaehlt",
+    googleSelectedLabel: "Google-Adresse ausgewählt",
     houseNumberDetectedLabel: "Hausnummer erkannt",
-    missingGoogleSelectionLabel: "Bitte aus Google-Vorschlaegen waehlen",
+    missingGoogleSelectionLabel: "Bitte aus Google-Vorschlägen wählen",
     missingHouseNumberLabel: "Hausnummer fehlt",
-    unavailableLabel: "Adresspruefung gerade nicht verfuegbar",
+    unavailableLabel: "Adressprüfung gerade nicht verfügbar",
   },
   cancelLabel: "Abbrechen",
-  closeLabel: "Neue Buchung schliessen",
+  closeLabel: "Neue Buchung schließen",
   command: {
     livePlanSummary: "Route, Zeit, Gaeste und Fahrzeuge bleiben sichtbar.",
     livePlanTitle: "Live-Plan",
-    passengersEmptyLabel: "0 Fahrgaeste",
+    passengersEmptyLabel: "0 Fahrgäste",
     routeOpenLabel: "Route offen",
     routeReadyLabel: "Route bereit",
     statusLabel: "Buchungsstatus",
@@ -488,7 +488,7 @@ const newBookingCopy = {
     vehiclePluralLabel: "Fahrzeuge",
     vehicleSingularLabel: "Fahrzeug",
   },
-  contact: { label: "Ansprechpartner", placeholder: "Ansprechpartner waehlen", title: "Kontakt" },
+  contact: { label: "Ansprechpartner", placeholder: "Ansprechpartner wählen", title: "Kontakt" },
   dateTime: {
     pickupDateLabel: "Abholdatum",
     pickupTimeLabel: "Abholzeit",
@@ -507,21 +507,21 @@ const newBookingCopy = {
     title: "Schnellrouten",
   },
   flight: { label: "Flugnummer", placeholder: "z. B. LH 203", title: "Fluginformation" },
-  notes: { label: "Interne Notiz", placeholder: "Hinweise fuer Disposition", title: "Notizen" },
+  notes: { label: "Interne Notiz", placeholder: "Hinweise für Disposition", title: "Notizen" },
   passenger: {
-    addCustomLabel: "Fahrgast hinzufuegen",
+    addCustomLabel: "Fahrgast hinzufügen",
     assignedLabel: "Zugewiesen",
     customNameLabel: "Weiterer Fahrgast",
     customNamePlaceholder: "Name",
-    emptyLabel: "Noch keine Fahrgaeste ausgewaehlt.",
-    externalSummary: "Nur nutzen, wenn die Person nicht als Mitglied verfuegbar ist.",
-    externalTitle: "Externen Fahrgast hinzufuegen",
+    emptyLabel: "Noch keine Fahrgäste ausgewählt.",
+    externalSummary: "Nur nutzen, wenn die Person nicht als Mitglied verfügbar ist.",
+    externalTitle: "Externen Fahrgast hinzufügen",
     memberSearchLabel: "Mitglied suchen",
     memberSearchPlaceholder: "Name oder Team suchen",
-    membersEmptyLabel: "Keine berechtigten Mitglieder verfuegbar.",
-    selectLabel: "Fahrgaeste",
-    title: "Fahrgaeste",
-    totalLabel: "Fahrgaeste gesamt",
+    membersEmptyLabel: "Keine berechtigten Mitglieder verfügbar.",
+    selectLabel: "Fahrgäste",
+    title: "Fahrgäste",
+    totalLabel: "Fahrgäste gesamt",
   },
   recurring: {
     disabledLabel: "Backend-Unterstuetzung offen",
@@ -530,13 +530,13 @@ const newBookingCopy = {
   },
   review: {
     backLabel: "Zurueck",
-    changeContactLabel: "Kontakt aendern",
-    changeDateTimeLabel: "Zeit aendern",
-    changeNotesLabel: "Notizen aendern",
-    changePassengerVehicleLabel: "Fahrzeuge aendern",
-    changeRouteLabel: "Route aendern",
+    changeContactLabel: "Kontakt ändern",
+    changeDateTimeLabel: "Zeit ändern",
+    changeNotesLabel: "Notizen ändern",
+    changePassengerVehicleLabel: "Fahrzeuge ändern",
+    changeRouteLabel: "Route ändern",
     nextLabel: "Weiter zur Uebersicht",
-    summary: "Pruefe Route, Zeit, Fahrgaeste und Fahrzeug.",
+    summary: "Pruefe Route, Zeit, Fahrgäste und Fahrzeug.",
     title: "Uebersicht",
   },
   route: {
@@ -557,7 +557,7 @@ const newBookingCopy = {
     pickupFallback: "Keine Abholung",
     title: "Zusammenfassung",
     totalAmountLabel: "Gesamtsumme",
-    totalPassengersLabel: "Fahrgaeste",
+    totalPassengersLabel: "Fahrgäste",
     tripTypeLabel: "Fahrttyp",
     vehicleTypeLabel: "Fahrzeug",
   },
@@ -566,9 +566,9 @@ const newBookingCopy = {
   validation: {
     contactRequired: "Ansprechpartner ist erforderlich.",
     destinationRequired: "Ziel ist erforderlich.",
-    googleAddressRequired: "Bitte eine Adresse aus den Google-Vorschlaegen auswaehlen.",
-    houseNumberRequired: "Bitte eine Google-Adresse mit Hausnummer auswaehlen.",
-    overCapacity: "Ausgewaehltes Fahrzeug hat nur {capacity} Plaetze. Bitte weniger Fahrgaeste auswaehlen.",
+    googleAddressRequired: "Bitte eine Adresse aus den Google-Vorschlägen auswählen.",
+    houseNumberRequired: "Bitte eine Google-Adresse mit Hausnummer auswählen.",
+    overCapacity: "Ausgewähltes Fahrzeug hat nur {capacity} Plaetze. Bitte weniger Fahrgäste auswählen.",
     passengerRequired: "Mindestens ein Fahrgast ist erforderlich.",
     pickupDateRequired: "Abholdatum ist erforderlich.",
     pickupRequired: "Abholung ist erforderlich.",
@@ -577,7 +577,7 @@ const newBookingCopy = {
     returnTimeRequired: "Rueckfahrzeit ist erforderlich.",
   },
   vehicle: {
-    addVehicleLabel: "Weiteres Fahrzeug hinzufuegen",
+    addVehicleLabel: "Weiteres Fahrzeug hinzufügen",
     assignedLabel: "Im Fahrzeug",
     assignSeatsModeLabel: "Mitglieder/Gaeste zuweisen",
     capacityLabel: "Kapazitaet",
@@ -591,7 +591,7 @@ const newBookingCopy = {
     overflowLabel: "Nicht zugewiesen",
     passengersPerVehicleLabel: "Personen pro Fahrzeug",
     remainingLabel: "{remaining} frei",
-    removeVehicleLabel: "Fahrzeug loeschen",
+    removeVehicleLabel: "Fahrzeug löschen",
     slotClearLabel: "leeren",
     slotInputPlaceholder: "Name oder Mitglied suchen",
     slotLabel: "Platz {index}",
@@ -789,14 +789,14 @@ function SurfacePreview({ surface }: { surface: LabSurface }) {
             {
               destinationAddress: "Flughafen BER",
               id: "route-airport",
-              pickupAddress: "Chausseestrasse 1",
+              pickupAddress: "Chausseestraße 1",
               title: "Office -> BER",
             },
           ]}
           initialDraft={{
             destinationAddress: "Flughafen BER",
             passengerIds: ["ada", "grace", "katherine", "mary"],
-            pickupAddress: "Chausseestrasse 1",
+            pickupAddress: "Chausseestraße 1",
           }}
           isOpen
           onClose={() => undefined}

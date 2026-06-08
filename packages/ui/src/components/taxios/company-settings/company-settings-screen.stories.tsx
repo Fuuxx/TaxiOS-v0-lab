@@ -53,12 +53,12 @@ const payload = {
     {
       href: "/company-finance",
       id: "open_billing" as const,
-      label: "Finanzen oeffnen",
+      label: "Finanzen öffnen",
     },
     {
       href: "/company-reports",
       id: "open_audit_export" as const,
-      label: "Berichte und Exporte oeffnen",
+      label: "Berichte und Exporte öffnen",
     },
     {
       disabled: true,

@@ -526,7 +526,7 @@ export function ProviderInboxScreen({
           <section className="taxis-workspace-animate-fade-up flex flex-col gap-6">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div className="min-w-0">
-                <p className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.18em]">
+                <p className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
                   {copy.title}
                 </p>
                 <h1 className="mt-2 font-semibold text-[30px] text-[var(--taxis-workspace-text-strong)] leading-[1.08] tracking-normal">

@@ -267,7 +267,7 @@ function CompanyBookingsDetailMetric({
 }) {
   return (
     <div className="min-w-0 rounded-[18px] border border-[var(--taxis-workspace-border)] bg-[var(--taxis-workspace-surface)] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.88)]">
-      <span className="block font-semibold text-[9.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+      <span className="block font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
         {label}
       </span>
       <p className="mt-1 truncate font-semibold text-[13px] text-[var(--taxis-workspace-text-strong)]">
@@ -454,7 +454,7 @@ function CompanyBookingDetailDrawer({
 
         <div className="taxis-overlay-header relative z-10 flex items-start justify-between gap-4 border-[var(--taxis-workspace-border-subtle)] border-b px-6 pt-6 pb-5">
           <div className="min-w-0 flex-1">
-            <span className="block font-semibold text-[9.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <span className="block font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
               {copy.detailBookingIdLabel}
             </span>
             <div className="mt-2 flex min-w-0 items-center gap-2.5">
@@ -501,7 +501,7 @@ function CompanyBookingDetailDrawer({
           </section>
 
           <section>
-            <h4 className="mb-4 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.16em]">
+            <h4 className="mb-4 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
               {passengers.length} {copy.detailPassengersLabel}
             </h4>
             <div className="space-y-2">
@@ -526,7 +526,7 @@ function CompanyBookingDetailDrawer({
           <section className="ride-detail-info-card space-y-5 rounded-[22px] border border-[var(--taxis-workspace-border)] bg-[var(--taxis-workspace-surface)] p-5 shadow-[0_16px_42px_-36px_rgba(15,23,42,0.48),inset_0_1px_0_rgba(255,255,255,0.92)]">
             <div className="flex items-center gap-2 text-[var(--taxis-workspace-text-muted)]">
               <Route size={16} />
-              <h4 className="font-semibold text-[11px] uppercase tracking-[0.16em]">
+              <h4 className="font-semibold text-[11px] uppercase tracking-[0.14em]">
                 {copy.detailRouteLabel}
               </h4>
             </div>
@@ -544,7 +544,7 @@ function CompanyBookingDetailDrawer({
           </section>
 
           <section className="rounded-[22px] border border-[var(--taxis-workspace-border)] bg-[var(--taxis-workspace-surface)] p-5 shadow-[0_16px_42px_-36px_rgba(15,23,42,0.48),inset_0_1px_0_rgba(255,255,255,0.92)]">
-            <h4 className="mb-2 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.16em]">
+            <h4 className="mb-2 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
               {copy.detailNoteLabel}
             </h4>
             <p className="whitespace-pre-wrap text-[13px] text-[var(--taxis-workspace-text-secondary)] leading-relaxed">
@@ -553,7 +553,7 @@ function CompanyBookingDetailDrawer({
           </section>
 
           <section className="rounded-[22px] border border-[var(--taxis-workspace-border)] bg-[var(--taxis-workspace-surface)] p-5 shadow-[0_16px_42px_-36px_rgba(15,23,42,0.48),inset_0_1px_0_rgba(255,255,255,0.92)]">
-            <h4 className="mb-4 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.16em]">
+            <h4 className="mb-4 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
               {copy.detailDriverVehicleLabel}
             </h4>
             <div className="space-y-3">
@@ -640,7 +640,7 @@ function CompanyBookingDetailDrawer({
           </section>
 
           <section>
-            <h4 className="mb-4 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.16em]">
+            <h4 className="mb-4 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
               {copy.detailHistoryLabel}
             </h4>
             {history.length === 0 ? (

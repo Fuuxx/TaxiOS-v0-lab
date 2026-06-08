@@ -184,7 +184,7 @@ export function RideDetailDrawer({
                 {detail.id}
               </span>
               <span
-                className={`flex shrink-0 items-center gap-1.5 rounded-md px-2.5 py-1.5 font-semibold text-[9px] uppercase tracking-[0.12em] ${
+                className={`flex shrink-0 items-center gap-1.5 rounded-md px-2.5 py-1.5 font-semibold text-[9px] uppercase tracking-[0.14em] ${
                   detail.statusColor === "green"
                     ? "bg-[var(--taxis-status-success-bg)] text-[var(--taxis-status-success-text)] ring-1 ring-[var(--taxis-status-success-ring)]"
                     : "bg-[var(--taxis-status-neutral-bg)] text-[var(--taxis-status-neutral-text)]"
@@ -206,7 +206,7 @@ export function RideDetailDrawer({
 
         <div className="taxios-dashboard-custom-scrollbar flex-1 space-y-6 overflow-y-auto px-6 pt-6 pb-7">
           <section>
-            <h4 className="mb-5 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.16em]">
+            <h4 className="mb-5 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
               {detail.passengers.length} {copy.passengersLabel}
             </h4>
             <div className="space-y-2">

@@ -45,7 +45,7 @@ export function FastbookingRouteForm({
   initialValue,
   onSave,
   pickupLabel = "Abholort (VON)",
-  pickupPlaceholder = "Strasse, Stadt",
+  pickupPlaceholder = "Straße, Stadt",
   routeTitleLabel = "Titel der Route",
   routeTitlePlaceholder = "z.B. Flughafen BER",
   saveLabel = "Route speichern",

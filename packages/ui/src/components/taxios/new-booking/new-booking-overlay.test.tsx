@@ -27,7 +27,7 @@ const copy = {
     suggestionListLabel: "Adressvorschläge",
   },
   addressVerification: {
-    googleSelectedLabel: "Google-Adresse ausgewaehlt",
+    googleSelectedLabel: "Google-Adresse ausgewählt",
     houseNumberDetectedLabel: "Hausnummer erkannt",
     missingGoogleSelectionLabel: "Bitte aus Google-Vorschlägen wählen",
     missingHouseNumberLabel: "Hausnummer fehlt",
@@ -49,7 +49,7 @@ const copy = {
   },
   contact: {
     label: "Ansprechpartner",
-    placeholder: "Ansprechpartner waehlen",
+    placeholder: "Ansprechpartner wählen",
     title: "Kontakt",
   },
   dateTime: {
@@ -1202,7 +1202,7 @@ describe("NewBookingOverlay", () => {
         {
           id: `${field}-place`,
           mainText:
-            field === "pickup" ? "Invalidenstrasse 1" : "Melli-Beese-Ring 1",
+            field === "pickup" ? "Invalidenstraße 1" : "Melli-Beese-Ring 1",
           secondaryText: field === "pickup" ? "Berlin" : "Schonefeld",
         },
       ]),
@@ -1212,13 +1212,13 @@ describe("NewBookingOverlay", () => {
               addressComponents: [
                 { longText: "1", shortText: "1", types: ["street_number"] },
                 {
-                  longText: "Invalidenstrasse",
-                  shortText: "Invalidenstrasse",
+                  longText: "Invalidenstraße",
+                  shortText: "Invalidenstraße",
                   types: ["route"],
                 },
               ],
-              displayName: "Invalidenstrasse 1",
-              formattedAddress: "Invalidenstrasse 1, Berlin",
+              displayName: "Invalidenstraße 1",
+              formattedAddress: "Invalidenstraße 1, Berlin",
               latitude: 52.531,
               longitude: 13.383,
               placeId: "pickup-valid",
@@ -1259,7 +1259,7 @@ describe("NewBookingOverlay", () => {
 
     await user.type(screen.getByPlaceholderText("Abholadresse"), "Invaliden");
     await user.click(
-      await screen.findByRole("option", { name: /Invalidenstrasse 1/i }),
+      await screen.findByRole("option", { name: /Invalidenstraße 1/i }),
     );
     await user.type(screen.getByPlaceholderText("Zieladresse"), "Melli");
 
@@ -1374,7 +1374,7 @@ describe("NewBookingOverlay", () => {
               {
                 id: "pickup-1",
                 mainText: "Berlin Central Office",
-                secondaryText: "Invalidenstrasse 1, Berlin",
+                secondaryText: "Invalidenstraße 1, Berlin",
               },
               {
                 id: "pickup-2",
@@ -1513,7 +1513,7 @@ describe("NewBookingOverlay", () => {
               {
                 id: "pickup-1",
                 mainText: "Berlin Central Office",
-                secondaryText: "Invalidenstrasse 1, Berlin",
+                secondaryText: "Invalidenstraße 1, Berlin",
               },
             ]
           : [
@@ -1546,13 +1546,13 @@ describe("NewBookingOverlay", () => {
               addressComponents: [
                 { longText: "1", shortText: "1", types: ["street_number"] },
                 {
-                  longText: "Invalidenstrasse",
-                  shortText: "Invalidenstrasse",
+                  longText: "Invalidenstraße",
+                  shortText: "Invalidenstraße",
                   types: ["route"],
                 },
               ],
               displayName: "Berlin Central Office",
-              formattedAddress: "Invalidenstrasse 1, 10115 Berlin",
+              formattedAddress: "Invalidenstraße 1, 10115 Berlin",
               latitude: 52.531,
               longitude: 13.383,
               placeId: "google-place-office",
@@ -1694,7 +1694,7 @@ describe("deriveNewBookingSubmitPayload", () => {
         passengerInputMode: "assign_seats",
         guestCount: 1,
         passengersPerVehicle: 3,
-        pickupAddress: "  Chausseestrasse 1  ",
+        pickupAddress: "  Chausseestraße 1  ",
         pickupDate: "2026-06-01",
         pickupTime: "09:30",
         returnDate: "",
@@ -1710,7 +1710,7 @@ describe("deriveNewBookingSubmitPayload", () => {
       internalNote: "Gate A",
       passengers: [{ kind: "member", memberId: "ada", name: "Ada Lovelace" }],
       passengerIds: ["ada"],
-      pickupAddress: "Chausseestrasse 1",
+      pickupAddress: "Chausseestraße 1",
       requestedPickupAt: new Date("2026-06-01T09:30").getTime(),
     });
   });

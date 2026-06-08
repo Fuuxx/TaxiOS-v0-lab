@@ -208,7 +208,7 @@ export const demoCompanyDashboardCopyDe = {
     noMembersFound: "Keine Mitarbeiter gefunden",
     openMemberPickerLabel: "Mitarbeiterauswahl offnen",
     pickupLabel: "Abholort (VON)",
-    pickupPlaceholder: "Strasse, Stadt",
+    pickupPlaceholder: "Straße, Stadt",
     removeMemberLabel: "Mitarbeiter entfernen",
     routeTitleLabel: "Titel der Route",
     routeTitlePlaceholder: "z.B. Flughafen BER",

@@ -85,7 +85,7 @@ export function WorkspaceSearchResultsScreen({
         <div className="taxis-search-results-header grid gap-5 px-5 py-5 sm:px-6">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div className="min-w-0">
-              <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.16em]">
+              <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
                 Ergebnisraum
               </p>
               <h2 className="mt-1 font-bold text-[22px] text-[var(--taxis-workspace-text-primary)] tracking-tight">

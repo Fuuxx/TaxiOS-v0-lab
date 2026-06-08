@@ -58,12 +58,12 @@ const payload: CompanySettingsPayload = {
     {
       href: "/company-finance",
       id: "open_billing",
-      label: "Finanzen oeffnen",
+      label: "Finanzen öffnen",
     },
     {
       href: "/company-reports",
       id: "open_audit_export",
-      label: "Berichte und Exporte oeffnen",
+      label: "Berichte und Exporte öffnen",
     },
     {
       disabled: true,

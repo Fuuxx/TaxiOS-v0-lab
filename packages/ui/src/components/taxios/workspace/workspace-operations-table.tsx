@@ -215,7 +215,7 @@ export function OperationsDataTableHeader({
     <thead {...props} className={className}>
       <tr
         className={cn(
-          "font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.15em]",
+          "font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]",
           rowClassName,
         )}
       >

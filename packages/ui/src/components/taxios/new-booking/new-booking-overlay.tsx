@@ -1398,7 +1398,7 @@ export function NewBookingOverlay({
           <WorkspaceWizardHeader>
             <div className="flex items-start justify-between gap-5">
               <div className="min-w-0">
-                <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.16em]">
+                <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
                   {copy.command.statusLabel}
                 </p>
                 <h2
@@ -1879,7 +1879,7 @@ function BookingLivePlan({
     <WorkspaceWizardRail>
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.16em]">
+          <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
             {copy.command.statusLabel}
           </p>
           <h3 className="mt-1 font-semibold text-taxis-section-md text-[var(--taxis-workspace-text-strong)] tracking-tight">
@@ -1963,7 +1963,7 @@ function LivePlanMetric({
         {icon}
       </span>
       <div className="min-w-0">
-        <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.12em]">
+        <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
           {label}
         </p>
         <p className="truncate font-semibold text-[12px] text-[var(--taxis-workspace-text-strong)]">
@@ -3138,7 +3138,7 @@ function PassengerSeatInput({
     >
       <div className="mb-2 flex items-center justify-between gap-3">
         <label
-          className="font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.12em]"
+          className="font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]"
           htmlFor={`new-booking-passenger-slot-${slotIndex}`}
         >
           {slotLabel}
@@ -3184,7 +3184,7 @@ function PassengerSeatInput({
       {hasPassengerMenu ? (
         <div className="absolute right-3 left-3 z-30 mt-2 overflow-hidden rounded-[14px] border border-[var(--taxis-workspace-overlay-border)] bg-[var(--taxis-workspace-overlay-bg)] p-1.5 shadow-[var(--taxis-workspace-overlay-shadow)]">
           {memberSuggestions.length > 0 ? (
-            <p className="px-2 py-1 font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.12em]">
+            <p className="px-2 py-1 font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
               {copy.vehicle.slotSuggestionLabel}
             </p>
           ) : null}
@@ -3369,7 +3369,7 @@ export function RecurringRideSection({
         <p className="font-medium text-[12px] text-[var(--taxis-workspace-text-muted)] leading-relaxed">
           {copy.recurring.summary}
         </p>
-        <span className="mt-3 inline-flex rounded-md bg-[var(--taxis-workspace-surface-deep)] px-2.5 py-1 font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.12em] ring-1 ring-[var(--taxis-workspace-border)]">
+        <span className="mt-3 inline-flex rounded-md bg-[var(--taxis-workspace-surface-deep)] px-2.5 py-1 font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em] ring-1 ring-[var(--taxis-workspace-border)]">
           {copy.recurring.disabledLabel}
         </span>
       </div>
@@ -3760,7 +3760,7 @@ function SummaryStop({
         )}
       />
       <div className="min-w-0">
-        <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.12em]">
+        <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
           {label}
         </p>
         <p className="mt-1 truncate font-semibold text-[13px] text-[var(--taxis-workspace-text-strong)]">
@@ -3774,7 +3774,7 @@ function SummaryStop({
 function SummaryRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-start justify-between gap-4">
-      <span className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.12em]">
+      <span className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
         {label}
       </span>
       <span className="max-w-[180px] text-right font-semibold text-[12px] text-[var(--taxis-workspace-text-strong)] leading-snug">

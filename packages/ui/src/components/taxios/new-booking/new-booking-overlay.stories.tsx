@@ -19,7 +19,7 @@ const copy = {
     suggestionListLabel: "Adressvorschläge",
   },
   addressVerification: {
-    googleSelectedLabel: "Google-Adresse ausgewaehlt",
+    googleSelectedLabel: "Google-Adresse ausgewählt",
     houseNumberDetectedLabel: "Hausnummer erkannt",
     missingGoogleSelectionLabel: "Bitte aus Google-Vorschlägen wählen",
     missingHouseNumberLabel: "Hausnummer fehlt",
@@ -41,7 +41,7 @@ const copy = {
   },
   contact: {
     label: "Ansprechpartner",
-    placeholder: "Ansprechpartner waehlen",
+    placeholder: "Ansprechpartner wählen",
     title: "Kontakt",
   },
   dateTime: {
@@ -267,7 +267,7 @@ const meta = {
       {
         destinationAddress: "Flughafen BER",
         id: "route-airport",
-        pickupAddress: "Chausseestrasse 1",
+        pickupAddress: "Chausseestraße 1",
         title: "Office -> BER",
       },
     ],
@@ -294,7 +294,7 @@ export const FastBookingDraftMultiVehicle: Story = {
     initialDraft: {
       destinationAddress: "Flughafen BER",
       passengerIds: ["ada", "grace", "katherine", "mary", "dorothy"],
-      pickupAddress: "Chausseestrasse 1",
+      pickupAddress: "Chausseestraße 1",
     },
   },
 };
@@ -305,7 +305,7 @@ export const GuestCountEightGuests: Story = {
       {
         destinationAddress: "Flughafen BER",
         id: "route-airport",
-        pickupAddress: "Chausseestrasse 1",
+        pickupAddress: "Chausseestraße 1",
         title: "Office -> BER",
       },
       {
@@ -341,7 +341,7 @@ export const ReviewReady: Story = {
     initialDraft: {
       destinationAddress: "Flughafen BER",
       passengerIds: ["ada", "grace", "katherine"],
-      pickupAddress: "Chausseestrasse 1",
+      pickupAddress: "Chausseestraße 1",
     },
   },
   parameters: {
@@ -374,7 +374,7 @@ export const MissingGoogleSelection: Story = {
     addressAutocomplete: verifiedAutocomplete,
     initialDraft: {
       destinationAddress: "Alexanderplatz 1",
-      pickupAddress: "Chausseestrasse 1",
+      pickupAddress: "Chausseestraße 1",
     },
     requireVerifiedAddresses: true,
   },
@@ -408,7 +408,7 @@ export const GoogleUnavailable: Story = {
     addressAutocomplete: unavailableAutocomplete,
     initialDraft: {
       destinationAddress: "Alexanderplatz 1",
-      pickupAddress: "Chausseestrasse 1",
+      pickupAddress: "Chausseestraße 1",
     },
     requireVerifiedAddresses: true,
   },
@@ -569,7 +569,7 @@ export const ReviewStepRhythm: Story = {
     initialDraft: {
       destinationAddress: "Flughafen BER Terminal 1",
       passengerIds: ["ada", "grace"],
-      pickupAddress: "Chausseestrasse 1, Berlin",
+      pickupAddress: "Chausseestraße 1, Berlin",
     },
   },
   parameters: {

@@ -459,7 +459,7 @@ export function DriverJobsScreen({
       <div className="taxis-workspace-content-area mx-auto flex w-full max-w-[1320px] flex-col gap-6 px-4 pb-12 pt-6 sm:px-6 lg:px-8 xl:px-10">
         <section className="taxis-workspace-animate-fade-up grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.72fr)] lg:items-end">
           <div className="min-w-0 max-w-3xl">
-            <p className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.18em]">
+            <p className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
               {copy.title}
             </p>
             <h1 className="mt-2 font-semibold text-[28px] text-[var(--taxis-workspace-text-strong)] leading-[1.08] tracking-normal sm:text-[30px]">

@@ -324,7 +324,7 @@ function DetailMetric({
 }) {
   return (
     <div className="min-w-0 rounded-[18px] border border-[var(--taxis-workspace-border)] bg-white/82 px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.88)]">
-      <span className="block font-semibold text-[9.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+      <span className="block font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
         {label}
       </span>
       <p className="mt-1 truncate font-semibold text-[13px] text-[var(--taxis-workspace-text-strong)]">
@@ -421,7 +421,7 @@ const tableShellClassName =
   "taxis-company-surface-section taxis-workspace-table-shell taxios-company-organization-table-shell overflow-hidden p-3";
 
 const headerCellClassName =
-  "taxis-workspace-table-header-cell taxios-company-organization-header-cell border-y px-4 py-3 font-semibold text-[10px] uppercase tracking-[0.15em] first:rounded-l-[16px] first:border-l last:rounded-r-[16px] last:border-r";
+  "taxis-workspace-table-header-cell taxios-company-organization-header-cell border-y px-4 py-3 font-semibold text-[10px] uppercase tracking-[0.14em] first:rounded-l-[16px] first:border-l last:rounded-r-[16px] last:border-r";
 
 const bodyCellClassName =
   "taxis-workspace-table-cell taxios-company-organization-cell border-y px-4 py-4 first:rounded-l-[18px] first:border-l last:rounded-r-[18px] last:border-r";
@@ -777,7 +777,7 @@ function CompanyMemberAccessDrawer({
       >
         <div className="taxis-overlay-header relative z-10 flex items-start justify-between gap-4 border-zinc-100/70 border-b px-6 pt-6 pb-5">
           <div className="min-w-0 flex-1">
-            <span className="block font-semibold text-[9.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <span className="block font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
               {copy.memberDetailTitle}
             </span>
             <div className="mt-3 flex min-w-0 items-center gap-3">
@@ -983,7 +983,7 @@ function CompanyMemberAccessDrawer({
               </section>
 
               <section>
-                <h4 className="mb-3 flex items-center gap-2 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.16em]">
+                <h4 className="mb-3 flex items-center gap-2 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
                   <History size={14} />
                   {copy.memberDetailAuditTitle}
                 </h4>
@@ -1410,7 +1410,7 @@ function CompanyOrganizationAddDialog({
         <div className="pointer-events-none absolute inset-0 rounded-[28px] shadow-[inset_1px_0_0_rgba(255,255,255,0.82),inset_0_-1px_0_rgba(15,23,42,0.04)]" />
         <div className="relative z-10 flex shrink-0 items-start justify-between gap-4 border-zinc-100/70 border-b bg-white/74 px-5 pt-5 pb-4 md:px-6">
           <div className="min-w-0">
-            <p className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.18em]">
+            <p className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
               Organisation
             </p>
             <h2
@@ -1798,7 +1798,7 @@ function CompanyUnitDetailDrawer({
       >
         <div className="taxis-overlay-header relative z-10 flex items-start justify-between gap-4 border-zinc-100/70 border-b px-6 pt-6 pb-5">
           <div className="min-w-0 flex-1">
-            <span className="block font-semibold text-[9.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <span className="block font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
               {copy.unitNameColumn}
             </span>
             <div className="mt-3 flex min-w-0 items-center gap-3">
@@ -1849,7 +1849,7 @@ function CompanyUnitDetailDrawer({
           </section>
 
           <section>
-            <h4 className="mb-3 flex items-center gap-2 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.16em]">
+            <h4 className="mb-3 flex items-center gap-2 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
               <UsersRound size={14} />
               {copy.membersSectionTitle}
             </h4>
@@ -1897,7 +1897,7 @@ function CompanyUnitDetailDrawer({
           </section>
 
           <section>
-            <h4 className="mb-3 flex items-center gap-2 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.16em]">
+            <h4 className="mb-3 flex items-center gap-2 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
               <Mail size={14} />
               {copy.invitationsSectionTitle}
             </h4>
