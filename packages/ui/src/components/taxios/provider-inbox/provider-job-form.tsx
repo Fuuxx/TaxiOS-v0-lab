@@ -10,6 +10,7 @@ import type {
 } from "../../../contracts/provider-inbox";
 import { cn } from "../../../lib/utils";
 import { Button } from "../../ui/button";
+import { TaxiDateTimeField } from "../../ui/date-time-field";
 import { Input } from "../../ui/input";
 import { Label } from "../../ui/label";
 import { WorkspaceSurface } from "../workspace/workspace-primitives";
@@ -131,12 +132,9 @@ export function ProviderJobForm({
             />
           </ProviderJobFormField>
           <ProviderJobFormField label={copy.optionalPickupTimeLabel}>
-            <Input
+            <TaxiDateTimeField
               disabled={disabled || isSubmitting}
-              onChange={(event) =>
-                updateField("requestedPickupAt", event.target.value)
-              }
-              type="datetime-local"
+              onValueChange={(value) => updateField("requestedPickupAt", value)}
               value={formData.requestedPickupAt}
             />
           </ProviderJobFormField>

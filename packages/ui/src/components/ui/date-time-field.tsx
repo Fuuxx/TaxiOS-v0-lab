@@ -213,3 +213,84 @@ export function TaxiTimeField({
     />
   );
 }
+
+/* --------------------------- Date + time field -------------------------- */
+
+const CANONICAL_DATETIME = /^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})$/;
+
+/** Split a combined "yyyy-MM-ddTHH:mm" into its canonical date and time parts. */
+function splitDateTime(canonical: string): { date: string; time: string } {
+  const match = CANONICAL_DATETIME.exec(canonical);
+  if (!match) return { date: "", time: "" };
+  return { date: match[1], time: match[2] };
+}
+
+/** Join canonical date + time back into "yyyy-MM-ddTHH:mm", or "" if either is missing. */
+function joinDateTime(date: string, time: string): string {
+  if (!CANONICAL_DATE.test(date) || !CANONICAL_TIME.test(time)) return "";
+  return `${date}T${time}`;
+}
+
+type TaxiDateTimeFieldProps = Omit<SharedFieldProps, "placeholder"> & {
+  /** Optional override for the date sub-field placeholder. */
+  datePlaceholder?: string;
+  /** Optional override for the time sub-field placeholder. */
+  timePlaceholder?: string;
+};
+
+/**
+ * Composite of {@link TaxiDateField} + {@link TaxiTimeField} that reads and
+ * emits a single combined canonical string ("yyyy-MM-ddTHH:mm") — the exact
+ * value shape a native `<input type="datetime-local">` produces. This lets it
+ * drop into forms that store one `requestedPickupAt`-style field while still
+ * showing German desktop formats (TT.MM.JJJJ + HH:mm, 24h).
+ *
+ * The combined value is only emitted once BOTH parts are complete; a partial
+ * entry emits "" (mirrors native datetime-local, which yields no value until
+ * both date and time are valid).
+ */
+export function TaxiDateTimeField({
+  value,
+  onValueChange,
+  onBlur,
+  name,
+  id,
+  disabled,
+  required,
+  className,
+  datePlaceholder,
+  timePlaceholder,
+  inputRef,
+  ...aria
+}: TaxiDateTimeFieldProps) {
+  const { date, time } = splitDateTime(value);
+
+  return (
+    <div className={cn("flex min-w-0 gap-2", className)} id={id}>
+      <TaxiDateField
+        aria-describedby={aria["aria-describedby"]}
+        aria-invalid={aria["aria-invalid"]}
+        className="flex-1"
+        disabled={disabled}
+        inputRef={inputRef}
+        name={name ? `${name}-date` : undefined}
+        onBlur={onBlur}
+        onValueChange={(nextDate) => onValueChange(joinDateTime(nextDate, time))}
+        placeholder={datePlaceholder}
+        required={required}
+        value={date}
+      />
+      <TaxiTimeField
+        aria-invalid={aria["aria-invalid"]}
+        className="w-[7.5rem] shrink-0"
+        disabled={disabled}
+        name={name ? `${name}-time` : undefined}
+        onBlur={onBlur}
+        onValueChange={(nextTime) => onValueChange(joinDateTime(date, nextTime))}
+        placeholder={timePlaceholder}
+        required={required}
+        value={time}
+      />
+    </div>
+  );
+}

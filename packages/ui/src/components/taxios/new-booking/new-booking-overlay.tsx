@@ -1473,7 +1473,6 @@ export function NewBookingOverlay({
                         copy={copy}
                         errors={errors}
                         onQuickPickupTime={applyQuickPickupTime}
-                        register={register}
                         tripType={values.tripType}
                       />
                     </WorkspaceWizardSection>
@@ -2604,14 +2603,12 @@ export function DateTimeFields({
   copy,
   errors,
   onQuickPickupTime,
-  register,
   tripType,
 }: {
   control: RegisteredForm["control"];
   copy: NewBookingOverlayCopy;
   errors: RegisteredForm["formState"]["errors"];
   onQuickPickupTime: (action: NewBookingQuickTimeAction) => void;
-  register: RegisteredForm["register"];
   tripType: NewBookingTripType;
 }) {
   const quickActions = [
@@ -2680,18 +2677,36 @@ export function DateTimeFields({
         {tripType === "round_trip" ? (
           <>
             <FormField label={copy.dateTime.returnDateLabel}>
-              <Input
-                className="h-[var(--taxis-control-h-md)] rounded-[var(--taxis-radius-control)] bg-[var(--taxis-workspace-surface)] px-3.5"
-                type="date"
-                {...register("returnDate")}
+              <Controller
+                control={control}
+                name="returnDate"
+                render={({ field, fieldState }) => (
+                  <TaxiDateField
+                    aria-invalid={fieldState.invalid || undefined}
+                    inputRef={field.ref}
+                    name={field.name}
+                    onBlur={field.onBlur}
+                    onValueChange={field.onChange}
+                    value={field.value ?? ""}
+                  />
+                )}
               />
               <FieldError message={errors.returnDate?.message} />
             </FormField>
             <FormField label={copy.dateTime.returnTimeLabel}>
-              <Input
-                className="h-[var(--taxis-control-h-md)] rounded-[var(--taxis-radius-control)] bg-[var(--taxis-workspace-surface)] px-3.5"
-                type="time"
-                {...register("returnTime")}
+              <Controller
+                control={control}
+                name="returnTime"
+                render={({ field, fieldState }) => (
+                  <TaxiTimeField
+                    aria-invalid={fieldState.invalid || undefined}
+                    inputRef={field.ref}
+                    name={field.name}
+                    onBlur={field.onBlur}
+                    onValueChange={field.onChange}
+                    value={field.value ?? ""}
+                  />
+                )}
               />
               <FieldError message={errors.returnTime?.message} />
             </FormField>

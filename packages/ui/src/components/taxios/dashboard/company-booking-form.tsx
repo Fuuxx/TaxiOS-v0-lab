@@ -10,6 +10,7 @@ import type {
 } from "../../../contracts/company-dashboard";
 import { cn } from "../../../lib/utils";
 import { Button } from "../../ui/button";
+import { TaxiDateTimeField } from "../../ui/date-time-field";
 import { Input } from "../../ui/input";
 import { Label } from "../../ui/label";
 import { TaxiosPorcelainSurface } from "./taxios-dashboard-primitives";
@@ -129,13 +130,9 @@ export function CompanyBookingForm({
             />
           </CompanyBookingFormField>
           <CompanyBookingFormField label={copy.optionalPickupTimeLabel}>
-            <Input
-              className="h-10 rounded-xl px-3 text-[14px]"
+            <TaxiDateTimeField
               disabled={disabled || isSubmitting}
-              onChange={(event) =>
-                updateField("requestedPickupAt", event.target.value)
-              }
-              type="datetime-local"
+              onValueChange={(value) => updateField("requestedPickupAt", value)}
               value={formData.requestedPickupAt}
             />
           </CompanyBookingFormField>
