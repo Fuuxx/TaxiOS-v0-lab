@@ -210,11 +210,19 @@ function ProviderInboxTopbar({
     <header className="taxis-workspace-topbar taxios-provider-topbar z-30 flex min-h-20 shrink-0 flex-col gap-4 px-6 py-5 lg:flex-row lg:items-center lg:justify-between xl:h-20 xl:px-10 xl:py-0">
       <div className="flex min-w-0 items-center gap-2 font-semibold text-[13.5px] text-[var(--taxis-workspace-text-muted)] tracking-normal">
         <span className="text-[var(--taxis-workspace-text-muted)]">TaxiOS</span>
-        <ChevronRight aria-hidden="true" className="opacity-40" size={14} />
+        <ChevronRight
+          aria-hidden="true"
+          className="shrink-0 text-[var(--taxis-workspace-text-subtle)]"
+          size={14}
+        />
         <span className="min-w-0 truncate text-[var(--taxis-workspace-text-muted)]">
           {organizationName}
         </span>
-        <ChevronRight aria-hidden="true" className="opacity-40" size={14} />
+        <ChevronRight
+          aria-hidden="true"
+          className="shrink-0 text-[var(--taxis-workspace-text-subtle)]"
+          size={14}
+        />
         <span className="font-semibold text-[15px] text-[var(--taxis-workspace-text-strong)]">
           {copy.title}
         </span>
@@ -260,7 +268,7 @@ function ProviderInboxTopbar({
             strokeWidth={1.9}
           />
           {activeVisibleCount > 0 ? (
-            <span className="absolute top-2.5 right-2.5 h-2 w-2 rounded-full border-2 border-white bg-[var(--taxis-workspace-accent-strong)] shadow-sm" />
+            <span className="absolute top-2 right-2 h-2.5 w-2.5 rounded-full bg-[var(--taxis-workspace-accent-strong)] ring-2 ring-[var(--taxis-workspace-surface)]" />
           ) : null}
         </span>
       </div>

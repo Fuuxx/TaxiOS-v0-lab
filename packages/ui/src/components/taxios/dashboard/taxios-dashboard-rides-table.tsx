@@ -288,8 +288,14 @@ export function TaxiosDashboardRidesTableRow({
         </div>
       </td>
       <td className="taxios-rides-cell border-y px-4 py-3">
-        <span className="taxis-data-id taxios-rides-public-id block font-semibold text-[11px] text-[var(--taxis-workspace-text-secondary)]">
-          {trip.publicId ?? "-"}
+        <span
+          className={`taxis-data-id taxios-rides-public-id block font-semibold text-[11px] ${
+            trip.publicId
+              ? "text-[var(--taxis-workspace-text-secondary)]"
+              : "text-[var(--taxis-workspace-text-muted)]"
+          }`}
+        >
+          {trip.publicId ?? "—"}
         </span>
       </td>
       <td className="taxios-rides-cell rounded-r-[16px] border-y border-r px-4 py-3 text-right">

@@ -244,7 +244,7 @@ describe("CompanyBookingsWorkspaceContent", () => {
       screen.getAllByRole("columnheader").map((header) => header.textContent),
     ).toEqual(["Abholung", "Erstellt", "Passagiere", "Route", "ID", "Status"]);
     expect(screen.getByText("BKG-7K4Q2M")).toBeTruthy();
-    expect(screen.getByText("-")).toBeTruthy();
+    expect(screen.getByText("—")).toBeTruthy();
     expect(screen.getByTitle("Taxi-Status: Gebucht")).toBeTruthy();
     expect(screen.getByTitle("Status: Abgeschlossen")).toBeTruthy();
     expect(screen.getByTitle("Status: Storniert")).toBeTruthy();

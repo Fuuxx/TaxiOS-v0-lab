@@ -146,7 +146,7 @@ function ProviderFleetTable({
                 </td>
                 <td className="taxis-workspace-table-cell taxis-company-table-cell border-y px-4 py-3.5">
                   <span className="block truncate font-medium text-[13px] text-[var(--taxis-workspace-text-secondary)]">
-                    {vehicle.activeDriverName ?? "-"}
+                    {vehicle.activeDriverName ?? "—"}
                   </span>
                   {vehicle.activeSessionStartedAt ? (
                     <span className="mt-1 block font-semibold text-[10.5px] text-[var(--taxis-workspace-text-subtle)] uppercase tracking-taxis-eyebrow">

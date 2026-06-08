@@ -851,7 +851,7 @@ function CompanyBookingsTable({
               </td>
               <td className="taxis-workspace-table-cell taxios-bookings-cell border-y px-4 py-3.5">
                 <span className="taxis-data-id taxios-bookings-public-id block font-semibold text-[11px] text-[var(--taxis-workspace-text-secondary)]">
-                  {row.publicId ?? "-"}
+                  {row.publicId ?? "—"}
                 </span>
               </td>
               <td className="taxis-workspace-table-cell taxios-bookings-cell rounded-r-[16px] border-y border-r px-4 py-3.5 text-right">

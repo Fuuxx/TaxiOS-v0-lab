@@ -159,7 +159,7 @@ function RecentReportsTable({
                 className={`${reportsBodyCellClassName} rounded-l-[18px] border-l`}
               >
                 <span className="font-mono font-semibold text-[11px] text-[var(--taxis-workspace-text-secondary)] tracking-[0.12em]">
-                  {row.publicId ?? "-"}
+                  {row.publicId ?? "—"}
                 </span>
               </td>
               <td

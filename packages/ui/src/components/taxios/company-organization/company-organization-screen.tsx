@@ -831,12 +831,12 @@ function CompanyMemberAccessDrawer({
               <section className="grid gap-3 sm:grid-cols-2">
                 <DetailMetric
                   label="E-Mail"
-                  primary={detail.email ?? "-"}
+                  primary={detail.email ?? "—"}
                   secondary={detail.companyContactEmail}
                 />
                 <DetailMetric
                   label={copy.memberDetailUnitLabel}
-                  primary={detail.unitName ?? "-"}
+                  primary={detail.unitName ?? "—"}
                 />
                 <DetailMetric
                   label={copy.memberDetailSinceLabel}
@@ -1666,7 +1666,7 @@ function UnitsCardGrid({
                   {copy.unitContactColumn}
                 </WorkspaceEntityCardLabel>
                 <p className="mt-1 break-words font-medium text-[13px] text-[var(--taxis-workspace-text-secondary)] leading-snug">
-                  {row.contactName ?? "-"}
+                  {row.contactName ?? "—"}
                 </p>
                 {contactLine ? (
                   <p className="mt-1 break-words text-[12px] text-[var(--taxis-workspace-text-muted)] leading-snug">
@@ -1835,7 +1835,7 @@ function CompanyUnitDetailDrawer({
             />
             <DetailMetric
               label={copy.unitContactColumn}
-              primary={unit.contactName ?? "-"}
+              primary={unit.contactName ?? "—"}
               secondary={contactLine}
             />
             <DetailMetric
@@ -1861,7 +1861,7 @@ function CompanyUnitDetailDrawer({
               <div className="grid gap-2">
                 {members.map((member) => {
                   const displayName =
-                    member.displayName ?? member.companyContactEmail ?? "-";
+                    member.displayName ?? member.companyContactEmail ?? "—";
 
                   return (
                     <div
@@ -1985,17 +1985,17 @@ function MembersTable({
                       onClick={() => onSelectMember(row.membershipId)}
                       type="button"
                     >
-                      {row.displayName ?? row.companyContactEmail ?? "-"}
+                      {row.displayName ?? row.companyContactEmail ?? "—"}
                     </button>
                   ) : (
                     <span className="block max-w-full break-all font-semibold text-[14px] text-[var(--taxis-workspace-text-strong)] leading-snug">
-                      {row.displayName ?? row.companyContactEmail ?? "-"}
+                      {row.displayName ?? row.companyContactEmail ?? "—"}
                     </span>
                   )}
                   {row.displayName &&
                   row.displayName !== row.companyContactEmail ? (
                     <span className="mt-1 block text-[12px] text-[var(--taxis-workspace-text-muted)] leading-snug">
-                      {row.companyContactEmail ?? "-"}
+                      {row.companyContactEmail ?? "—"}
                     </span>
                   ) : null}
                   <PublicIdLine value={row.publicId} />
@@ -2015,7 +2015,7 @@ function MembersTable({
                 <td
                   className={`${bodyCellClassName} text-[13px] text-[var(--taxis-workspace-text-secondary)]`}
                 >
-                  {row.unitName ?? "-"}
+                  {row.unitName ?? "—"}
                 </td>
               </tr>
             ))}

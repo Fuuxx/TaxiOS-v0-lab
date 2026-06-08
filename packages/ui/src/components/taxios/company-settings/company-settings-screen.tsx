@@ -414,7 +414,7 @@ function GeneralSection({
         />
         <ReadOnlyField
           label="Public ID"
-          value={payload.general.organizationPublicId ?? "-"}
+          value={payload.general.organizationPublicId ?? "—"}
         />
       </div>
       <div className="grid gap-4 md:grid-cols-3">

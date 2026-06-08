@@ -92,16 +92,24 @@ export function DriverWorkspaceShell({
         <main className="relative flex min-w-0 flex-1 flex-col overflow-hidden">
           <header className="taxis-workspace-topbar taxios-provider-topbar z-30 flex min-h-20 shrink-0 flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between xl:h-20 xl:px-8 xl:py-0">
             <div className="flex min-w-0 flex-col gap-3 lg:flex-row lg:items-center">
-              <div className="flex min-w-0 items-center gap-2 font-semibold text-[13.5px] text-zinc-600 tracking-normal">
+              <div className="flex min-w-0 items-center gap-2 font-semibold text-[13.5px] text-[var(--taxis-workspace-text-secondary)] tracking-normal">
                 <span className="text-[var(--taxis-workspace-text-muted)]">
                   TaxiOS
                 </span>
-                <ArrowRight aria-hidden="true" className="opacity-40" size={14} />
+                <ArrowRight
+                  aria-hidden="true"
+                  className="shrink-0 text-[var(--taxis-workspace-text-subtle)]"
+                  size={14}
+                />
                 <span className="min-w-0 truncate text-[var(--taxis-workspace-text-muted)]">
                   {organizationName}
                 </span>
-                <ArrowRight aria-hidden="true" className="opacity-40" size={14} />
-                <span className="font-semibold text-[15px] text-zinc-900">
+                <ArrowRight
+                  aria-hidden="true"
+                  className="shrink-0 text-[var(--taxis-workspace-text-subtle)]"
+                  size={14}
+                />
+                <span className="truncate font-semibold text-[15px] text-[var(--taxis-workspace-text-strong)]">
                   {title}
                 </span>
               </div>
