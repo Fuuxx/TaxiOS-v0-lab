@@ -99,7 +99,7 @@ export function ActiveContextSwitcher({
     return (
       <div
         className={cn(
-          "inline-flex min-h-11 items-center gap-3 rounded-2xl border border-[var(--taxis-workspace-surface-rim)] bg-[var(--taxis-workspace-surface)] px-4 py-2 shadow-sm",
+          "inline-flex min-h-11 items-center gap-3 rounded-2xl border border-[var(--taxis-workspace-surface-rim)] bg-[var(--taxis-workspace-surface)] px-4 py-2 shadow-[var(--taxis-shadow-soft)]",
           className,
         )}
       >
@@ -122,7 +122,7 @@ export function ActiveContextSwitcher({
     <form
       aria-describedby={statusMessage ? statusId : undefined}
       className={cn(
-        "inline-flex w-full flex-col rounded-2xl border border-[var(--taxis-workspace-surface-rim)] bg-[var(--taxis-workspace-surface)] shadow-sm sm:w-auto",
+        "inline-flex w-full flex-col rounded-2xl border border-[var(--taxis-workspace-surface-rim)] bg-[var(--taxis-workspace-surface)] shadow-[var(--taxis-shadow-soft)] sm:w-auto",
         isCompact ? "max-w-sm gap-1.5 p-1.5" : "max-w-md gap-2 p-2",
         className,
       )}
