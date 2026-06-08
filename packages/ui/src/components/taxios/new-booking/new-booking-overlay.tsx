@@ -1871,7 +1871,7 @@ function BookingLivePlan({
   } satisfies Record<NewBookingTripType, string>;
   const dateTime =
     pickupDate.trim().length > 0 || pickupTime.trim().length > 0
-      ? `${pickupDate || "-"} ${pickupTime || "-"}`
+      ? `${pickupDate || "—"} ${pickupTime || "—"}`
       : copy.command.timeOpenLabel;
 
   return (
@@ -3438,12 +3438,12 @@ function BookingReviewStep({
   } satisfies Record<NewBookingTripType, string>;
   const pickupDateTime =
     pickupDate.trim().length > 0 || pickupTime.trim().length > 0
-      ? `${pickupDate || "-"} ${pickupTime || "-"}`
-      : "-";
+      ? `${pickupDate || "—"} ${pickupTime || "—"}`
+      : "—";
   const returnDateTime =
     returnDate.trim().length > 0 || returnTime.trim().length > 0
-      ? `${returnDate || "-"} ${returnTime || "-"}`
-      : "-";
+      ? `${returnDate || "—"} ${returnTime || "—"}`
+      : "—";
   const vehicleTypeLabelById = new Map(
     vehicleTypes.map((vehicleType) => [vehicleType.id, vehicleType.label]),
   );
@@ -3706,8 +3706,8 @@ export function BookingSummary({
   } satisfies Record<NewBookingTripType, string>;
   const dateTime =
     pickupDate.trim().length > 0 || pickupTime.trim().length > 0
-      ? `${pickupDate || "-"} ${pickupTime || "-"}`
-      : "-";
+      ? `${pickupDate || "—"} ${pickupTime || "—"}`
+      : "—";
 
   return (
     <div className="sticky top-6 space-y-4">

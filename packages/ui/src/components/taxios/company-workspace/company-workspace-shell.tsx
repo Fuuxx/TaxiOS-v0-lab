@@ -599,12 +599,16 @@ export function CompanyWorkspaceShell({
 
           <div className="taxis-workspace-scrollbar relative flex-1 overflow-y-auto overflow-x-hidden">
             <header className="taxis-workspace-topbar z-30 flex min-h-20 shrink-0 flex-col gap-4 px-6 py-5 xl:grid xl:min-h-[88px] xl:items-center xl:px-10 2xl:px-11">
-              <div className="taxis-workspace-topbar-breadcrumb flex min-w-0 items-center gap-2 font-semibold text-[14px] text-zinc-600 tracking-tight">
-                <span className="text-[var(--taxis-workspace-text-muted)]">
+              <div className="taxis-workspace-topbar-breadcrumb flex min-w-0 items-center gap-2 font-semibold text-[14px] text-[var(--taxis-workspace-text-secondary)] tracking-tight">
+                <span className="truncate text-[var(--taxis-workspace-text-muted)]">
                   {organizationName}
                 </span>
-                <ChevronRight className="opacity-40" size={14} />
-                <span className="font-semibold text-[16px] text-zinc-900">
+                <ChevronRight
+                  aria-hidden="true"
+                  className="shrink-0 text-[var(--taxis-workspace-text-subtle)]"
+                  size={14}
+                />
+                <span className="truncate font-semibold text-[16px] text-[var(--taxis-workspace-text-strong)]">
                   {activeRouteLabel}
                 </span>
               </div>
@@ -619,7 +623,7 @@ export function CompanyWorkspaceShell({
                       />
                       <input
                         aria-label={searchPlaceholder}
-                        className="taxis-workspace-topbar-search w-full rounded-2xl py-3.5 pr-6 pl-11 font-medium text-[14px] text-zinc-800 outline-none"
+                        className="taxis-workspace-topbar-search h-[var(--taxis-control-h-md)] w-full rounded-2xl pr-6 pl-11 font-medium text-[14px] text-[var(--taxis-workspace-text-strong)] outline-none"
                         placeholder={searchPlaceholder}
                         type="text"
                       />
@@ -664,11 +668,11 @@ export function CompanyWorkspaceShell({
                     type="button"
                   >
                     <Bell
-                      className="text-zinc-700 transition-colors group-hover:text-zinc-900"
+                      className="text-[var(--taxis-workspace-text-secondary)] transition-colors group-hover:text-[var(--taxis-workspace-text-strong)]"
                       size={19}
                       strokeWidth={1.9}
                     />
-                    <span className="absolute top-2.5 right-2.5 h-2 w-2 rounded-full border-2 border-white bg-[var(--taxis-workspace-accent-strong)] shadow-sm" />
+                    <span className="absolute top-2 right-2 h-2.5 w-2.5 rounded-full bg-[var(--taxis-workspace-accent-strong)] ring-2 ring-[var(--taxis-workspace-surface)]" />
                   </button>
                 )}
                 {userInitials ? (

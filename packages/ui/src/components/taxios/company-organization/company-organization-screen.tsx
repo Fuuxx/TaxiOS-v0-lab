@@ -234,7 +234,7 @@ function EmptyState({
 
 function formatDateTimeLabel(timestamp: number | null | undefined) {
   if (!timestamp) {
-    return "-";
+    return "—";
   }
 
   return new Intl.DateTimeFormat("de-DE", {
@@ -278,7 +278,7 @@ function PermissionPill({
 
 function PermissionPillList({
   copy,
-  emptyLabel = "-",
+  emptyLabel = "—",
   keys,
   permissionByKey,
 }: {
@@ -1506,7 +1506,7 @@ function CompanyOrganizationAddButton({
 function formatUnitAddress(row: CompanyUnitRow) {
   const cityLine = [row.postalCode, row.city].filter(Boolean).join(" ");
 
-  return [row.street, cityLine].filter(Boolean).join(", ") || "-";
+  return [row.street, cityLine].filter(Boolean).join(", ") || "—";
 }
 
 function formatUnitContact(row: CompanyUnitRow) {

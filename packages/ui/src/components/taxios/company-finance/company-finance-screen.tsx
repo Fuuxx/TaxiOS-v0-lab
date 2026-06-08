@@ -30,7 +30,7 @@ function FinanceSummaryTile({
       <span className="block font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
         {label}
       </span>
-      <p className="mt-2 font-semibold text-[26px] text-[var(--taxis-workspace-text-strong)] leading-none tracking-tight">
+      <p className="mt-2 font-semibold text-[26px] text-[var(--taxis-workspace-text-strong)] leading-none tabular-nums tracking-tight">
         {value}
       </p>
     </WorkspaceSurface>
@@ -151,13 +151,13 @@ function InvoiceTable({
               <td
                 className={`${financeBodyCellClassName} rounded-l-[18px] border-l`}
               >
-                <PublicReference fallback="-" value={row.publicId} />
+                <PublicReference fallback="—" value={row.publicId} />
                 <span className="mt-1 block text-[11px] text-[var(--taxis-workspace-text-muted)]">
                   {row.billingStatusLabel}
                 </span>
               </td>
               <td className={financeBodyCellClassName}>
-                <PublicReference fallback="-" value={row.bookingPublicId} />
+                <PublicReference fallback="—" value={row.bookingPublicId} />
               </td>
               <td className={financeBodyCellClassName}>
                 <DateTimeCell
@@ -176,15 +176,15 @@ function InvoiceTable({
               <td
                 className={`${financeBodyCellClassName} font-medium text-[13px] text-[var(--taxis-workspace-text-secondary)]`}
               >
-                {row.providerName ?? "-"}
+                {row.providerName ?? "—"}
               </td>
               <td
                 className={`${financeBodyCellClassName} font-medium text-[13px] text-[var(--taxis-workspace-text-secondary)]`}
               >
-                {row.vehicleLabel ?? "-"}
+                {row.vehicleLabel ?? "—"}
               </td>
               <td
-                className={`${financeBodyCellClassName} rounded-r-[18px] border-r text-right font-semibold text-[13px] text-[var(--taxis-workspace-text-strong)]`}
+                className={`${financeBodyCellClassName} rounded-r-[18px] border-r text-right font-semibold text-[13px] text-[var(--taxis-workspace-text-strong)] tabular-nums`}
               >
                 {row.amountLabel}
               </td>
@@ -245,7 +245,7 @@ function CostsTable({
               <td
                 className={`${financeBodyCellClassName} rounded-l-[18px] border-l`}
               >
-                <PublicReference fallback="-" value={row.bookingPublicId} />
+                <PublicReference fallback="—" value={row.bookingPublicId} />
               </td>
               <td className={financeBodyCellClassName}>
                 <RouteCell row={row} />
@@ -267,7 +267,7 @@ function CostsTable({
                 {row.costStatusLabel}
               </td>
               <td
-                className={`${financeBodyCellClassName} rounded-r-[18px] border-r text-right font-semibold text-[13px] text-[var(--taxis-workspace-text-strong)]`}
+                className={`${financeBodyCellClassName} rounded-r-[18px] border-r text-right font-semibold text-[13px] text-[var(--taxis-workspace-text-strong)] tabular-nums`}
               >
                 {row.amountLabel}
               </td>
