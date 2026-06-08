@@ -156,28 +156,28 @@ function CompanyWorkspaceSidebarItem({
   label: string;
   linkComponent?: CompanyWorkspaceLinkComponent;
 }) {
-  const className = `taxis-workspace-nav-row group relative mb-1.5 flex w-full items-center justify-between rounded-[16px] px-3.5 py-2.5 outline-none 2xl:px-4 2xl:py-3 ${
+  const className = `taxis-workspace-nav-row group relative flex w-full items-center justify-between rounded-[16px] px-3.5 py-2.5 outline-none 2xl:px-4 2xl:py-3 ${
     active ? "taxis-workspace-nav-row-active" : ""
   }`;
   const content = (
     <>
       {active ? <span className="taxis-workspace-nav-active" /> : null}
-      <span className="relative z-10 flex items-center gap-3">
-        <span className="taxis-workspace-nav-icon" aria-hidden="true">
+      <span className="relative z-10 flex min-w-0 items-center gap-3">
+        <span className="taxis-workspace-nav-icon shrink-0" aria-hidden="true">
           <Icon size={16} strokeWidth={1.9} />
         </span>
         <span
-          className={`text-[14.5px] tracking-tight transition-colors duration-200 ${
+          className={`truncate text-[14.5px] tracking-tight transition-colors duration-200 ${
             active
-              ? "font-semibold text-zinc-900"
-              : "font-medium text-zinc-600 group-hover:text-zinc-900"
+              ? "font-semibold text-[var(--taxis-workspace-text-strong)]"
+              : "font-medium text-[var(--taxis-workspace-text-secondary)] group-hover:text-[var(--taxis-workspace-text-strong)]"
           }`}
         >
           {label}
         </span>
       </span>
       {badge ? (
-        <span className="relative z-10 inline-flex h-[22px] min-w-[22px] items-center justify-center rounded-md bg-zinc-900/90 px-1.5 font-semibold text-[11px] text-white tabular-nums shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]">
+        <span className="relative z-10 ml-2 inline-flex h-[22px] min-w-[22px] shrink-0 items-center justify-center rounded-md bg-zinc-900/90 px-1.5 font-semibold text-[11px] text-white tabular-nums shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]">
           {badge}
         </span>
       ) : null}
@@ -274,7 +274,7 @@ function CompanyWorkspaceSidebar({
           aria-label="Company navigation"
           className="flex-1 overflow-y-auto px-4 2xl:px-5"
         >
-          <div className="space-y-0.5">
+          <div className="flex flex-col gap-1">
             {visibleItems.map((item) => (
               <CompanyWorkspaceSidebarItem
                 active={item.id === activeItem}

@@ -61,14 +61,14 @@ function DriverWorkspaceNav({ activeItem }: { activeItem: DriverWorkspaceNavItem
             className={cn(
               "inline-flex min-h-10 items-center gap-2 rounded-full border px-3.5 font-semibold text-[12px] tracking-normal transition-colors",
               active
-                ? "border-zinc-900 bg-zinc-950 text-white"
-                : "border-[var(--taxis-workspace-surface-rim)] bg-[var(--taxis-workspace-surface)] text-[var(--taxis-workspace-text-secondary)] hover:text-zinc-950",
+                ? "border-[var(--taxis-workspace-text-strong)] bg-[var(--taxis-workspace-text-strong)] text-[var(--taxis-workspace-surface)]"
+                : "border-[var(--taxis-workspace-surface-rim)] bg-[var(--taxis-workspace-surface)] text-[var(--taxis-workspace-text-secondary)] hover:text-[var(--taxis-workspace-text-strong)]",
             )}
             href={item.href}
             key={item.id}
           >
-            <Icon aria-hidden="true" size={14} strokeWidth={1.9} />
-            {item.label}
+            <Icon aria-hidden="true" className="shrink-0" size={14} strokeWidth={1.9} />
+            <span className="truncate">{item.label}</span>
           </a>
         );
       })}

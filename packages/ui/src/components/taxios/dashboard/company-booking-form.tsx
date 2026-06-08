@@ -96,10 +96,10 @@ export function CompanyBookingForm({
           </div>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-4">
+        <div className="grid gap-4 lg:grid-cols-4">
           <CompanyBookingFormField label={copy.passengerLabel}>
             <Input
-              className="h-10 rounded-xl px-3 text-[14px]"
+              className="text-[14px]"
               disabled={disabled || isSubmitting}
               onChange={(event) => updateField("passengerName", event.target.value)}
               placeholder={copy.passengerPlaceholder}
@@ -109,7 +109,7 @@ export function CompanyBookingForm({
           </CompanyBookingFormField>
           <CompanyBookingFormField label={copy.pickupLabel}>
             <Input
-              className="h-10 rounded-xl px-3 text-[14px]"
+              className="text-[14px]"
               disabled={disabled || isSubmitting}
               onChange={(event) => updateField("pickupAddress", event.target.value)}
               placeholder={copy.pickupPlaceholder}
@@ -119,7 +119,7 @@ export function CompanyBookingForm({
           </CompanyBookingFormField>
           <CompanyBookingFormField label={copy.destinationLabel}>
             <Input
-              className="h-10 rounded-xl px-3 text-[14px]"
+              className="text-[14px]"
               disabled={disabled || isSubmitting}
               onChange={(event) =>
                 updateField("destinationAddress", event.target.value)
@@ -177,7 +177,7 @@ function CompanyBookingFormField({
   label: string;
 }) {
   return (
-    <Label className="grid gap-2.5 text-[var(--taxis-workspace-text-secondary)]">
+    <Label className="grid gap-2 text-[var(--taxis-workspace-text-secondary)]">
       <span className="font-semibold text-taxis-eyebrow text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
         {label}
       </span>

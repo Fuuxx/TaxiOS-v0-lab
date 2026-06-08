@@ -128,7 +128,7 @@ export function ProviderDriverInviteForm({
 
         {inviteUrl ? (
           <div className="grid gap-2">
-            <Label className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
+            <Label className="font-semibold text-taxis-eyebrow text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               {copy.inviteUrlLabel}
             </Label>
             <div className="flex gap-2">
@@ -171,7 +171,7 @@ function ProviderDriverInviteFormField({
 }) {
   return (
     <Label className="grid gap-2 text-[var(--taxis-workspace-text-secondary)]">
-      <span className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
+      <span className="font-semibold text-taxis-eyebrow text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
         {label}
       </span>
       {children}
