@@ -119,7 +119,7 @@ export function DriverInviteOnboardingScreen({
     <DriverInvitePageShell>
       <WorkspaceSurface className="grid gap-6 rounded-[30px] p-6">
         <div>
-          <p className="flex items-center gap-2 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+          <p className="flex items-center gap-2 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
             <UserCheck aria-hidden="true" size={14} strokeWidth={1.9} />
             {invite.providerName}
           </p>

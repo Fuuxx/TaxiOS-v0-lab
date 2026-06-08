@@ -194,7 +194,7 @@ export function WorkspaceSearchBox({
             <div className="space-y-2">
               {groups.map((group) => (
                 <div key={group.targetType}>
-                  <div className="px-3 py-1 font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+                  <div className="px-3 py-1 font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                     {group.label}
                   </div>
                   <div className="space-y-1">

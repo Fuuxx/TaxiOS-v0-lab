@@ -287,7 +287,7 @@ function DriverPoolTable({
       <div className="taxis-workspace-table-scroll taxis-workspace-scrollbar hidden overflow-x-auto md:block">
         <table className="taxis-company-table taxis-workspace-table w-full min-w-[1120px] border-separate text-left">
           <thead>
-            <tr className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <tr className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               <th className="taxis-workspace-table-header-cell rounded-l-xl border-y border-l px-4 py-2.5">
                 {copy.companyColumn}
               </th>

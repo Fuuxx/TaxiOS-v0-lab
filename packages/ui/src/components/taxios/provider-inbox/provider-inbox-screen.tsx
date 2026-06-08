@@ -182,7 +182,7 @@ function ProviderInboxSummaryTile({
         <span className="taxios-provider-summary-icon flex h-9 w-9 items-center justify-center rounded-xl">
           {icon}
         </span>
-        <span className="font-semibold text-[10px] text-[var(--taxis-workspace-text-subtle)] uppercase tracking-[0.14em]">
+        <span className="font-semibold text-[10px] text-[var(--taxis-workspace-text-subtle)] uppercase tracking-taxis-eyebrow">
           {label}
         </span>
       </div>
@@ -305,7 +305,7 @@ function ProviderInboxTable({
       <div className="taxis-workspace-table-scroll taxis-workspace-scrollbar overflow-x-auto">
         <table className="taxis-company-table taxis-workspace-table w-full min-w-[1040px] border-separate text-left">
           <thead>
-            <tr className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <tr className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               <th className="taxis-workspace-table-header-cell rounded-l-xl border-y border-l px-4 py-2.5">
                 {copy.companyColumn}
               </th>
@@ -526,7 +526,7 @@ export function ProviderInboxScreen({
           <section className="taxis-workspace-animate-fade-up flex flex-col gap-6">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div className="min-w-0">
-                <p className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+                <p className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                   {copy.title}
                 </p>
                 <h1 className="mt-2 font-semibold text-[30px] text-[var(--taxis-workspace-text-strong)] leading-[1.08] tracking-normal">

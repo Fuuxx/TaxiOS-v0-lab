@@ -448,7 +448,7 @@ function CompanyWorkspaceUserMenu({
 
               <dl className="mt-3 grid gap-2 rounded-[14px] border border-[var(--taxis-workspace-surface-rim)] bg-[var(--taxis-workspace-surface-soft)] p-3">
                 <div className="grid grid-cols-[6rem_minmax(0,1fr)] gap-2">
-                  <dt className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+                  <dt className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                     Vorname
                   </dt>
                   <dd className="truncate font-semibold text-[12px] text-[var(--taxis-workspace-text-secondary)]">
@@ -456,7 +456,7 @@ function CompanyWorkspaceUserMenu({
                   </dd>
                 </div>
                 <div className="grid grid-cols-[6rem_minmax(0,1fr)] gap-2">
-                  <dt className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+                  <dt className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                     Nachname
                   </dt>
                   <dd className="truncate font-semibold text-[12px] text-[var(--taxis-workspace-text-secondary)]">
@@ -464,7 +464,7 @@ function CompanyWorkspaceUserMenu({
                   </dd>
                 </div>
                 <div className="grid grid-cols-[6rem_minmax(0,1fr)] gap-2">
-                  <dt className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+                  <dt className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                     Workspace
                   </dt>
                   <dd className="truncate font-semibold text-[12px] text-[var(--taxis-workspace-text-secondary)]">
@@ -472,7 +472,7 @@ function CompanyWorkspaceUserMenu({
                   </dd>
                 </div>
                 <div className="grid grid-cols-[6rem_minmax(0,1fr)] gap-2">
-                  <dt className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+                  <dt className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                     Rolle
                   </dt>
                   <dd className="truncate font-semibold text-[12px] text-[var(--taxis-workspace-text-secondary)]">

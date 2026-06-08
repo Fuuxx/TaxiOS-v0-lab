@@ -70,7 +70,7 @@ export function WorkspaceSearchResultsScreen({
   return (
     <section className="taxis-company-workspace-frame space-y-7">
       <div className="space-y-2">
-        <p className="font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.22em]">
+        <p className="font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
           Workspace Search
         </p>
         <h1 className="font-bold text-[34px] text-[var(--taxis-workspace-text-primary)] tracking-tight">
@@ -85,7 +85,7 @@ export function WorkspaceSearchResultsScreen({
         <div className="taxis-search-results-header grid gap-5 px-5 py-5 sm:px-6">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div className="min-w-0">
-              <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+              <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                 Ergebnisraum
               </p>
               <h2 className="mt-1 font-bold text-[22px] text-[var(--taxis-workspace-text-primary)] tracking-tight">

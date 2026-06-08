@@ -27,7 +27,7 @@ function FinanceSummaryTile({
 }) {
   return (
     <WorkspaceSurface className="taxis-company-surface-section taxis-company-summary-tile p-5">
-      <span className="block font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+      <span className="block font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
         {label}
       </span>
       <p className="mt-2 font-semibold text-[26px] text-[var(--taxis-workspace-text-strong)] leading-none tracking-tight">
@@ -117,7 +117,7 @@ function InvoiceTable({
     <div className="taxis-workspace-table-scroll taxis-company-table-scroll">
       <table className="taxis-workspace-table taxis-company-table taxis-company-finance-table min-w-[1120px] text-left">
         <thead>
-          <tr className="font-semibold text-[10px] uppercase tracking-[0.14em]">
+          <tr className="font-semibold text-[10px] uppercase tracking-taxis-eyebrow">
             <th
               className={`${financeHeaderCellClassName} rounded-l-[16px] border-l`}
             >
@@ -213,7 +213,7 @@ function CostsTable({
     <div className="taxis-workspace-table-scroll taxis-company-table-scroll">
       <table className="taxis-workspace-table taxis-company-table taxis-company-finance-table min-w-[920px] text-left">
         <thead>
-          <tr className="font-semibold text-[10px] uppercase tracking-[0.14em]">
+          <tr className="font-semibold text-[10px] uppercase tracking-taxis-eyebrow">
             <th
               className={`${financeHeaderCellClassName} rounded-l-[16px] border-l`}
             >
@@ -317,7 +317,7 @@ export function CompanyFinanceWorkspaceContent({
         <WorkspaceSurface className="taxis-company-surface-primary grid gap-4 p-5">
           <WorkspaceSectionHeader
             action={
-              <span className="font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+              <span className="font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                 {payload.invoiceRows.length}
               </span>
             }

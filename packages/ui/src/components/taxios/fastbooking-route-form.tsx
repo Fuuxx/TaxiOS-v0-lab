@@ -74,7 +74,7 @@ export function FastbookingRouteForm({
       onSubmit={submit}
     >
       <div className="mb-8">
-        <p className="mb-2 font-black text-[10px] text-[var(--taxis-workspace-accent)] uppercase tracking-[0.22em]">
+        <p className="mb-2 font-black text-[10px] text-[var(--taxis-workspace-accent)] uppercase tracking-taxis-eyebrow">
           {eyebrow}
         </p>
         <h4 className="font-black text-[26px] text-zinc-950 tracking-tight">

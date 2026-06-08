@@ -199,7 +199,7 @@ function ReadOnlyField({
 }) {
   return (
     <div className="rounded-[16px] border border-[var(--taxis-workspace-surface-rim)] bg-[var(--taxis-workspace-surface-soft)] px-4 py-3">
-      <span className="block font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+      <span className="block font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
         {label}
       </span>
       <span className="mt-1 block truncate font-semibold text-[13px] text-[var(--taxis-workspace-text-strong)]">
@@ -273,7 +273,7 @@ function SectionHeader({
   return (
     <div className="flex flex-col gap-4 border-[var(--taxis-workspace-surface-rim)] border-b pb-5 md:flex-row md:items-start md:justify-between">
       <div>
-        <span className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+        <span className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
           Einstellungen
         </span>
         <h2 className="mt-1 font-semibold text-[24px] text-[var(--taxis-workspace-text-strong)] tracking-tight">
@@ -324,7 +324,7 @@ function SectionHeader({
           )}
         </div>
       ) : (
-        <span className="inline-flex min-h-9 items-center rounded-[12px] border border-[var(--taxis-workspace-surface-rim)] bg-[var(--taxis-workspace-surface-soft)] px-3 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+        <span className="inline-flex min-h-9 items-center rounded-[12px] border border-[var(--taxis-workspace-surface-rim)] bg-[var(--taxis-workspace-surface-soft)] px-3 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
           {copy.readOnlyLabel}
         </span>
       )}
@@ -716,7 +716,7 @@ function ActionList({
               ) : null}
             </span>
             {action.disabled ? (
-              <span className="rounded-[10px] bg-[var(--taxis-workspace-surface-soft)] px-2.5 py-1 font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+              <span className="rounded-[10px] bg-[var(--taxis-workspace-surface-soft)] px-2.5 py-1 font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                 Gesperrt
               </span>
             ) : (

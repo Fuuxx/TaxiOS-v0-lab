@@ -184,7 +184,7 @@ export function RideDetailDrawer({
                 {detail.id}
               </span>
               <span
-                className={`flex shrink-0 items-center gap-1.5 rounded-md px-2.5 py-1.5 font-semibold text-[9px] uppercase tracking-[0.14em] ${
+                className={`flex shrink-0 items-center gap-1.5 rounded-md px-2.5 py-1.5 font-semibold text-[9px] uppercase tracking-taxis-eyebrow ${
                   detail.statusColor === "green"
                     ? "bg-[var(--taxis-status-success-bg)] text-[var(--taxis-status-success-text)] ring-1 ring-[var(--taxis-status-success-ring)]"
                     : "bg-[var(--taxis-status-neutral-bg)] text-[var(--taxis-status-neutral-text)]"
@@ -206,7 +206,7 @@ export function RideDetailDrawer({
 
         <div className="taxios-dashboard-custom-scrollbar flex-1 space-y-6 overflow-y-auto px-6 pt-6 pb-7">
           <section>
-            <h4 className="mb-5 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <h4 className="mb-5 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               {detail.passengers.length} {copy.passengersLabel}
             </h4>
             <div className="space-y-2">
@@ -232,7 +232,7 @@ export function RideDetailDrawer({
           <section className="grid gap-6">
             <div className="ride-detail-info-card space-y-5 rounded-[22px] border border-[var(--taxis-workspace-border)] bg-[var(--taxis-workspace-surface)]/88 p-5 shadow-[0_16px_42px_-36px_rgba(15,23,42,0.48),inset_0_1px_0_rgba(255,255,255,0.92)]">
               <div>
-                <span className="mb-1 block font-semibold text-[9px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+                <span className="mb-1 block font-semibold text-[9px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                   {copy.pickupLabel}
                 </span>
                 <p className="font-semibold text-[14px] text-[var(--taxis-workspace-text-strong)] leading-tight">
@@ -241,7 +241,7 @@ export function RideDetailDrawer({
               </div>
               <div className="h-[1px] w-full bg-[var(--taxis-workspace-divider)]" />
               <div>
-                <span className="mb-1 block font-semibold text-[9px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+                <span className="mb-1 block font-semibold text-[9px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                   {copy.destinationLabel}
                 </span>
                 <p className="font-semibold text-[14px] text-[var(--taxis-workspace-text-strong)] leading-tight">
@@ -249,7 +249,7 @@ export function RideDetailDrawer({
                 </p>
               </div>
               <div className="pt-2">
-                <span className="mb-1 block font-semibold text-[9px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+                <span className="mb-1 block font-semibold text-[9px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                   {copy.timeLabel}
                 </span>
                 <div className="flex items-center gap-2">

@@ -149,7 +149,7 @@ function ProviderFleetTable({
                     {vehicle.activeDriverName ?? "-"}
                   </span>
                   {vehicle.activeSessionStartedAt ? (
-                    <span className="mt-1 block font-semibold text-[10.5px] text-[var(--taxis-workspace-text-subtle)] uppercase tracking-[0.14em]">
+                    <span className="mt-1 block font-semibold text-[10.5px] text-[var(--taxis-workspace-text-subtle)] uppercase tracking-taxis-eyebrow">
                       seit{" "}
                       {new Intl.DateTimeFormat("de-DE", {
                         hour: "2-digit",
@@ -203,7 +203,7 @@ function ProviderFleetSummary({
     <WorkspaceInnerCard className="p-5">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+          <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
             {copy.activeCountLabel}
           </p>
           <p className="mt-2 font-semibold text-3xl text-[var(--taxis-workspace-text-strong)] tracking-tight">
@@ -239,7 +239,7 @@ export function ProviderFleetScreen({
         <div className="taxis-workspace-content-area mx-auto flex w-full max-w-[1800px] flex-col gap-6 px-6 pb-16 pt-10 xl:px-12">
           <header className="flex flex-col gap-4 rounded-[30px] border border-[var(--taxis-workspace-border)] bg-[var(--taxis-workspace-surface)] px-5 py-5 shadow-[var(--taxis-workspace-shadow-card)] md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="flex items-center gap-2 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+              <p className="flex items-center gap-2 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                 <Warehouse aria-hidden="true" size={14} strokeWidth={1.9} />
                 {organizationName}
               </p>

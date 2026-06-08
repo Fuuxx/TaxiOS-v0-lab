@@ -86,7 +86,7 @@ export function CompanyUnitForm({
       <form className="flex flex-col gap-5" onSubmit={submit}>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <p className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <p className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               Company
             </p>
             <h2 className="mt-2 flex items-center gap-2 font-semibold text-[18px] text-[var(--taxis-workspace-text-strong)] tracking-tight">
@@ -222,7 +222,7 @@ function CompanyUnitFormField({
 }) {
   return (
     <Label className="grid gap-2 text-[var(--taxis-workspace-text-secondary)]">
-      <span className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+      <span className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
         {label}
       </span>
       {children}

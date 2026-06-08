@@ -107,7 +107,7 @@ export function ActiveContextSwitcher({
           <Building2 aria-hidden="true" size={15} strokeWidth={1.9} />
         </span>
         <div className="min-w-0">
-          <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+          <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
             {copy.label}
           </p>
           <p className="truncate font-semibold text-[13px] text-[var(--taxis-workspace-text-secondary)]">
@@ -137,7 +137,7 @@ export function ActiveContextSwitcher({
         <Label
           className={cn("grid min-w-0 flex-1", isCompact ? "gap-1" : "gap-1.5")}
         >
-          <span className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+          <span className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
             {copy.label}
           </span>
           <span className="relative flex min-w-0 items-center">

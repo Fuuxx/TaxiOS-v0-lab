@@ -189,7 +189,7 @@ export function CompanyDashboardRidesClient({
           <TaxiosDashboardSectionHeader
             badge={
               recentBookingHistorySummary ? (
-                <span className="rounded-md bg-[var(--taxis-workspace-card-soft)] px-2.5 py-1 font-semibold text-[9px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+                <span className="rounded-md bg-[var(--taxis-workspace-card-soft)] px-2.5 py-1 font-semibold text-[9px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                   {recentBookingHistorySummary.visibleCount}
                 </span>
               ) : undefined

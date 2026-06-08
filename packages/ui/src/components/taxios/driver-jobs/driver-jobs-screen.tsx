@@ -158,7 +158,7 @@ function DriverJobsSummaryTile({
         <span className="taxios-provider-summary-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
           {icon}
         </span>
-        <span className="truncate font-semibold text-[10px] text-[var(--taxis-workspace-text-subtle)] uppercase tracking-[0.14em]">
+        <span className="truncate font-semibold text-[10px] text-[var(--taxis-workspace-text-subtle)] uppercase tracking-taxis-eyebrow">
           {label}
         </span>
       </div>
@@ -302,7 +302,7 @@ function DriverJobsTable({
       <div className="taxis-workspace-table-scroll taxis-workspace-scrollbar hidden overflow-x-auto md:block">
         <table className="taxis-company-table taxis-workspace-table w-full min-w-[1120px] border-separate text-left">
           <thead>
-            <tr className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <tr className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               <th className="taxis-workspace-table-header-cell rounded-l-xl border-y border-l px-4 py-2.5">
                 {copy.companyColumn}
               </th>
@@ -459,7 +459,7 @@ export function DriverJobsScreen({
       <div className="taxis-workspace-content-area mx-auto flex w-full max-w-[1320px] flex-col gap-6 px-4 pb-12 pt-6 sm:px-6 lg:px-8 xl:px-10">
         <section className="taxis-workspace-animate-fade-up grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.72fr)] lg:items-end">
           <div className="min-w-0 max-w-3xl">
-            <p className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <p className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               {copy.title}
             </p>
             <h1 className="mt-2 font-semibold text-[28px] text-[var(--taxis-workspace-text-strong)] leading-[1.08] tracking-normal sm:text-[30px]">

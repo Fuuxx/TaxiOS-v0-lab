@@ -77,7 +77,7 @@ export function CompanyBookingForm({
       <form className="flex flex-col gap-6" onSubmit={submit}>
         <div className="flex flex-col gap-3.5">
           <div>
-            <p className="font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <p className="font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               {copy.eyebrow}
             </p>
             <h2 className="mt-2 flex items-center gap-2.5 font-semibold text-[23px] text-[var(--taxis-workspace-text-strong)] tracking-tight">

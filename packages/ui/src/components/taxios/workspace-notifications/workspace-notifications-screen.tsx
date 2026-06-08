@@ -70,7 +70,7 @@ export function WorkspaceNotificationsScreen({
   return (
     <div className="taxis-company-workspace-frame space-y-8 px-6 pb-16 xl:px-10 2xl:px-11">
       <div className="min-w-0 pt-6">
-        <p className="mb-3 font-semibold text-[12px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.28em]">
+        <p className="mb-3 font-semibold text-[12px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
           Company Workspace
         </p>
         <h1 className="font-bold text-[clamp(2rem,3vw,3.4rem)] text-[var(--taxis-workspace-text-primary)] tracking-tight">

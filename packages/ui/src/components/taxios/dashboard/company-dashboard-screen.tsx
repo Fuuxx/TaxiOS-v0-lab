@@ -259,7 +259,7 @@ export const CompanyDashboardWorkspaceContent: React.FC<
                 header={
                   <TaxiosDashboardSectionHeader
                     badge={
-                      <span className="flex items-center gap-1.5 rounded-md bg-[var(--taxis-workspace-control-dark)] px-2.5 py-1 font-semibold text-[9px] text-[var(--taxis-workspace-surface)] uppercase tracking-[0.14em]">
+                      <span className="flex items-center gap-1.5 rounded-md bg-[var(--taxis-workspace-control-dark)] px-2.5 py-1 font-semibold text-[9px] text-[var(--taxis-workspace-surface)] uppercase tracking-taxis-eyebrow">
                         <span className="h-1.5 w-1.5 rounded-full bg-[var(--taxis-workspace-surface)]" />
                         {copy.liveFeed.liveBadge}
                       </span>

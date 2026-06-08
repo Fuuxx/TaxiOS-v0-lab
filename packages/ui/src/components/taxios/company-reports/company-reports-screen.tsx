@@ -206,7 +206,7 @@ export function CompanyReportsWorkspaceContent({
           </span>
           <h1 className="taxis-company-page-title">{copy.title}</h1>
           <p className="taxis-company-page-description">{copy.subtitle}</p>
-          <span className="mt-3 inline-flex w-fit rounded-full border border-[var(--taxis-workspace-border-subtle)] bg-[var(--taxis-workspace-surface-soft)] px-3 py-1 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+          <span className="mt-3 inline-flex w-fit rounded-full border border-[var(--taxis-workspace-border-subtle)] bg-[var(--taxis-workspace-surface-soft)] px-3 py-1 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
             {payload.coverageLabel}
           </span>
         </section>
@@ -248,7 +248,7 @@ export function CompanyReportsWorkspaceContent({
         <WorkspaceSurface className="taxis-company-surface-primary grid gap-4 p-5">
           <WorkspaceSectionHeader
             action={
-              <span className="font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+              <span className="font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                 {payload.recentRows.length}
               </span>
             }

@@ -267,7 +267,7 @@ function CompanyBookingsDetailMetric({
 }) {
   return (
     <div className="min-w-0 rounded-[18px] border border-[var(--taxis-workspace-border)] bg-[var(--taxis-workspace-surface)] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.88)]">
-      <span className="block font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+      <span className="block font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
         {label}
       </span>
       <p className="mt-1 truncate font-semibold text-[13px] text-[var(--taxis-workspace-text-strong)]">
@@ -454,7 +454,7 @@ function CompanyBookingDetailDrawer({
 
         <div className="taxis-overlay-header relative z-10 flex items-start justify-between gap-4 border-[var(--taxis-workspace-border-subtle)] border-b px-6 pt-6 pb-5">
           <div className="min-w-0 flex-1">
-            <span className="block font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <span className="block font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               {copy.detailBookingIdLabel}
             </span>
             <div className="mt-2 flex min-w-0 items-center gap-2.5">
@@ -501,7 +501,7 @@ function CompanyBookingDetailDrawer({
           </section>
 
           <section>
-            <h4 className="mb-4 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <h4 className="mb-4 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               {passengers.length} {copy.detailPassengersLabel}
             </h4>
             <div className="space-y-2">
@@ -526,7 +526,7 @@ function CompanyBookingDetailDrawer({
           <section className="ride-detail-info-card space-y-5 rounded-[22px] border border-[var(--taxis-workspace-border)] bg-[var(--taxis-workspace-surface)] p-5 shadow-[0_16px_42px_-36px_rgba(15,23,42,0.48),inset_0_1px_0_rgba(255,255,255,0.92)]">
             <div className="flex items-center gap-2 text-[var(--taxis-workspace-text-muted)]">
               <Route size={16} />
-              <h4 className="font-semibold text-[11px] uppercase tracking-[0.14em]">
+              <h4 className="font-semibold text-[11px] uppercase tracking-taxis-eyebrow">
                 {copy.detailRouteLabel}
               </h4>
             </div>
@@ -544,7 +544,7 @@ function CompanyBookingDetailDrawer({
           </section>
 
           <section className="rounded-[22px] border border-[var(--taxis-workspace-border)] bg-[var(--taxis-workspace-surface)] p-5 shadow-[0_16px_42px_-36px_rgba(15,23,42,0.48),inset_0_1px_0_rgba(255,255,255,0.92)]">
-            <h4 className="mb-2 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <h4 className="mb-2 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               {copy.detailNoteLabel}
             </h4>
             <p className="whitespace-pre-wrap text-[13px] text-[var(--taxis-workspace-text-secondary)] leading-relaxed">
@@ -553,7 +553,7 @@ function CompanyBookingDetailDrawer({
           </section>
 
           <section className="rounded-[22px] border border-[var(--taxis-workspace-border)] bg-[var(--taxis-workspace-surface)] p-5 shadow-[0_16px_42px_-36px_rgba(15,23,42,0.48),inset_0_1px_0_rgba(255,255,255,0.92)]">
-            <h4 className="mb-4 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <h4 className="mb-4 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               {copy.detailDriverVehicleLabel}
             </h4>
             <div className="space-y-3">
@@ -640,7 +640,7 @@ function CompanyBookingDetailDrawer({
           </section>
 
           <section>
-            <h4 className="mb-4 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+            <h4 className="mb-4 font-semibold text-[11px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               {copy.detailHistoryLabel}
             </h4>
             {history.length === 0 ? (
@@ -799,7 +799,7 @@ function CompanyBookingsTable({
           <col className="w-[14%]" />
         </colgroup>
         <thead>
-          <tr className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+          <tr className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
             <th className="taxis-workspace-table-header-cell taxios-bookings-header-cell rounded-l-xl border-y border-l px-4 py-2.5">
               {copy.tablePickup}
             </th>
@@ -831,7 +831,7 @@ function CompanyBookingsTable({
                 <span className="taxis-data-value block font-semibold text-[17px] text-[var(--taxis-workspace-text-strong)] leading-none tracking-tight">
                   {row.pickupTimeLabel}
                 </span>
-                <span className="mt-1.5 block font-medium text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+                <span className="mt-1.5 block font-medium text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                   {row.pickupDateLabel}
                 </span>
               </td>
@@ -839,7 +839,7 @@ function CompanyBookingsTable({
                 <span className="taxis-data-value block font-semibold text-[13px] text-[var(--taxis-workspace-text-secondary)]">
                   {row.createdTimeLabel}
                 </span>
-                <span className="mt-1.5 block font-medium text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+                <span className="mt-1.5 block font-medium text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                   {row.createdDateLabel}
                 </span>
               </td>
@@ -933,7 +933,7 @@ export function CompanyBookingsWorkspaceContent({
         <WorkspaceSurface className="taxis-company-surface-primary taxis-workspace-animate-fade-up flex min-w-0 flex-col p-5 md:p-6">
           <WorkspaceSectionHeader
             badge={
-              <span className="taxis-count-chip inline-flex items-center rounded-full border border-[var(--taxis-workspace-surface-rim)] bg-[var(--taxis-workspace-surface)] px-2.5 py-1 font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+              <span className="taxis-count-chip inline-flex items-center rounded-full border border-[var(--taxis-workspace-surface-rim)] bg-[var(--taxis-workspace-surface)] px-2.5 py-1 font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                 {rows.length} {copy.visibleLabel}
               </span>
             }

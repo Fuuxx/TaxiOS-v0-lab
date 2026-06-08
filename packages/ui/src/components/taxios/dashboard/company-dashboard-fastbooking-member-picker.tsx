@@ -46,7 +46,7 @@ export function CompanyDashboardFastbookingMemberPicker({
       id={overlayId}
     >
       <div className="fastbooking-floating-booking-row flex items-center justify-between gap-3 px-5 pt-5 pb-3">
-        <span className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-[0.14em]">
+        <span className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
           {membersLabel}
         </span>
         <button
