@@ -380,9 +380,9 @@ const financeEmptyPayload: CompanyFinancePayload = {
   organizationName: "Smoke Company HQ",
   summary: {
     invoiceCount: 0,
-    latestInvoiceLabel: "-",
+    latestInvoiceLabel: "—",
     pricedCount: 0,
-    totalKnownAmountLabel: "-",
+    totalKnownAmountLabel: "—",
     unpricedCount: 0,
   },
 };

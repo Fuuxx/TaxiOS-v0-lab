@@ -97,7 +97,7 @@ export const ReadOnlyMvp: Story = {
         invoiceCount: 1,
         latestInvoiceLabel: "20.05.2026",
         pricedCount: 0,
-        totalKnownAmountLabel: "-",
+        totalKnownAmountLabel: "—",
         unpricedCount: 1,
       },
     },
