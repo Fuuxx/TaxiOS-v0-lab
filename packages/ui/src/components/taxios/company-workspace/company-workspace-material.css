@@ -325,3 +325,119 @@
   );
   box-shadow: inset 0 1px 0 var(--taxis-workspace-surface-sheen-strong);
 }
+
+/* =====================================================================
+ * Desktop editorial polish (>= 1280px only — mobile base untouched)
+ *
+ * Purely visual refinement layer: sharpens the type hierarchy, gives the
+ * page/section headers an editorial rhythm, tightens the 8px spacing
+ * cadence, and lets the orange accent read as a quiet functional cue on
+ * the page eyebrow. No token values are changed and no layout logic moves;
+ * everything below only adjusts spacing, type, and ornament on large
+ * screens so the narrow/mobile composition is preserved exactly.
+ * ===================================================================== */
+@media (min-width: 1280px) {
+  /* Generous, calm vertical rhythm between page sections. */
+  .taxis-company-workspace-content {
+    padding-block: 3rem 4.5rem;
+  }
+
+  .taxis-company-workspace-stack {
+    gap: 2.25rem;
+  }
+
+  /* Page header — larger, tighter display title with a measured lede. */
+  .taxis-company-page-header {
+    gap: 0.75rem;
+  }
+
+  .taxis-company-page-eyebrow {
+    gap: 0.5rem;
+    color: var(--taxis-workspace-text-subtle);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.085em;
+  }
+
+  /* Quiet orange tick before the eyebrow: a functional accent, not decoration. */
+  .taxis-company-page-eyebrow::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: var(--taxis-workspace-accent);
+    box-shadow: 0 0 0 3px var(--taxis-workspace-accent-soft);
+  }
+
+  .taxis-company-page-title {
+    font-size: 2.5rem;
+    font-weight: 640;
+    letter-spacing: -0.018em;
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+
+  .taxis-company-page-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--taxis-workspace-text-secondary);
+    text-wrap: pretty;
+  }
+
+  /* Section headers — clearer step-down from the page title, with a hairline
+     divider that aligns the heading block to its trailing action. */
+  .taxis-company-section-header {
+    align-items: center;
+    gap: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--taxis-workspace-divider);
+  }
+
+  .taxis-company-section-heading {
+    gap: 0.3125rem;
+  }
+
+  .taxis-company-section-title {
+    font-size: 1.4375rem;
+    font-weight: 640;
+    letter-spacing: -0.012em;
+    line-height: 1.18;
+  }
+
+  .taxis-company-section-description {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--taxis-workspace-text-muted);
+  }
+
+  /* Keep the section action optically centered against the heading block. */
+  .taxis-company-section-action {
+    align-self: center;
+  }
+
+  /* Summary tiles breathe a little more on wide canvases. */
+  .taxis-company-summary-grid {
+    gap: 1.125rem;
+  }
+
+  .taxis-company-summary-tile {
+    min-height: 6rem;
+  }
+}
+
+/* Extra-wide screens (>= 1680px): hold the measure and add side breathing
+   room so the workspace never feels stretched edge-to-edge. */
+@media (min-width: 1680px) {
+  .taxis-company-workspace-content {
+    padding-block: 3.25rem 5rem;
+  }
+
+  .taxis-company-workspace-stack {
+    gap: 2.5rem;
+  }
+
+  .taxis-company-page-title {
+    font-size: 2.625rem;
+  }
+}
