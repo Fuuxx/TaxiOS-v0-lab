@@ -1,0 +1,556 @@
+/* =====================================================================
+ * TaxiOS Rider App — Component CSS
+ *
+ * Visual layer for the passenger-facing Rider App. Consumes the shared
+ * `--taxis-workspace-*` material tokens (orange accent, porcelain
+ * surfaces) so the Rider App stays consistent with the operator
+ * workspace. Mobile-first phone frame with large tap targets, an 8px
+ * spacing rhythm, and a single accent color. No gradients on primary
+ * elements, no glassmorphism.
+ * ===================================================================== */
+
+/* -----------------------------
+ * Phone frame + screen shell
+ * --------------------------- */
+.taxis-rider-frame {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 24px 16px;
+  background:
+    radial-gradient(120% 80% at 50% -10%, var(--taxis-workspace-page-bg-soft), transparent 60%),
+    var(--taxis-workspace-page-bg-deep);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Inter,
+    "Segoe UI", system-ui, sans-serif;
+  letter-spacing: -0.005em;
+}
+
+.taxis-rider-screen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 420px;
+  height: 844px;
+  max-height: calc(100dvh - 48px);
+  overflow: hidden;
+  border-radius: 36px;
+  background: var(--taxis-workspace-page-bg);
+  border: 1px solid var(--taxis-workspace-surface-rim-strong);
+  box-shadow: var(--taxis-workspace-shadow-executive);
+  color: var(--taxis-workspace-text-primary);
+}
+
+/* -----------------------------
+ * Sticky header
+ * --------------------------- */
+.taxis-rider-header {
+  position: relative;
+  z-index: 20;
+  flex-shrink: 0;
+  padding: 20px 20px 16px;
+  background: var(--taxis-workspace-surface);
+  border-bottom: 1px solid var(--taxis-workspace-divider);
+}
+
+/* -----------------------------
+ * Scroll area
+ * --------------------------- */
+.taxis-rider-scroll {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* -----------------------------
+ * Bottom action bar (Fitts's Law)
+ * --------------------------- */
+.taxis-rider-actionbar {
+  position: relative;
+  z-index: 20;
+  flex-shrink: 0;
+  padding: 16px 20px;
+  background: var(--taxis-workspace-surface);
+  border-top: 1px solid var(--taxis-workspace-divider);
+  box-shadow: 0 -10px 24px -22px rgba(15, 23, 42, 0.22);
+}
+
+/* -----------------------------
+ * Bottom tab bar
+ * --------------------------- */
+.taxis-rider-tabbar {
+  position: relative;
+  z-index: 20;
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  padding: 8px 12px 14px;
+  background: var(--taxis-workspace-surface);
+  border-top: 1px solid var(--taxis-workspace-divider);
+}
+
+.taxis-rider-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-height: 52px;
+  padding: 6px 4px;
+  border-radius: 16px;
+  color: var(--taxis-workspace-text-muted);
+  transition:
+    color var(--taxis-motion-fast, 140ms) ease,
+    background var(--taxis-motion-fast, 140ms) ease;
+}
+
+.taxis-rider-tab:hover {
+  color: var(--taxis-workspace-text-secondary);
+}
+
+.taxis-rider-tab-active {
+  color: var(--taxis-workspace-accent-strong);
+}
+
+.taxis-rider-tab-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.taxis-rider-tab-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--taxis-workspace-accent);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* -----------------------------
+ * Cards + sections
+ * --------------------------- */
+.taxis-rider-card {
+  border-radius: 22px;
+  background: var(--taxis-workspace-surface);
+  border: 1px solid var(--taxis-workspace-surface-rim);
+  box-shadow: var(--taxis-workspace-shadow-soft);
+}
+
+.taxis-rider-card-interactive {
+  transition:
+    border-color var(--taxis-motion-fast, 140ms) ease,
+    transform var(--taxis-motion-fast, 140ms) ease;
+}
+
+.taxis-rider-card-interactive:hover {
+  border-color: var(--taxis-workspace-surface-rim-strong);
+}
+
+.taxis-rider-card-interactive:active {
+  transform: scale(0.99);
+}
+
+.taxis-rider-card-feature {
+  border-radius: 24px;
+  background: var(--taxis-workspace-surface);
+  border: 1px solid var(--taxis-workspace-accent-ring);
+  box-shadow:
+    0 0 0 1px var(--taxis-workspace-accent-halo),
+    var(--taxis-workspace-shadow-raised);
+}
+
+.taxis-rider-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.taxis-rider-inner {
+  border-radius: 16px;
+  background: var(--taxis-workspace-surface-deep);
+  border: 1px solid var(--taxis-workspace-surface-rim);
+}
+
+/* -----------------------------
+ * Buttons — single accent, large targets
+ * --------------------------- */
+.taxis-rider-btn-primary,
+.taxis-rider-btn-secondary,
+.taxis-rider-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 0 20px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  transition:
+    background var(--taxis-motion-fast, 140ms) ease,
+    border-color var(--taxis-motion-fast, 140ms) ease,
+    opacity var(--taxis-motion-fast, 140ms) ease;
+}
+
+.taxis-rider-btn-primary {
+  background: var(--taxis-workspace-accent);
+  color: #ffffff;
+  border: 1px solid var(--taxis-workspace-accent-strong);
+  box-shadow: 0 12px 24px -16px var(--taxis-workspace-accent-ring);
+}
+
+.taxis-rider-btn-primary:hover {
+  background: var(--taxis-workspace-accent-strong);
+}
+
+.taxis-rider-btn-secondary {
+  background: var(--taxis-workspace-surface);
+  color: var(--taxis-workspace-text-strong);
+  border: 1px solid var(--taxis-workspace-surface-rim-strong);
+}
+
+.taxis-rider-btn-secondary:hover {
+  border-color: var(--taxis-workspace-text-subtle);
+}
+
+.taxis-rider-btn-ghost {
+  background: transparent;
+  color: var(--taxis-workspace-text-secondary);
+  border: 1px solid transparent;
+  min-height: 44px;
+}
+
+.taxis-rider-btn-ghost:hover {
+  background: var(--taxis-workspace-surface-deep);
+}
+
+.taxis-rider-btn-primary[data-disabled="true"],
+.taxis-rider-btn-secondary[data-disabled="true"],
+.taxis-rider-btn-ghost[data-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.55;
+  background: var(--taxis-workspace-surface-deep);
+  color: var(--taxis-workspace-text-muted);
+  border-color: var(--taxis-workspace-surface-rim);
+  box-shadow: none;
+}
+
+/* -----------------------------
+ * Route visual
+ * --------------------------- */
+.taxis-rider-route {
+  display: flex;
+  gap: 14px;
+}
+
+.taxis-rider-route-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.taxis-rider-route-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.taxis-rider-route-dot-start {
+  border: 3px solid var(--taxis-workspace-text-subtle);
+  background: var(--taxis-workspace-surface);
+}
+
+.taxis-rider-route-dot-via {
+  border: 3px solid var(--taxis-workspace-text-muted);
+  background: var(--taxis-workspace-surface);
+}
+
+.taxis-rider-route-dot-end {
+  background: var(--taxis-workspace-accent);
+  box-shadow: 0 0 0 3px var(--taxis-workspace-accent-halo);
+}
+
+.taxis-rider-route-line {
+  flex: 1;
+  width: 2px;
+  min-height: 18px;
+  margin: 3px 0;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      var(--taxis-workspace-surface-rim-strong) 0,
+      var(--taxis-workspace-surface-rim-strong) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+}
+
+/* -----------------------------
+ * Static map placeholder
+ * --------------------------- */
+.taxis-rider-map {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--taxis-workspace-surface-deep);
+  border: 1px solid var(--taxis-workspace-surface-rim);
+}
+
+.taxis-rider-map-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--taxis-workspace-surface-rim) 1px, transparent 1px),
+    linear-gradient(90deg, var(--taxis-workspace-surface-rim) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.7;
+}
+
+.taxis-rider-map-route {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.taxis-rider-map-pin {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  color: #ffffff;
+}
+
+.taxis-rider-map-pin-start {
+  left: 28px;
+  bottom: 64px;
+  background: var(--taxis-workspace-text-strong);
+}
+
+.taxis-rider-map-pin-end {
+  right: 28px;
+  top: 18px;
+  background: var(--taxis-workspace-accent);
+  box-shadow: 0 0 0 4px var(--taxis-workspace-accent-halo);
+}
+
+.taxis-rider-map-eta {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  padding: 8px 14px;
+  border-radius: 14px;
+  background: var(--taxis-workspace-surface);
+  border: 1px solid var(--taxis-workspace-surface-rim);
+  box-shadow: var(--taxis-workspace-shadow-soft);
+}
+
+/* -----------------------------
+ * Generic states
+ * --------------------------- */
+.taxis-rider-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex: 1;
+  min-height: 320px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.taxis-rider-state-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+}
+
+.taxis-rider-state-icon-danger {
+  background: var(--taxis-status-danger-bg);
+  color: var(--taxis-status-danger-text);
+}
+
+.taxis-rider-state-title {
+  font-size: 17px;
+  font-weight: 650;
+  color: var(--taxis-workspace-text-strong);
+  letter-spacing: -0.01em;
+}
+
+.taxis-rider-state-text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--taxis-workspace-text-muted);
+}
+
+.taxis-rider-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 32px 20px;
+  text-align: center;
+  border-radius: 22px;
+  border: 1px dashed var(--taxis-workspace-surface-rim-strong);
+  background: var(--taxis-workspace-surface-deep);
+}
+
+.taxis-rider-empty-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--taxis-workspace-surface);
+  border: 1px solid var(--taxis-workspace-surface-rim);
+  color: var(--taxis-workspace-text-muted);
+}
+
+.taxis-rider-empty-title {
+  font-size: 15px;
+  font-weight: 650;
+  color: var(--taxis-workspace-text-strong);
+}
+
+.taxis-rider-empty-text {
+  max-width: 28ch;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--taxis-workspace-text-muted);
+}
+
+/* -----------------------------
+ * Segmented control (tabs / toggles inside screens)
+ * --------------------------- */
+.taxis-rider-segment {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 16px;
+  background: var(--taxis-workspace-surface-deep);
+  border: 1px solid var(--taxis-workspace-surface-rim);
+}
+
+.taxis-rider-segment-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--taxis-workspace-text-muted);
+  transition:
+    background var(--taxis-motion-fast, 140ms) ease,
+    color var(--taxis-motion-fast, 140ms) ease;
+}
+
+.taxis-rider-segment-item-active {
+  background: var(--taxis-workspace-surface);
+  color: var(--taxis-workspace-text-strong);
+  box-shadow: var(--taxis-workspace-shadow-soft);
+}
+
+/* -----------------------------
+ * Form fields (visual only; wired by react-hook-form in production)
+ * --------------------------- */
+.taxis-rider-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.taxis-rider-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--taxis-workspace-text-muted);
+}
+
+.taxis-rider-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 16px;
+  border-radius: 16px;
+  background: var(--taxis-workspace-surface);
+  border: 1px solid var(--taxis-workspace-surface-rim-strong);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--taxis-workspace-text-strong);
+}
+
+.taxis-rider-input::placeholder {
+  color: var(--taxis-workspace-text-subtle);
+  font-weight: 500;
+}
+
+.taxis-rider-input:focus-visible,
+.taxis-rider-input:focus-within {
+  outline: none;
+  border-color: var(--taxis-workspace-accent-ring);
+  box-shadow: 0 0 0 3px var(--taxis-workspace-focus-ring);
+}
+
+/* -----------------------------
+ * Chat bubbles
+ * --------------------------- */
+.taxis-rider-bubble {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 18px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.taxis-rider-bubble-driver {
+  align-self: flex-start;
+  background: var(--taxis-workspace-surface-deep);
+  color: var(--taxis-workspace-text-strong);
+  border-bottom-left-radius: 6px;
+}
+
+.taxis-rider-bubble-rider {
+  align-self: flex-end;
+  background: var(--taxis-workspace-accent);
+  color: #ffffff;
+  border-bottom-right-radius: 6px;
+}
