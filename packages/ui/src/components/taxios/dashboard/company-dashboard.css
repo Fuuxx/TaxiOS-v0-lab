@@ -1253,3 +1253,45 @@
   0%, 100% { transform: scale(0.92); opacity: 0.32; }
   50% { transform: scale(1.18); opacity: 0.52; }
 }
+
+/* ===========================================================================
+ * Dark mode — Fastbooking cards.
+ *
+ * The card clip layers in three hardcoded white washes (a corner radial, a
+ * 1px white inset top, and a white ::before top sheen) that simulate the
+ * porcelain look in light mode. In dark mode those render as a glaring white
+ * block over the top of every card, which also makes the dark-on-dark
+ * "SCHNELLBUCHUNG" eyebrow unreadable. We swap them for faint light-alpha
+ * highlights that read as gentle elevation instead of white plastic.
+ * ======================================================================== */
+.dark .fastbooking-card-clip {
+  background:
+    radial-gradient(
+      110% 80% at 100% 0%,
+      rgba(226, 232, 240, 0.06),
+      rgba(226, 232, 240, 0) 52%
+    ),
+    linear-gradient(
+      180deg,
+      var(--taxis-dashboard-surface-soft) 0%,
+      var(--taxis-dashboard-surface) 58%,
+      var(--taxis-dashboard-surface-deep) 100%
+    );
+  box-shadow:
+    inset 0 0 0 1px var(--taxis-dashboard-surface-rim),
+    inset 0 1px 0 rgba(226, 232, 240, 0.08);
+}
+
+.dark .fastbooking-card-clip::before {
+  background: linear-gradient(
+    180deg,
+    rgba(226, 232, 240, 0.07) 0%,
+    rgba(226, 232, 240, 0) 32%
+  );
+}
+
+/* Keep the eyebrow legible against the now-dark card top. */
+.dark .fastbooking-card-clip .uppercase {
+  color: var(--taxis-dashboard-text-muted);
+}
+
