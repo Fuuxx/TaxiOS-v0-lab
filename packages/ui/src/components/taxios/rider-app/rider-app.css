@@ -489,21 +489,18 @@
 }
 
 /* -----------------------------
- * Form fields (visual only; wired by react-hook-form in production)
+ * Bottom action bar (in-flow, inside a screen)
  * --------------------------- */
-.taxis-rider-field {
+.taxis-rider-bottom-bar {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  padding-top: 4px;
 }
 
-.taxis-rider-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--taxis-workspace-text-muted);
-}
-
-.taxis-rider-input {
+/* -----------------------------
+ * Form fields (wired by react-hook-form in production)
+ * --------------------------- */
+.taxis-rider-input-wrap {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -512,9 +509,36 @@
   border-radius: 16px;
   background: var(--taxis-workspace-surface);
   border: 1px solid var(--taxis-workspace-surface-rim-strong);
+  transition:
+    border-color var(--taxis-motion-fast, 140ms) ease,
+    box-shadow var(--taxis-motion-fast, 140ms) ease;
+}
+
+.taxis-rider-input-wrap:focus-within {
+  border-color: var(--taxis-workspace-accent-ring);
+  box-shadow: 0 0 0 3px var(--taxis-workspace-focus-ring);
+}
+
+.taxis-rider-input-wrap[data-invalid="true"] {
+  border-color: var(--taxis-status-danger-text);
+}
+
+.taxis-rider-input-wrap[data-disabled="true"] {
+  opacity: 0.6;
+}
+
+.taxis-rider-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
   font-size: 15px;
   font-weight: 500;
   color: var(--taxis-workspace-text-strong);
+}
+
+.taxis-rider-input:focus {
+  outline: none;
 }
 
 .taxis-rider-input::placeholder {
@@ -522,11 +546,233 @@
   font-weight: 500;
 }
 
-.taxis-rider-input:focus-visible,
-.taxis-rider-input:focus-within {
+.taxis-rider-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: var(--taxis-workspace-surface);
+  border: 1px solid var(--taxis-workspace-surface-rim-strong);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--taxis-workspace-text-strong);
+  resize: none;
+}
+
+.taxis-rider-textarea::placeholder {
+  color: var(--taxis-workspace-text-subtle);
+}
+
+.taxis-rider-textarea:focus-visible {
   outline: none;
   border-color: var(--taxis-workspace-accent-ring);
   box-shadow: 0 0 0 3px var(--taxis-workspace-focus-ring);
+}
+
+.taxis-rider-field-error {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--taxis-status-danger-text);
+}
+
+.taxis-rider-send {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--taxis-workspace-accent);
+  color: #ffffff;
+}
+
+.taxis-rider-send:disabled {
+  cursor: not-allowed;
+  background: var(--taxis-workspace-surface-rim-strong);
+  color: var(--taxis-workspace-text-subtle);
+}
+
+/* -----------------------------
+ * Radio option rows (vehicle classes)
+ * --------------------------- */
+.taxis-rider-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--taxis-workspace-surface);
+  border: 1px solid var(--taxis-workspace-surface-rim);
+  cursor: pointer;
+  transition:
+    border-color var(--taxis-motion-fast, 140ms) ease,
+    background var(--taxis-motion-fast, 140ms) ease;
+}
+
+.taxis-rider-option[data-checked="true"] {
+  border-color: var(--taxis-workspace-accent-ring);
+  background: var(--taxis-workspace-accent-soft);
+}
+
+.taxis-rider-option[data-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.taxis-rider-radio {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  border: 2px solid var(--taxis-workspace-surface-rim-strong);
+}
+
+.taxis-rider-radio[data-checked="true"] {
+  border-color: var(--taxis-workspace-accent);
+}
+
+.taxis-rider-radio[data-checked="true"]::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 999px;
+  background: var(--taxis-workspace-accent);
+}
+
+/* -----------------------------
+ * Segmented control (pill toggle: Jetzt/Später, Persönlich/Firma)
+ * --------------------------- */
+.taxis-rider-segmented {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 16px;
+  background: var(--taxis-workspace-surface-deep);
+  border: 1px solid var(--taxis-workspace-surface-rim);
+}
+
+.taxis-rider-segmented-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--taxis-workspace-text-muted);
+  transition:
+    background var(--taxis-motion-fast, 140ms) ease,
+    color var(--taxis-motion-fast, 140ms) ease;
+}
+
+.taxis-rider-segmented-item[data-active="true"] {
+  background: var(--taxis-workspace-surface);
+  color: var(--taxis-workspace-text-strong);
+  box-shadow: var(--taxis-workspace-shadow-soft);
+}
+
+/* -----------------------------
+ * Callout (hints)
+ * --------------------------- */
+.taxis-rider-callout {
+  padding: 14px 16px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.taxis-rider-callout[data-tone="info"] {
+  background: var(--taxis-workspace-accent-soft);
+  color: var(--taxis-workspace-accent-strong);
+  border: 1px solid var(--taxis-workspace-accent-ring);
+}
+
+.taxis-rider-callout[data-tone="muted"] {
+  background: var(--taxis-workspace-surface-deep);
+  color: var(--taxis-workspace-text-muted);
+  border: 1px solid var(--taxis-workspace-surface-rim);
+}
+
+/* -----------------------------
+ * Link rows (account settings)
+ * --------------------------- */
+.taxis-rider-link-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 60px;
+  padding: 12px 16px;
+  text-align: left;
+  transition: background var(--taxis-motion-fast, 140ms) ease;
+}
+
+.taxis-rider-link-row:hover {
+  background: var(--taxis-workspace-surface-deep);
+}
+
+/* -----------------------------
+ * Avatars
+ * --------------------------- */
+.taxis-rider-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--taxis-workspace-accent-soft);
+  color: var(--taxis-workspace-accent-strong);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.taxis-rider-avatar-lg {
+  width: 56px;
+  height: 56px;
+  font-size: 18px;
+}
+
+.taxis-rider-avatar-muted {
+  background: var(--taxis-workspace-surface-deep);
+  color: var(--taxis-workspace-text-secondary);
+}
+
+/* -----------------------------
+ * Confirmation success badge
+ * --------------------------- */
+.taxis-rider-success-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: var(--taxis-status-success-bg);
+  color: var(--taxis-status-success-text);
+}
+
+/* -----------------------------
+ * Notification unread dot
+ * --------------------------- */
+.taxis-rider-unread-dot {
+  margin-top: 6px;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--taxis-workspace-accent);
+}
+
+.taxis-rider-unread-dot-read {
+  background: var(--taxis-workspace-surface-rim-strong);
 }
 
 /* -----------------------------
@@ -539,18 +785,14 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1.45;
-}
-
-.taxis-rider-bubble-driver {
-  align-self: flex-start;
   background: var(--taxis-workspace-surface-deep);
   color: var(--taxis-workspace-text-strong);
   border-bottom-left-radius: 6px;
 }
 
-.taxis-rider-bubble-rider {
-  align-self: flex-end;
+.taxis-rider-bubble[data-from-rider="true"] {
   background: var(--taxis-workspace-accent);
   color: #ffffff;
+  border-bottom-left-radius: 18px;
   border-bottom-right-radius: 6px;
 }
