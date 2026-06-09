@@ -512,7 +512,7 @@
 }
 
 /* -----------------------------
- * Form fields (wired by react-hook-form in production)
+ * Form fields (static preview chrome; host app wires its own form system)
  * --------------------------- */
 .taxis-rider-input-wrap {
   display: flex;

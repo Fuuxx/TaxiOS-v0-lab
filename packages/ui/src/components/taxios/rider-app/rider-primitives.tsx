@@ -14,6 +14,7 @@ import type {
   RiderRideKind,
   RiderRideStatus,
   RiderTripSummary,
+  RiderVehicleOption,
 } from "../../../contracts/rider-app";
 import { cn } from "../../../lib/utils";
 import {
@@ -370,6 +371,148 @@ export function RiderMapPlaceholder({
           {etaLabel}
         </span>
       </div>
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------------------
+ * Presentational form primitives (UI-only, no form state).
+ *
+ * These render input chrome only. They hold no value, run no validation,
+ * and import no form library. The real TaxiOS app wires its own form
+ * system around these via the screens' integration slots.
+ * ------------------------------------------------------------------- */
+
+export function RiderFieldShell({
+  children,
+  htmlFor,
+  hint,
+  label,
+}: {
+  children: React.ReactNode;
+  htmlFor?: string;
+  hint?: string;
+  label: string;
+}) {
+  return (
+    <div>
+      <label
+        className="mb-1.5 block font-medium text-[12px] text-[var(--taxis-workspace-text-muted)]"
+        htmlFor={htmlFor}
+      >
+        {label}
+      </label>
+      {children}
+      {hint ? (
+        <p className="mt-1.5 text-[12px] text-[var(--taxis-workspace-text-subtle)]">{hint}</p>
+      ) : null}
+    </div>
+  );
+}
+
+export function RiderTextField({
+  icon,
+  id,
+  inputMode,
+  label,
+  placeholder,
+  type = "text",
+}: {
+  icon?: React.ReactNode;
+  id?: string;
+  inputMode?: "numeric" | "text";
+  label: string;
+  placeholder?: string;
+  type?: string;
+}) {
+  return (
+    <RiderFieldShell htmlFor={id} label={label}>
+      <div className="taxis-rider-input-wrap">
+        {icon ? (
+          <span className="text-[var(--taxis-workspace-text-subtle)]">{icon}</span>
+        ) : null}
+        <input
+          className="taxis-rider-input"
+          defaultValue=""
+          id={id}
+          inputMode={inputMode}
+          placeholder={placeholder}
+          type={type}
+        />
+      </div>
+    </RiderFieldShell>
+  );
+}
+
+export function RiderTextareaField({
+  id,
+  label,
+  placeholder,
+  rows = 3,
+}: {
+  id?: string;
+  label: string;
+  placeholder?: string;
+  rows?: number;
+}) {
+  return (
+    <RiderFieldShell htmlFor={id} label={label}>
+      <textarea
+        className="taxis-rider-textarea"
+        defaultValue=""
+        id={id}
+        placeholder={placeholder}
+        rows={rows}
+      />
+    </RiderFieldShell>
+  );
+}
+
+/**
+ * Static vehicle-class option list. `selectedId` is a presentational hint
+ * for the demo only — there is no selection state and no change handler.
+ */
+export function RiderVehicleOptionList({
+  options,
+  selectedId,
+}: {
+  options: RiderVehicleOption[];
+  selectedId?: string;
+}) {
+  return (
+    <div className="space-y-2" role="radiogroup" aria-label="Fahrzeugklasse">
+      {options.map((option) => {
+        const checked = option.id === selectedId;
+        return (
+          <label
+            key={option.id}
+            className="taxis-rider-option"
+            data-checked={checked}
+            data-disabled={option.disabled === true}
+          >
+            <input
+              className="sr-only"
+              defaultChecked={checked}
+              disabled={option.disabled === true}
+              name="rider-vehicle-option"
+              type="radio"
+              value={option.id}
+            />
+            <span className="min-w-0 flex-1">
+              <span className="block font-semibold text-[14px] text-[var(--taxis-workspace-text-strong)]">
+                {option.label}
+              </span>
+              <span className="block text-[12px] text-[var(--taxis-workspace-text-muted)]">
+                {option.disabled && option.reason ? option.reason : option.description}
+              </span>
+            </span>
+            <span className="shrink-0 font-medium text-[12px] text-[var(--taxis-workspace-text-muted)]">
+              {option.capacityLabel}
+            </span>
+            <span className="taxis-rider-radio" aria-hidden="true" data-checked={checked} />
+          </label>
+        );
+      })}
     </div>
   );
 }

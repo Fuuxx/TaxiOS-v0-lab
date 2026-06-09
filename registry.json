@@ -599,10 +599,7 @@
         "workspace-status-chips"
       ],
       "dependencies": [
-        "lucide-react",
-        "react-hook-form",
-        "@hookform/resolvers",
-        "zod"
+        "lucide-react"
       ],
       "files": [
         {
