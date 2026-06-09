@@ -2393,7 +2393,7 @@ export function TripTypeSelector({
             className={cn(
               "taxis-segmented-item flex h-full min-h-[var(--taxis-control-h-md)] cursor-pointer items-center justify-center rounded-[calc(var(--taxis-radius-control)-2px)] border px-4 py-2.5 text-center transition-all focus-within:ring-3 focus-within:ring-[var(--taxis-workspace-focus-ring)]",
               tripType === option.value
-                ? "taxis-segmented-active border-[var(--taxis-workspace-control-dark)] bg-[var(--taxis-workspace-control-dark)] text-[var(--taxis-workspace-surface)]"
+                ? "taxis-segmented-active border-[var(--taxis-workspace-control-dark)] bg-[var(--taxis-workspace-control-dark)] text-[var(--taxis-workspace-on-dark)]"
                 : "border-transparent text-[var(--taxis-workspace-text-secondary)]",
             )}
             key={option.value}
@@ -2818,7 +2818,7 @@ export function VehicleAssignmentSection({
               className={cn(
                 "taxis-segmented-item flex h-full min-h-[var(--taxis-control-h-md)] cursor-pointer items-center justify-center rounded-[calc(var(--taxis-radius-control)-2px)] border px-4 py-2.5 text-center transition-all focus-within:ring-3 focus-within:ring-[var(--taxis-workspace-focus-ring)]",
                 inputMode === option.value
-                  ? "taxis-segmented-active border-[var(--taxis-workspace-control-dark)] bg-[var(--taxis-workspace-control-dark)] text-[var(--taxis-workspace-surface)]"
+                  ? "taxis-segmented-active border-[var(--taxis-workspace-control-dark)] bg-[var(--taxis-workspace-control-dark)] text-[var(--taxis-workspace-on-dark)]"
                   : "border-transparent text-[var(--taxis-workspace-text-secondary)]",
               )}
               key={option.value}

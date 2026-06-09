@@ -79,7 +79,7 @@ export function WorkspaceSegmented<TValue extends string>({
             className={cn(
               "taxis-segmented-item inline-flex h-full min-h-[var(--taxis-control-h-sm)] items-center justify-center rounded-[calc(var(--taxis-radius-control)-4px)] px-4 text-center font-semibold text-[13px] transition-all",
               isSelected
-                ? "taxis-segmented-active bg-[var(--taxis-workspace-control-dark)] text-[var(--taxis-workspace-surface)]"
+                ? "taxis-segmented-active bg-[var(--taxis-workspace-control-dark)] text-[var(--taxis-workspace-on-dark)]"
                 : "text-[var(--taxis-workspace-text-secondary)]",
             )}
             disabled={option.disabled}

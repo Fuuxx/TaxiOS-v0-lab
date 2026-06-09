@@ -9,6 +9,7 @@ import { CompanyReportsWorkspaceContent } from "@taxios-v2/ui/components/taxios/
 import { CompanySettingsWorkspaceContent } from "@taxios-v2/ui/components/taxios/company-settings/company-settings-screen";
 import { CompanyWorkspaceShell } from "@taxios-v2/ui/components/taxios/company-workspace/company-workspace-shell";
 import { CompanyDashboardWorkspaceContent } from "@taxios-v2/ui/components/taxios/dashboard/company-dashboard-screen";
+import { ThemeToggle } from "@taxios-v2/ui/components/taxios/theme/theme-toggle";
 import { NewBookingOverlay } from "@taxios-v2/ui/components/taxios/new-booking/new-booking-overlay";
 import { WorkspaceNotificationsPopover } from "@taxios-v2/ui/components/taxios/workspace-notifications/workspace-notifications-popover";
 import { WorkspaceSearchBox } from "@taxios-v2/ui/components/taxios/workspace-search/workspace-search-box";
@@ -867,13 +868,18 @@ export function CompanyWorkspacePr46LabBlock() {
   return (
     <div className="min-h-[860px] bg-[var(--taxis-ui-page-bg)]">
       <div className="border-b border-[var(--taxis-workspace-border)] bg-[var(--taxis-workspace-surface)] px-5 py-4">
-        <p className="taxis-company-page-eyebrow">TaxiOS v0 Lab sync</p>
-        <h2 className="text-xl font-semibold text-[var(--taxis-workspace-text-strong)]">
-          PR #46 visual source snapshot
-        </h2>
-        <p className="mt-1 max-w-3xl text-sm text-[var(--taxis-workspace-text-muted)]">
-          Mirrors TaxiOS.v2 main at 2698991c214595e17e0b3228dc84935b0b27fa76.
-        </p>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="taxis-company-page-eyebrow">TaxiOS v0 Lab sync</p>
+            <h2 className="text-xl font-semibold text-[var(--taxis-workspace-text-strong)]">
+              PR #46 visual source snapshot
+            </h2>
+            <p className="mt-1 max-w-3xl text-sm text-[var(--taxis-workspace-text-muted)]">
+              Mirrors TaxiOS.v2 main at 2698991c214595e17e0b3228dc84935b0b27fa76.
+            </p>
+          </div>
+          <ThemeToggle variant="segmented" />
+        </div>
         <div className="mt-4 flex flex-wrap gap-2">
           {surfaces.map((surface) => (
             <button

@@ -621,3 +621,79 @@
     transform: none !important;
   }
 }
+
+/* ===========================================================================
+ * Dark mode chrome overrides.
+ *
+ * A handful of chrome surfaces (top search field, round top pills, the active
+ * nav plate, and the topbar glass edges) were authored with hardcoded white
+ * gradients rather than tokens. In dark mode those would render as bright
+ * white blocks, so we re-skin them here to match the dark token palette.
+ * Everything else already flows from the `.dark { ... }` tokens automatically.
+ * ======================================================================== */
+.dark :is(.taxis-workspace-topbar-search, .taxios-dashboard-topbar-search) {
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-surface-soft),
+    var(--taxis-workspace-surface-deep)
+  );
+  color: var(--taxis-workspace-text-strong);
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.06),
+    0 10px 28px -20px rgba(0, 0, 0, 0.6);
+}
+
+.dark
+  :is(.taxis-workspace-topbar-pill, .taxios-dashboard-topbar-pill) {
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-surface-soft),
+    var(--taxis-workspace-surface-deep)
+  );
+  color: var(--taxis-workspace-text-secondary);
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.06),
+    0 10px 26px -18px rgba(0, 0, 0, 0.6);
+}
+
+/* Active nav row: dark elevated plate instead of a white one. */
+.dark
+  :is(.taxis-workspace-nav-active, .taxios-dashboard-nav-active) {
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-surface-soft),
+    var(--taxis-workspace-surface)
+  );
+  box-shadow:
+    0 1px 0 rgba(226, 232, 240, 0.05) inset,
+    0 0 0 1px var(--taxis-workspace-border-strong) inset,
+    0 10px 22px -16px rgba(0, 0, 0, 0.6);
+}
+
+/* Nav icon chips + their inner top highlights become subtle light alpha. */
+.dark :is(.taxis-workspace-nav-icon, .taxios-dashboard-nav-icon) {
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.06),
+    inset 0 0 0 1px var(--taxis-workspace-surface-rim),
+    0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Topbar glass edge highlight: dial the white sheen down to a faint light. */
+.dark :is(.taxis-workspace-topbar, .taxios-dashboard-topbar)::before {
+  background: linear-gradient(
+    90deg,
+    rgba(226, 232, 240, 0) 0%,
+    rgba(226, 232, 240, 0.14) 20%,
+    rgba(226, 232, 240, 0.14) 80%,
+    rgba(226, 232, 240, 0) 100%
+  );
+}
+
+.dark :is(.taxis-workspace-topbar, .taxios-dashboard-topbar)::after {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.35) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
