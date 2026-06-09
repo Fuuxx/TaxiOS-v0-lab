@@ -108,8 +108,9 @@ export function RiderTrackingScreen({
             <RiderActionButton
               action={callAction}
               fullWidth
-              icon={<Phone aria-hidden="true" size={16} strokeWidth={2} />}
+              icon={<Phone aria-hidden="true" size={18} strokeWidth={2} />}
               onAction={onAction}
+              stacked
               variant="secondary"
             />
           ) : null}
@@ -117,8 +118,9 @@ export function RiderTrackingScreen({
             <RiderActionButton
               action={messageAction}
               fullWidth
-              icon={<MessageSquare aria-hidden="true" size={16} strokeWidth={2} />}
+              icon={<MessageSquare aria-hidden="true" size={18} strokeWidth={2} />}
               onAction={onAction}
+              stacked
               variant="secondary"
             />
           ) : null}
@@ -126,8 +128,9 @@ export function RiderTrackingScreen({
             <RiderActionButton
               action={shareAction}
               fullWidth
-              icon={<Share2 aria-hidden="true" size={16} strokeWidth={2} />}
+              icon={<Share2 aria-hidden="true" size={18} strokeWidth={2} />}
               onAction={onAction}
+              stacked
               variant="secondary"
             />
           ) : null}

@@ -93,17 +93,20 @@ export function RiderActionButton({
   variant = "secondary",
   fullWidth,
   icon,
+  stacked,
 }: {
   action: RiderAction;
   onAction?: (action: RiderAction) => void;
   variant?: RiderActionVariant;
   fullWidth?: boolean;
   icon?: React.ReactNode;
+  stacked?: boolean;
 }) {
   const className = cn(
     variant === "primary" && "taxis-rider-btn-primary",
     variant === "secondary" && "taxis-rider-btn-secondary",
     variant === "ghost" && "taxis-rider-btn-ghost",
+    stacked && "taxis-rider-btn-stacked",
     fullWidth && "w-full",
   );
 
