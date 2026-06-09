@@ -3,6 +3,7 @@
 import "../workspace/workspace.css";
 
 import {
+  CalendarClock,
   Car,
   Check,
   Clock,
@@ -580,7 +581,7 @@ function CompanyBookingDetailDrawer({
                           {unit.label}
                         </p>
                         {unit.publicId ? (
-                          <p className="taxis-data-id mt-1 truncate font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)]">
+                          <p className="taxis-data-id mt-1 truncate font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)]">
                             {unit.publicId}
                           </p>
                         ) : null}
@@ -616,7 +617,7 @@ function CompanyBookingDetailDrawer({
                             </p>
                           ) : null}
                           {passengerText ? (
-                            <p className="truncate font-medium text-[11.5px] text-[var(--taxis-workspace-text-muted)]">
+                            <p className="truncate font-medium text-[11px] text-[var(--taxis-workspace-text-muted)]">
                               {passengerText}
                             </p>
                           ) : null}
@@ -659,7 +660,7 @@ function CompanyBookingDetailDrawer({
                       <p className="font-semibold text-[13px] text-[var(--taxis-workspace-text-strong)]">
                         {item.label}
                       </p>
-                      <p className="mt-1 truncate font-medium text-[11.5px] text-[var(--taxis-workspace-text-muted)]">
+                      <p className="mt-1 truncate font-medium text-[11px] text-[var(--taxis-workspace-text-muted)]">
                         {item.dateLabel}, {item.timeLabel}
                         {item.actorName ? ` · ${item.actorName}` : ""}
                       </p>
@@ -696,7 +697,7 @@ function CompanyBookingDetailDrawer({
               {cancelError}
             </p>
           ) : cancelDisabledReason ? (
-            <p className="mt-3 text-center font-medium text-[11.5px] text-[var(--taxis-workspace-text-muted)]">
+            <p className="mt-3 text-center font-medium text-[11px] text-[var(--taxis-workspace-text-muted)]">
               {cancelDisabledReason}
             </p>
           ) : null}
@@ -799,7 +800,7 @@ function CompanyBookingsTable({
           <col className="w-[14%]" />
         </colgroup>
         <thead>
-          <tr className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
+          <tr className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
             <th className="taxis-workspace-table-header-cell taxios-bookings-header-cell rounded-l-xl border-y border-l px-4 py-2.5">
               {copy.tablePickup}
             </th>
@@ -831,7 +832,7 @@ function CompanyBookingsTable({
                 <span className="taxis-data-value block font-semibold text-[17px] text-[var(--taxis-workspace-text-strong)] leading-none tracking-tight">
                   {row.pickupTimeLabel}
                 </span>
-                <span className="mt-1.5 block font-medium text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
+                <span className="mt-1.5 block font-medium text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                   {row.pickupDateLabel}
                 </span>
               </td>
@@ -839,7 +840,7 @@ function CompanyBookingsTable({
                 <span className="taxis-data-value block font-semibold text-[13px] text-[var(--taxis-workspace-text-secondary)]">
                   {row.createdTimeLabel}
                 </span>
-                <span className="mt-1.5 block font-medium text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
+                <span className="mt-1.5 block font-medium text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
                   {row.createdDateLabel}
                 </span>
               </td>
@@ -925,7 +926,10 @@ export function CompanyBookingsWorkspaceContent({
     <div className="taxis-company-workspace-content taxis-workspace-content-area">
       <div className="taxis-company-workspace-frame taxis-company-workspace-stack">
         <section className="taxis-company-page-header">
-          <span className="taxis-company-page-eyebrow">Company workspace</span>
+          <span className="taxis-company-page-eyebrow">
+            <CalendarClock aria-hidden="true" size={14} strokeWidth={1.9} />
+            Company Workspace
+          </span>
           <h1 className="taxis-company-page-title">{copy.title}</h1>
           <p className="taxis-company-page-description">{copy.subtitle}</p>
         </section>

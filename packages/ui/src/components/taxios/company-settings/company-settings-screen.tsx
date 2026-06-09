@@ -182,7 +182,7 @@ function SectionButton({
         <span className="block font-semibold text-[13px] text-[var(--taxis-workspace-text-strong)]">
           {title}
         </span>
-        <span className="mt-0.5 block truncate text-[11.5px] text-[var(--taxis-workspace-text-muted)]">
+        <span className="mt-0.5 block truncate text-[11px] text-[var(--taxis-workspace-text-muted)]">
           {description}
         </span>
       </span>

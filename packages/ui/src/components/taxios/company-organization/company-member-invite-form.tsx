@@ -98,7 +98,7 @@ export function CompanyMemberInviteForm({
       <form className="flex flex-col gap-5" onSubmit={submit}>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <p className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
+            <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               Members
             </p>
             <h2 className="mt-2 flex items-center gap-2 font-semibold text-[18px] text-[var(--taxis-workspace-text-strong)] tracking-tight">

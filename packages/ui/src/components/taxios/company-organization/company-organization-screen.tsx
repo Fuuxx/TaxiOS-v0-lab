@@ -207,7 +207,7 @@ function PublicIdLine({ value }: { value: string | null }) {
 
   return (
     <span
-      className="mt-1 block font-mono font-semibold text-[10.5px] text-[var(--taxis-workspace-text-subtle)] tracking-[0.12em]"
+      className="mt-1 block font-mono font-semibold text-[10px] text-[var(--taxis-workspace-text-subtle)] tracking-[0.12em]"
       title="Support reference"
     >
       {value}
@@ -1410,7 +1410,7 @@ function CompanyOrganizationAddDialog({
         <div className="pointer-events-none absolute inset-0 rounded-[28px] shadow-[inset_1px_0_0_rgba(255,255,255,0.82),inset_0_-1px_0_rgba(15,23,42,0.04)]" />
         <div className="relative z-10 flex shrink-0 items-start justify-between gap-4 border-zinc-100/70 border-b bg-white/74 px-5 pt-5 pb-4 md:px-6">
           <div className="min-w-0">
-            <p className="font-semibold text-[10.5px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
+            <p className="font-semibold text-[10px] text-[var(--taxis-workspace-text-muted)] uppercase tracking-taxis-eyebrow">
               Organisation
             </p>
             <h2
@@ -2279,13 +2279,13 @@ export function CompanyOrganizationWorkspaceContent({
       <div className="taxis-company-workspace-frame taxis-company-workspace-stack">
         <section className="taxis-company-page-header">
           <div className="min-w-0">
-            <p className="taxis-company-page-eyebrow">
+            <span className="taxis-company-page-eyebrow">
               <Building2 aria-hidden="true" size={14} strokeWidth={1.9} />
               {payload.organizationName}
-            </p>
+            </span>
             <PublicIdLine value={payload.organizationPublicId} />
-            <h1 className="taxis-company-page-title mt-2">{copy.title}</h1>
-            <p className="taxis-company-page-description mt-2">
+            <h1 className="taxis-company-page-title">{copy.title}</h1>
+            <p className="taxis-company-page-description">
               {copy.subtitle}
             </p>
           </div>

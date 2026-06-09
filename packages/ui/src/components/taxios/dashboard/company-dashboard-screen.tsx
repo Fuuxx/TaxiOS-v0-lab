@@ -9,7 +9,7 @@
 import "./company-dashboard.css";
 
 import type React from "react";
-import { Languages } from "lucide-react";
+import { CalendarDays, Languages } from "lucide-react";
 
 import type {
   CompanyDashboardCopy,
@@ -213,16 +213,17 @@ export const CompanyDashboardWorkspaceContent: React.FC<
         <section className="taxios-dashboard-animate-fade-up taxis-company-page-header">
           <div className="min-w-0">
             <span className="taxis-company-page-eyebrow">
+              <CalendarDays aria-hidden="true" size={14} strokeWidth={1.9} />
               {copy.hero.datePrefix} - {headerDateLabel}
             </span>
-            <h1 className="taxis-company-page-title mt-2">
+            <h1 className="taxis-company-page-title">
               {copy.hero.greetingPrefix},{" "}
               <span className="text-slate-500">
                 {copy.hero.greetingName}
               </span>
               .
             </h1>
-            <p className="taxis-company-page-description mt-2">
+            <p className="taxis-company-page-description">
               {copy.hero.overview}
             </p>
           </div>
