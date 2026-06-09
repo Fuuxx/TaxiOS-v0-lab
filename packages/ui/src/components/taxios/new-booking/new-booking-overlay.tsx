@@ -2803,7 +2803,7 @@ export function VehicleAssignmentSection({
     <section aria-labelledby={sectionTitleId(copy.vehicle.title)}>
       <SectionHeader title={copy.vehicle.title} />
       <fieldset aria-label={copy.vehicle.inputModeLabel}>
-        <div className="grid gap-1 rounded-[var(--taxis-radius-control)] border border-[var(--taxis-workspace-control-dark)] bg-[var(--taxis-workspace-surface-deep)] p-1 shadow-[var(--taxis-workspace-shadow-overlay)] md:grid-cols-2">
+        <div className="taxis-segmented-track grid items-stretch gap-1 rounded-[var(--taxis-radius-control)] border p-1 md:grid-cols-2">
           {[
             {
               label: copy.vehicle.assignSeatsModeLabel,
@@ -2816,10 +2816,10 @@ export function VehicleAssignmentSection({
           ].map((option) => (
             <label
               className={cn(
-                "flex min-h-[var(--taxis-control-h-md)] cursor-pointer items-center justify-center rounded-[calc(var(--taxis-radius-control)-2px)] border px-4 py-2.5 text-center transition-all focus-within:ring-3 focus-within:ring-[var(--taxis-workspace-focus-ring)]",
+                "taxis-segmented-item flex h-full min-h-[var(--taxis-control-h-md)] cursor-pointer items-center justify-center rounded-[calc(var(--taxis-radius-control)-2px)] border px-4 py-2.5 text-center transition-all focus-within:ring-3 focus-within:ring-[var(--taxis-workspace-focus-ring)]",
                 inputMode === option.value
-                  ? "border-[var(--taxis-workspace-control-dark)] bg-[var(--taxis-workspace-control-dark)] text-[var(--taxis-workspace-surface)] shadow-[var(--taxis-workspace-shadow-command)]"
-                  : "border-transparent text-[var(--taxis-workspace-text-strong)] hover:border-[var(--taxis-workspace-control-dark)] hover:text-[var(--taxis-workspace-text-strong)]",
+                  ? "taxis-segmented-active border-[var(--taxis-workspace-control-dark)] bg-[var(--taxis-workspace-control-dark)] text-[var(--taxis-workspace-surface)]"
+                  : "border-transparent text-[var(--taxis-workspace-text-secondary)]",
               )}
               key={option.value}
             >
@@ -3707,7 +3707,7 @@ export function BookingSummary({
   const dateTime =
     pickupDate.trim().length > 0 || pickupTime.trim().length > 0
       ? `${pickupDate || "—"} ${pickupTime || "—"}`
-      : "—";
+      : "���";
 
   return (
     <div className="sticky top-6 space-y-4">
