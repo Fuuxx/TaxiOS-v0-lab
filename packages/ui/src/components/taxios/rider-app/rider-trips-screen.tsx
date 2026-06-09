@@ -5,8 +5,8 @@ import type {
   RiderTripsTab,
 } from "../../../contracts/rider-app";
 import { cn } from "../../../lib/utils";
+import { RiderEmptyState } from "./rider-app-shell";
 import {
-  RiderEmptyState,
   RiderSection,
   RiderTripCard,
 } from "./rider-primitives";

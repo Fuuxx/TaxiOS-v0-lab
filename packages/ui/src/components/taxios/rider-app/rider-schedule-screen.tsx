@@ -9,11 +9,7 @@ import type {
   RiderAppCopy,
   RiderBookingPayload,
 } from "../../../contracts/rider-app";
-import {
-  RiderActionButton,
-  RiderActionReason,
-  RiderSection,
-} from "./rider-primitives";
+import { RiderActionReason, RiderSection } from "./rider-primitives";
 
 /* =====================================================================
  * Rider — Fahrt planen (Später)

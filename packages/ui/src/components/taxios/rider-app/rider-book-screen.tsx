@@ -34,7 +34,7 @@ const bookingFormSchema = z.object({
   pickupAddress: z.string().min(3, "Bitte Abholadresse angeben."),
   destinationAddress: z.string().min(3, "Bitte Zieladresse angeben."),
   vehicleOptionId: z.string().min(1, "Bitte Fahrzeugklasse wählen."),
-  passengerCount: z.coerce
+  passengerCount: z
     .number({ message: "Bitte Anzahl angeben." })
     .int()
     .min(1, "Mindestens 1 Fahrgast.")
@@ -191,7 +191,7 @@ export function RiderBookScreen({
             inputMode="numeric"
             label="Fahrgäste"
             placeholder="1"
-            register={register("passengerCount")}
+            register={register("passengerCount", { valueAsNumber: true })}
             type="number"
           />
           <div>

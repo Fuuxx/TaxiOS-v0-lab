@@ -92,8 +92,13 @@
       "type": "registry:ui",
       "title": "Button",
       "description": "TaxiOS Base UI button primitive with operational action hierarchy variants.",
-      "registryDependencies": ["taxios-base"],
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": [
+        "taxios-base"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
       "files": [
         {
           "path": "apps/taxios-v0-registry/src/v0/entries/button.tsx",
@@ -112,8 +117,13 @@
       "type": "registry:ui",
       "title": "Badge",
       "description": "TaxiOS badge primitive for compact neutral, secondary, destructive, outline, ghost, and link treatments.",
-      "registryDependencies": ["taxios-base"],
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": [
+        "taxios-base"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/ui/badge.tsx",
@@ -127,7 +137,9 @@
       "type": "registry:ui",
       "title": "Input",
       "description": "TaxiOS token-backed input primitive.",
-      "registryDependencies": ["taxios-base"],
+      "registryDependencies": [
+        "taxios-base"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/ui/input.tsx",
@@ -141,8 +153,12 @@
       "type": "registry:ui",
       "title": "Label",
       "description": "TaxiOS label primitive for form controls.",
-      "registryDependencies": ["taxios-base"],
-      "dependencies": ["@base-ui/react"],
+      "registryDependencies": [
+        "taxios-base"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/ui/label.tsx",
@@ -156,8 +172,13 @@
       "type": "registry:ui",
       "title": "Select",
       "description": "TaxiOS token-backed select primitive built on Base UI Select.",
-      "registryDependencies": ["taxios-base"],
-      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": [
+        "taxios-base"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/ui/select.tsx",
@@ -171,7 +192,9 @@
       "type": "registry:ui",
       "title": "Date & Time Field",
       "description": "TaxiOS German formatted-text date/time field adapters over canonical yyyy-MM-dd / HH:mm strings (no calendar, no date library).",
-      "registryDependencies": ["taxios-base"],
+      "registryDependencies": [
+        "taxios-base"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/ui/date-time-field.tsx",
@@ -185,7 +208,9 @@
       "type": "registry:ui",
       "title": "Card",
       "description": "TaxiOS card primitive and subcomponents.",
-      "registryDependencies": ["taxios-base"],
+      "registryDependencies": [
+        "taxios-base"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/ui/card.tsx",
@@ -199,7 +224,9 @@
       "type": "registry:ui",
       "title": "Table",
       "description": "TaxiOS semantic table primitive and subcomponents.",
-      "registryDependencies": ["taxios-base"],
+      "registryDependencies": [
+        "taxios-base"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/ui/table.tsx",
@@ -213,7 +240,9 @@
       "type": "registry:component",
       "title": "WorkspaceSurface",
       "description": "TaxiOS porcelain workspace surface wrapper.",
-      "registryDependencies": ["taxios-base"],
+      "registryDependencies": [
+        "taxios-base"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/taxios/workspace/workspace-primitives.tsx",
@@ -227,7 +256,9 @@
       "type": "registry:component",
       "title": "WorkspaceInnerCard",
       "description": "TaxiOS inner-card workspace primitive.",
-      "registryDependencies": ["workspace-surface"],
+      "registryDependencies": [
+        "workspace-surface"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/taxios/workspace/workspace-primitives.tsx",
@@ -241,7 +272,9 @@
       "type": "registry:component",
       "title": "WorkspaceSectionHeader",
       "description": "TaxiOS compact section header for workspace surfaces.",
-      "registryDependencies": ["workspace-surface"],
+      "registryDependencies": [
+        "workspace-surface"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/taxios/workspace/workspace-primitives.tsx",
@@ -255,7 +288,9 @@
       "type": "registry:component",
       "title": "WorkspaceEntityCard",
       "description": "TaxiOS entity-card system for repeated workspace entities and metrics.",
-      "registryDependencies": ["workspace-surface"],
+      "registryDependencies": [
+        "workspace-surface"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/taxios/workspace/workspace-entity-card.tsx",
@@ -269,7 +304,9 @@
       "type": "registry:component",
       "title": "WorkspaceTable",
       "description": "TaxiOS workspace table shell, scroll container, table, row, and cells.",
-      "registryDependencies": ["workspace-surface"],
+      "registryDependencies": [
+        "workspace-surface"
+      ],
       "files": [
         {
           "path": "apps/taxios-v0-registry/src/v0/entries/workspace-table.tsx",
@@ -288,7 +325,10 @@
       "type": "registry:component",
       "title": "WorkspaceWizard",
       "description": "TaxiOS workspace wizard overlay, panel, sections, rail, footer, and status grid primitives.",
-      "registryDependencies": ["button", "workspace-surface"],
+      "registryDependencies": [
+        "button",
+        "workspace-surface"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/taxios/workspace/workspace-wizard.tsx",
@@ -302,7 +342,9 @@
       "type": "registry:component",
       "title": "Workspace Status Chips",
       "description": "TaxiOS workspace status tone helper functions and chip class mappings.",
-      "registryDependencies": ["taxios-base"],
+      "registryDependencies": [
+        "taxios-base"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/taxios/company-workspace/company-workspace-status.ts",
@@ -321,8 +363,14 @@
       "type": "registry:block",
       "title": "Ride Detail Drawer",
       "description": "Self-contained TaxiOS ride detail drawer block with inline types, mock data, and simplified avatar. No dashboard internals required.",
-      "registryDependencies": ["button", "workspace-surface", "workspace-status-chips"],
-      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "workspace-surface",
+        "workspace-status-chips"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "apps/taxios-v0-registry/src/v0/blocks/ride-detail-drawer.tsx",
@@ -336,7 +384,10 @@
       "type": "registry:block",
       "title": "Empty State",
       "description": "TaxiOS workspace empty state block for operational pages.",
-      "registryDependencies": ["button", "workspace-surface"],
+      "registryDependencies": [
+        "button",
+        "workspace-surface"
+      ],
       "files": [
         {
           "path": "apps/taxios-v0-registry/src/v0/blocks/empty-state.tsx",
@@ -350,7 +401,9 @@
       "type": "registry:block",
       "title": "Loading State",
       "description": "TaxiOS compact loading state block using workspace material tokens.",
-      "registryDependencies": ["workspace-surface"],
+      "registryDependencies": [
+        "workspace-surface"
+      ],
       "files": [
         {
           "path": "apps/taxios-v0-registry/src/v0/blocks/loading-state.tsx",
@@ -364,7 +417,11 @@
       "type": "registry:block",
       "title": "Data Table",
       "description": "TaxiOS operational data table block using WorkspaceTable components and status chips.",
-      "registryDependencies": ["workspace-table", "workspace-status-chips", "button"],
+      "registryDependencies": [
+        "workspace-table",
+        "workspace-status-chips",
+        "button"
+      ],
       "files": [
         {
           "path": "apps/taxios-v0-registry/src/v0/blocks/data-table.tsx",
@@ -378,7 +435,12 @@
       "type": "registry:block",
       "title": "Booking Wizard Shell",
       "description": "TaxiOS booking wizard shell block using WorkspaceWizard components.",
-      "registryDependencies": ["workspace-wizard", "input", "label", "button"],
+      "registryDependencies": [
+        "workspace-wizard",
+        "input",
+        "label",
+        "button"
+      ],
       "files": [
         {
           "path": "apps/taxios-v0-registry/src/v0/blocks/booking-wizard-shell.tsx",
@@ -403,7 +465,9 @@
         "workspace-table",
         "workspace-wizard"
       ],
-      "dependencies": ["lucide-react"],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "apps/taxios-v0-registry/src/v0/layout.tsx",
@@ -523,11 +587,119 @@
       ]
     },
     {
+      "name": "rider-app-lab",
+      "type": "registry:block",
+      "title": "Rider App Lab",
+      "description": "TaxiOS v0 Lab for the passenger-facing Rider App: 10 mobile screens (Start, Fahrten, Fahrtdetails, Live-Tracking, Buchen, Planen, Fahrgäste, Bestätigung, Postfach, Konto) in a shared phone shell. Fixture-only, props-driven, no backend or v0-generated code.",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "workspace-surface",
+        "workspace-status-chips"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod"
+      ],
+      "files": [
+        {
+          "path": "apps/taxios-v0-registry/src/v0/layout.tsx",
+          "type": "registry:block",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "apps/taxios-v0-registry/src/v0/blocks/rider-app-lab.tsx",
+          "type": "registry:block",
+          "target": "app/page.tsx"
+        },
+        {
+          "path": "packages/ui/src/contracts/rider-app.ts",
+          "type": "registry:lib",
+          "target": "contracts/rider-app.ts"
+        },
+        {
+          "path": "packages/ui/src/storybook/fixtures/rider-app.fixtures.ts",
+          "type": "registry:lib",
+          "target": "storybook/fixtures/rider-app.fixtures.ts"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/rider-app/rider-app.css",
+          "type": "registry:component",
+          "target": "components/taxios/rider-app/rider-app.css"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/rider-app/rider-app-shell.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/rider-app/rider-app-shell.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/rider-app/rider-primitives.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/rider-app/rider-primitives.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/rider-app/rider-home-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/rider-app/rider-home-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/rider-app/rider-trips-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/rider-app/rider-trips-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/rider-app/rider-trip-detail-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/rider-app/rider-trip-detail-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/rider-app/rider-tracking-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/rider-app/rider-tracking-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/rider-app/rider-book-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/rider-app/rider-book-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/rider-app/rider-schedule-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/rider-app/rider-schedule-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/rider-app/rider-riders-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/rider-app/rider-riders-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/rider-app/rider-requested-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/rider-app/rider-requested-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/rider-app/rider-inbox-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/rider-app/rider-inbox-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/rider-app/rider-account-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/rider-app/rider-account-screen.tsx"
+        }
+      ]
+    },
+    {
       "name": "taxios-design-context",
       "type": "registry:page",
       "title": "TaxiOS Design Context",
       "description": "Visual design brief, Storybook references, and v0 polish instructions for the TaxiOS porcelain UI system. Read this before opening any lab block.",
-      "registryDependencies": ["taxios-base"],
+      "registryDependencies": [
+        "taxios-base"
+      ],
       "files": [
         {
           "path": "apps/taxios-v0-registry/src/v0/layout.tsx",
@@ -551,7 +723,9 @@
       "type": "registry:block",
       "title": "Button Lab",
       "description": "TaxiOS Button v0 preview block. Renders all button variants with TaxiOS tokens.",
-      "registryDependencies": ["button"],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
           "path": "apps/taxios-v0-registry/src/v0/layout.tsx",
@@ -570,7 +744,9 @@
       "type": "registry:block",
       "title": "Workspace Table Lab",
       "description": "TaxiOS Workspace Table v0 preview block. Renders an operational data table with TaxiOS workspace tokens.",
-      "registryDependencies": ["workspace-table"],
+      "registryDependencies": [
+        "workspace-table"
+      ],
       "files": [
         {
           "path": "apps/taxios-v0-registry/src/v0/layout.tsx",
@@ -589,8 +765,14 @@
       "type": "registry:block",
       "title": "Ride Detail Drawer Lab",
       "description": "TaxiOS Ride Detail Drawer v0 preview block. Self-contained drawer with mocked ride data and TaxiOS workspace tokens.",
-      "registryDependencies": ["button", "workspace-surface", "workspace-status-chips"],
-      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "button",
+        "workspace-surface",
+        "workspace-status-chips"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "apps/taxios-v0-registry/src/v0/layout.tsx",

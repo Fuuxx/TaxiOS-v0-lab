@@ -8,9 +8,9 @@ import type {
   RiderQuickAction,
   RiderTripSummary,
 } from "../../../contracts/rider-app";
+import { RiderEmptyState } from "./rider-app-shell";
 import {
   RiderActionButton,
-  RiderEmptyState,
   RiderSection,
   RiderTripCard,
 } from "./rider-primitives";

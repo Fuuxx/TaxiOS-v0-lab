@@ -21,6 +21,7 @@ import { DataTableBlock } from "./v0/blocks/data-table";
 import { EmptyStateBlock } from "./v0/blocks/empty-state";
 import { LoadingStateBlock } from "./v0/blocks/loading-state";
 import { RideDetailDrawerBlock } from "./v0/blocks/ride-detail-drawer";
+import { RiderAppLabBlock } from "./v0/blocks/rider-app-lab";
 import DesignContextPage from "./v0/entries/design-context";
 
 type RegistryDemoItem = {
@@ -46,6 +47,7 @@ const demoByName: Record<string, ComponentType> = {
   "loading-state": LoadingStateBlock,
   "ride-detail-drawer": RideDetailDrawerBlock,
   "ride-detail-drawer-lab": RideDetailDrawerBlock,
+  "rider-app-lab": RiderAppLabBlock,
   table: TableDemo,
   "workspace-entity-card": WorkspaceEntityCardDemo,
   "workspace-inner-card": WorkspaceInnerCardDemo,

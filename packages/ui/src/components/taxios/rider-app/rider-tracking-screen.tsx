@@ -45,7 +45,6 @@ export type RiderTrackingScreenProps = {
 };
 
 export function RiderTrackingScreen({
-  copy,
   onAction,
   payload,
 }: RiderTrackingScreenProps) {

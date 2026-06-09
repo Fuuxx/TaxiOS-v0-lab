@@ -259,6 +259,7 @@ export const riderTrackingPayload: RiderTrackingPayload = {
     { id: "s3", label: "Abholung", state: "upcoming", timeLabel: "14:30" },
     { id: "s4", label: "Ankunft am Ziel", state: "upcoming", timeLabel: "14:52" },
   ],
+  tripId: "trip_8472",
 };
 
 /* ---------------------------------------------------------------------
