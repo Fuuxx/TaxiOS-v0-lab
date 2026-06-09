@@ -207,3 +207,73 @@
 .taxios-dashboard-blob-blue {
   display: none;
 }
+
+/* ===========================================================================
+ * Dark mode — ambient + segmented + search foundation.
+ *
+ * The light theme paints a large white radial/linear glow across the top of
+ * the page (the "studio light") and skins segmented controls + search rows in
+ * white porcelain. In dark mode those wash the canvas pale grey and add white
+ * sheens. Re-skin to faint graphite light and remove the white insets.
+ * ======================================================================== */
+.dark :is(.taxis-workspace-ambient-bg, .taxios-dashboard-ambient-bg) {
+  background:
+    radial-gradient(70% 50% at 50% -16%, rgba(226, 232, 240, 0.055), rgba(226, 232, 240, 0) 64%),
+    radial-gradient(58% 44% at 54% 34%, var(--taxis-workspace-blue-wash), transparent 76%),
+    linear-gradient(180deg, var(--taxis-workspace-page-bg-soft) 0%, var(--taxis-workspace-page-bg-deep) 100%);
+}
+
+.dark .taxis-segmented-track {
+  box-shadow:
+    inset 0 2px 5px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(226, 232, 240, 0.04),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dark .taxis-segmented-item:not(.taxis-segmented-active):hover {
+  background: var(--taxis-workspace-surface-hover);
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.05),
+    inset 0 0 0 1px var(--taxis-workspace-surface-rim);
+}
+
+.dark .taxis-segmented-active {
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.06),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.dark .taxis-search-results-header {
+  background:
+    linear-gradient(180deg, var(--taxis-workspace-surface-soft), var(--taxis-workspace-surface-deep)),
+    radial-gradient(ellipse at 88% 12%, var(--taxis-workspace-graphite-wash-soft), transparent 54%);
+}
+
+.dark .taxis-search-filter {
+  background: var(--taxis-workspace-surface-soft);
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.05),
+    0 8px 18px -18px rgba(0, 0, 0, 0.5);
+}
+
+.dark :is(.taxis-search-result-row) {
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-surface-soft),
+    var(--taxis-workspace-surface-deep)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.05),
+    0 12px 30px -28px rgba(0, 0, 0, 0.6);
+}
+
+.dark .taxis-search-result-row:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.06),
+    0 20px 42px -34px rgba(0, 0, 0, 0.66);
+}
+
+.dark .taxis-search-empty-state {
+  box-shadow: inset 0 1px 0 rgba(226, 232, 240, 0.05);
+}

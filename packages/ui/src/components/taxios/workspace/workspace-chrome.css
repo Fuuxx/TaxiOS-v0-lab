@@ -697,3 +697,123 @@
     rgba(0, 0, 0, 0) 100%
   );
 }
+
+/* Topbar body: the light theme paints a near-white silver glass
+   (rgba(255,255,255,0.94) fill + a 0.42 white inset rim) which reads as a
+   bright bar in dark mode. Re-skin to a graphite glass with a hairline rim. */
+.dark :is(.taxis-workspace-topbar, .taxios-dashboard-topbar) {
+  border-color: var(--taxis-workspace-glass-edge);
+  background:
+    linear-gradient(
+      180deg,
+      var(--taxis-workspace-surface-soft),
+      var(--taxis-workspace-surface-deep)
+    ),
+    var(--taxis-workspace-glass);
+  box-shadow:
+    var(--taxis-workspace-shadow-command),
+    inset 0 1px 0 rgba(226, 232, 240, 0.05),
+    inset 0 0 0 1px rgba(226, 232, 240, 0.04);
+}
+
+/* Sidebar shell: deepen the executive shadow (no white inset top edges) and
+   trade the bright white inner glaze for a faint light wash + dark seam. */
+.dark :is(.taxis-workspace-sidebar-shell, .taxios-dashboard-sidebar-shell) {
+  box-shadow:
+    var(--taxis-workspace-shadow-executive),
+    inset 0 1px 0 rgba(226, 232, 240, 0.05),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    inset -1px 0 0 rgba(0, 0, 0, 0.22);
+}
+
+.dark :is(.taxis-workspace-sidebar-shell, .taxios-dashboard-sidebar-shell)::after {
+  background:
+    linear-gradient(180deg, rgba(226, 232, 240, 0.05), transparent 18%),
+    linear-gradient(90deg, rgba(226, 232, 240, 0.04), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.18)),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.22), transparent 16%);
+  opacity: 0.8;
+}
+
+/* Sidebar footer divider: light alpha hairline instead of a dark-on-dark line. */
+.dark
+  :is(.taxis-workspace-sidebar-footer, .taxios-dashboard-sidebar-footer)::before {
+  background: linear-gradient(
+    90deg,
+    rgba(226, 232, 240, 0) 0%,
+    rgba(226, 232, 240, 0.12) 50%,
+    rgba(226, 232, 240, 0) 100%
+  );
+}
+
+/* Account card: graphite plate, hairline rim, no white inset top edge. */
+.dark :is(.taxis-workspace-account-card, .taxios-dashboard-account-card) {
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-surface-soft),
+    var(--taxis-workspace-surface-deep)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.05),
+    0 10px 24px -18px rgba(0, 0, 0, 0.6);
+}
+
+.dark :is(.taxis-workspace-account-card, .taxios-dashboard-account-card):hover {
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.06),
+    0 16px 32px -18px rgba(0, 0, 0, 0.66);
+}
+
+.dark
+  :is(.taxis-workspace-account-card, .taxios-dashboard-account-card):focus-within {
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.06),
+    0 0 0 3px var(--taxis-workspace-focus-ring),
+    0 16px 32px -18px rgba(0, 0, 0, 0.66);
+}
+
+/* Active nav row: drop the bright white inner top edge introduced by the
+   shared dark override so only the graphite plate + accent tick remain. */
+.dark
+  :is(.taxis-workspace-nav-active, .taxios-dashboard-nav-active)::before {
+  box-shadow: 0 0 0 1px var(--taxis-workspace-accent-halo);
+}
+
+/* Org switcher form + system / count chips: kill the porcelain white insets. */
+.dark .taxis-user-menu-context form {
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-surface-soft),
+    var(--taxis-workspace-surface-deep)
+  );
+  box-shadow: inset 0 1px 0 rgba(226, 232, 240, 0.05);
+}
+
+.dark :is(.taxis-system-chip, .taxis-count-chip) {
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.06),
+    0 10px 24px -20px rgba(0, 0, 0, 0.5);
+}
+
+.dark :is(.taxis-system-chip, .taxis-count-chip):hover {
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.08),
+    0 14px 28px -22px rgba(0, 0, 0, 0.56);
+}
+
+/* Nav icon chips on hover / active: replace the white top inset with a faint
+   light alpha so the chip reads as gently raised graphite, not white plastic. */
+.dark .taxis-workspace-nav-row:hover .taxis-workspace-nav-icon,
+.dark .taxios-dashboard-nav-row:hover .taxios-dashboard-nav-icon {
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.07),
+    inset 0 0 0 1px var(--taxis-workspace-border-strong),
+    0 4px 10px -6px rgba(0, 0, 0, 0.4);
+}
+
+.dark .taxis-workspace-nav-row.taxis-workspace-nav-row-active .taxis-workspace-nav-icon,
+.dark .taxios-dashboard-nav-row.taxios-dashboard-nav-row-active .taxios-dashboard-nav-icon {
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.07),
+    inset 0 0 0 1px var(--taxis-workspace-surface-rim-strong),
+    0 4px 10px -8px rgba(0, 0, 0, 0.45);
+}

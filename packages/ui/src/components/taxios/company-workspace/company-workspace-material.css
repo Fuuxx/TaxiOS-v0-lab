@@ -441,3 +441,63 @@
     font-size: 2.625rem;
   }
 }
+
+/* ===========================================================================
+ * Dark mode — porcelain primitives.
+ *
+ * The light theme wraps every primary surface in a bright white outline
+ * (::after { inset 0 0 0 1px rgba(255,255,255,0.66) }) and tops inner cards
+ * with a hard white inset edge. In dark mode those become glaring white
+ * rings/sheens around every panel. Here we swap them for hairline light-alpha
+ * rims that read as quiet elevation against the graphite surfaces.
+ * ======================================================================== */
+.dark
+  :is(
+    .taxis-workspace-surface,
+    .taxis-company-workspace-surface,
+    .taxios-dashboard-porcelain-surface
+  )::after {
+  box-shadow:
+    inset 0 0 0 1px var(--taxis-workspace-surface-rim),
+    inset 0 1px 0 rgba(226, 232, 240, 0.05),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.28);
+}
+
+.dark
+  :is(
+    .taxis-workspace-inner-card,
+    .taxis-company-workspace-inner-card,
+    .taxios-dashboard-porcelain-inner-card
+  ) {
+  box-shadow:
+    var(--taxis-workspace-shadow-raised-clipped),
+    inset 0 1px 0 rgba(226, 232, 240, 0.05);
+}
+
+.dark
+  :is(
+    .taxis-workspace-inner-card,
+    .taxis-company-workspace-inner-card,
+    .taxios-dashboard-porcelain-inner-card
+  ):hover {
+  box-shadow:
+    0 28px 58px -38px rgba(0, 0, 0, 0.62),
+    0 10px 22px -18px rgba(0, 0, 0, 0.46),
+    inset 0 1px 0 rgba(226, 232, 240, 0.07);
+}
+
+/* Section surfaces + empty states: same hairline treatment, no white edge. */
+.dark
+  :is(
+    .taxis-workspace-surface.taxis-company-surface-section,
+    .taxis-company-workspace-surface.taxis-company-surface-section,
+    .taxios-dashboard-porcelain-surface.taxis-company-surface-section
+  ) {
+  box-shadow:
+    var(--taxis-workspace-shadow-card),
+    inset 0 1px 0 rgba(226, 232, 240, 0.05);
+}
+
+.dark .taxis-company-surface-empty {
+  box-shadow: inset 0 1px 0 rgba(226, 232, 240, 0.05);
+}
