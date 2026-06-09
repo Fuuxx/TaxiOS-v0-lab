@@ -224,7 +224,7 @@ export function RiderAppLabBlock() {
             className={[
               "rounded-md border px-3 py-2 text-sm font-semibold transition",
               activeScreen === screen.id
-                ? "border-[var(--taxis-workspace-border-strong)] bg-[var(--taxis-workspace-ink)] text-[var(--taxis-workspace-surface)]"
+                ? "border-[var(--taxis-workspace-accent)] bg-[var(--taxis-workspace-accent)] text-white"
                 : "border-[var(--taxis-workspace-border)] bg-[var(--taxis-workspace-surface)] text-[var(--taxis-workspace-text-strong)] hover:border-[var(--taxis-workspace-border-strong)]",
             ].join(" ")}
             key={screen.id}

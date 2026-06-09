@@ -83,6 +83,7 @@ export function RiderScheduleScreen({
   return (
     <form className="space-y-6" noValidate onSubmit={submit}>
       <div className="taxis-rider-card p-2">
+        {/* biome-ignore lint/a11y/useSemanticElements: segmented toggle, not a form fieldset */}
         <div className="taxis-rider-segmented" role="group" aria-label="Buchungsart">
           <button
             className="taxis-rider-segmented-item"

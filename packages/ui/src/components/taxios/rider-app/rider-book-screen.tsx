@@ -92,6 +92,7 @@ export function RiderBookScreen({
   return (
     <form className="space-y-6" noValidate onSubmit={submit}>
       <div className="taxis-rider-card p-2">
+        {/* biome-ignore lint/a11y/useSemanticElements: segmented toggle, not a form fieldset */}
         <div className="taxis-rider-segmented" role="group" aria-label="Buchungsart">
           <span className="taxis-rider-segmented-item" data-active={payload.mode === "now"}>
             Jetzt

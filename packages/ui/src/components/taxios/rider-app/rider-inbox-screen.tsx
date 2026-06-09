@@ -167,7 +167,9 @@ function NotificationRow({ notification }: { notification: RiderNotification }) 
   return (
     <li className="taxis-rider-card flex items-start gap-3 p-4" data-unread={notification.unread}>
       {notification.unread ? (
-        <span className="taxis-rider-unread-dot" aria-label="Ungelesen" />
+        <span className="taxis-rider-unread-dot">
+          <span className="sr-only">Ungelesen</span>
+        </span>
       ) : (
         <span className="taxis-rider-unread-dot taxis-rider-unread-dot-read" aria-hidden="true" />
       )}
