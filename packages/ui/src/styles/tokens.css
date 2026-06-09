@@ -114,6 +114,11 @@
   --taxis-dashboard-text-subtle: #475569;
   --taxis-dashboard-text-muted: #64748b;
 
+  /* Foreground that always sits on a dark control (command rail, active
+     segment, dark primary pill). Kept separate from `surface` so dark mode
+     can flip `surface` to a dark tone without turning this text invisible. */
+  --taxis-dashboard-on-dark: #ffffff;
+
   /* Borders — neutral warm hairlines */
   --taxis-dashboard-border: rgba(15, 23, 42, 0.11);
   --taxis-dashboard-border-strong: rgba(15, 23, 42, 0.18);
@@ -283,6 +288,7 @@
   --taxis-workspace-text-secondary: var(--taxis-dashboard-text-secondary);
   --taxis-workspace-text-subtle: var(--taxis-dashboard-text-subtle);
   --taxis-workspace-text-muted: var(--taxis-dashboard-text-muted);
+  --taxis-workspace-on-dark: var(--taxis-dashboard-on-dark);
   --taxis-workspace-border: var(--taxis-dashboard-border);
   --taxis-workspace-border-strong: var(--taxis-dashboard-border-strong);
   --taxis-workspace-divider: var(--taxis-dashboard-divider);
@@ -372,21 +378,167 @@
 }
 
 .dark {
-  --taxis-color-charcoal-950: #f8fafc;
-  --taxis-color-charcoal-900: oklch(0.922 0 0);
-  --taxis-color-muted: oklch(0.708 0 0);
-  --taxis-color-surface: oklch(0.205 0 0);
-  --taxis-color-surface-muted: oklch(0.269 0 0);
-  --taxis-color-surface-wash: oklch(0.205 0 0);
-  --taxis-color-surface-elevated: oklch(0.269 0 0);
-  --taxis-color-border-soft: oklch(1 0 0 / 10%);
-  --taxis-color-action: #ff6a00;
-  --taxis-color-action-weak: #ff7a1a;
-  --taxis-color-action-foreground: #ffffff;
+  /* ---------------------------------------------------------------------
+   * TaxiOS dark theme — "Enterprise calm" after dark.
+   *
+   * Principles applied:
+   *   - No pure black (#000) and no pure white (#fff) text. The base is an
+   *     elevated cool slate so surfaces read as material, not voids.
+   *   - Surfaces step UP from the page (page < deep < surface < soft) so
+   *     elevation is conveyed by lightness, the way light mode uses shadow.
+   *   - One accent only: the same orange, very slightly brightened so it
+   *     keeps contrast on dark without glowing.
+   *   - Borders/dividers become light alpha hairlines instead of dark ones.
+   *   - Shadows stay neutral graphite, just deeper.
+   * --------------------------------------------------------------------- */
 
-  --taxis-ui-page-bg: radial-gradient(circle at 40% 0%, oklch(0.25 0 0 / 0.42), oklch(0.145 0 0));
-  --taxis-ui-body-bg: oklch(0.145 0 0);
-  --taxis-ui-highlight-bg: rgba(15, 23, 42, 0.86);
+  /* Base color family (consumed by generic taxis tokens) */
+  --taxis-color-charcoal-950: #f1f5f9;
+  --taxis-color-charcoal-900: #e2e8f0;
+  --taxis-color-charcoal-800: #cbd5e1;
+  --taxis-color-muted: #94a3b8;
+  --taxis-color-surface: #181f2c;
+  --taxis-color-surface-muted: #131a26;
+  --taxis-color-surface-wash: #0e1420;
+  --taxis-color-surface-elevated: #1e2737;
+  --taxis-color-action: #ff7a1f;
+  --taxis-color-action-weak: #ff8c3d;
+  --taxis-color-action-foreground: #1a1205;
+  --taxis-color-border-soft: rgba(226, 232, 240, 0.12);
+
+  --taxis-ui-page-bg: linear-gradient(180deg, #101623 0%, #0e1420 52%, #0b1019 100%);
+  --taxis-ui-body-bg: #0e1420;
+  --taxis-ui-highlight-bg: rgba(24, 31, 44, 0.96);
+
+  /* Dark primary button stays a light pill so it remains the clear CTA */
+  --taxis-button-bg: #f1f5f9;
+  --taxis-button-fg: #0f172a;
+  --taxis-button-bg-hover: #ffffff;
+  --taxis-button-focus: #f1f5f9;
+  --taxis-button-focus-outline: 0 0 0 3px rgba(241, 245, 249, 0.22);
+
+  /* === Workspace material — the real source of truth for company UI === */
+
+  /* Page — deep cool slate, almost-but-not-quite black */
+  --taxis-dashboard-page-bg: #0e1420;
+  --taxis-dashboard-page-bg-soft: #121a28;
+  --taxis-dashboard-page-bg-deep: #0a0f18;
+
+  /* Surfaces — porcelain becomes graphite; each step lighter = more raised */
+  --taxis-dashboard-surface: #181f2c;
+  --taxis-dashboard-surface-soft: #1e2737;
+  --taxis-dashboard-surface-deep: #141b27;
+
+  /* Milk glass — frosted dark instead of frosted white */
+  --taxis-dashboard-glass: rgba(24, 31, 44, 0.86);
+  --taxis-dashboard-glass-fallback: rgba(24, 31, 44, 0.98);
+  --taxis-dashboard-glass-blur: blur(30px) saturate(1.1);
+
+  /* Text — softened off-white, never #fff */
+  --taxis-dashboard-text-primary: #e8edf5;
+  --taxis-dashboard-text-strong: #f1f5f9;
+  --taxis-dashboard-text-secondary: #c2cdda;
+  --taxis-dashboard-text-subtle: #9fadbf;
+  --taxis-dashboard-text-muted: #8190a3;
+  --taxis-dashboard-on-dark: #f1f5f9;
+
+  /* Borders — light alpha hairlines */
+  --taxis-dashboard-border: rgba(226, 232, 240, 0.12);
+  --taxis-dashboard-border-strong: rgba(226, 232, 240, 0.22);
+  --taxis-dashboard-divider: rgba(226, 232, 240, 0.10);
+  --taxis-dashboard-surface-rim: rgba(226, 232, 240, 0.10);
+  --taxis-dashboard-surface-rim-strong: rgba(226, 232, 240, 0.18);
+  --taxis-dashboard-surface-sheen: rgba(226, 232, 240, 0.05);
+  --taxis-dashboard-surface-sheen-strong: rgba(226, 232, 240, 0.09);
+  --taxis-dashboard-surface-hover: rgba(226, 232, 240, 0.06);
+  --taxis-dashboard-blue-wash: rgba(96, 165, 250, 0.05);
+  --taxis-dashboard-blue-wash-strong: rgba(96, 165, 250, 0.08);
+  --taxis-dashboard-graphite-wash: rgba(226, 232, 240, 0.04);
+  --taxis-dashboard-graphite-wash-soft: rgba(226, 232, 240, 0.025);
+  --taxis-dashboard-command-bg: rgba(24, 31, 44, 0.97);
+  --taxis-dashboard-glass-edge: rgba(226, 232, 240, 0.10);
+
+  /* Accent — same orange, a touch brighter for dark contrast */
+  --taxis-dashboard-accent: #ff7a1f;
+  --taxis-dashboard-accent-strong: #ff6a00;
+  --taxis-dashboard-accent-warm: #ff9d47;
+  --taxis-dashboard-accent-soft: rgba(255, 122, 31, 0.16);
+  --taxis-dashboard-accent-ring: rgba(255, 122, 31, 0.6);
+  --taxis-dashboard-accent-halo: rgba(255, 122, 31, 0.24);
+  --taxis-dashboard-focus-ring: rgba(255, 122, 31, 0.32);
+
+  /* Dark command controls (rails / active pills) — sit slightly DARKER than
+     the surface and a hair lighter on top so they still read as a control,
+     even though the page is already dark. */
+  --taxis-dashboard-control-dark-top: #2a3344;
+  --taxis-dashboard-control-dark: #0b111c;
+  --taxis-dashboard-control-dark-hover-top: #313c4f;
+  --taxis-dashboard-control-dark-hover: #060b13;
+  --taxis-dashboard-rail-text: #eef2f8;
+  --taxis-dashboard-rail-sheen: rgba(226, 232, 240, 0.08);
+
+  /* Neutral reflections (kept extremely subtle, now light-on-dark) */
+  --taxis-dashboard-neutral-reflection: rgba(226, 232, 240, 0.04);
+  --taxis-dashboard-neutral-reflection-soft: rgba(226, 232, 240, 0.02);
+  --taxis-dashboard-orange-reflection: var(--taxis-dashboard-neutral-reflection);
+  --taxis-dashboard-orange-reflection-soft: var(--taxis-dashboard-neutral-reflection-soft);
+  --taxis-dashboard-sparkline-fill: rgba(226, 232, 240, 0.04);
+  --taxis-dashboard-sparkline-up: #34d399;
+  --taxis-dashboard-sparkline-down: #fb7185;
+  --taxis-dashboard-sparkline-flat: #94a3b8;
+
+  /* Shadows — neutral, deeper to register against the dark page */
+  --taxis-dashboard-shadow-soft:
+    0 28px 70px -42px rgba(0, 0, 0, 0.66),
+    0 8px 24px -18px rgba(0, 0, 0, 0.5);
+  --taxis-dashboard-shadow-raised:
+    0 1px 0 rgba(226, 232, 240, 0.06),
+    0 24px 44px -22px rgba(0, 0, 0, 0.6),
+    0 10px 22px -14px rgba(0, 0, 0, 0.46);
+  --taxis-dashboard-shadow-raised-clipped:
+    0 24px 44px -22px rgba(0, 0, 0, 0.6),
+    0 10px 22px -14px rgba(0, 0, 0, 0.46);
+  --taxis-dashboard-shadow-overlay:
+    0 16px 40px -22px rgba(0, 0, 0, 0.58),
+    0 2px 6px -3px rgba(0, 0, 0, 0.42);
+  --taxis-dashboard-shadow-executive:
+    0 34px 86px -54px rgba(0, 0, 0, 0.72),
+    0 12px 30px -22px rgba(0, 0, 0, 0.52),
+    0 1px 0 rgba(226, 232, 240, 0.05) inset;
+  --taxis-dashboard-shadow-command:
+    0 24px 56px -42px rgba(0, 0, 0, 0.7),
+    0 8px 24px -20px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(0, 0, 0, 0.3);
+  --taxis-dashboard-shadow-color: rgba(0, 0, 0, 0.6);
+  --taxis-dashboard-shadow-color-strong: rgba(0, 0, 0, 0.72);
+
+  /* Floating overlays — dark frosted instead of white frosted */
+  --taxis-dashboard-overlay-bg: rgba(24, 31, 44, 0.97);
+  --taxis-dashboard-overlay-header-bg: rgba(20, 27, 39, 0.82);
+  --taxis-dashboard-overlay-shadow:
+    -18px 24px 70px -48px rgba(0, 0, 0, 0.72),
+    0 16px 44px -38px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(226, 232, 240, 0.06);
+
+  /* Modal/drawer scrim — darker so it reads against the dark page */
+  --taxis-workspace-scrim: rgb(2 6 23 / 0.62);
+
+  /* Status tones — bump text to lighter variants for AA contrast on dark */
+  --taxis-status-info-text: #93c5fd;
+  --taxis-status-info-bg: rgb(59 130 246 / 0.16);
+  --taxis-status-success-text: #6ee7b7;
+  --taxis-status-success-bg: rgb(16 185 129 / 0.16);
+  --taxis-status-neutral-text: #cbd5e1;
+  --taxis-status-neutral-bg: rgb(148 163 184 / 0.16);
+  --taxis-status-muted-text: #b4c0cf;
+  --taxis-status-muted-bg: rgb(148 163 184 / 0.14);
+  --taxis-status-strong-text: #f1f5f9;
+  --taxis-status-strong-bg: rgb(226 232 240 / 0.12);
+  --taxis-status-strong-ring: rgb(226 232 240 / 0.2);
+  --taxis-status-danger-text: #fca5a5;
+  --taxis-status-danger-bg: rgb(239 68 68 / 0.16);
+  --taxis-status-attention-text: #fcd34d;
+  --taxis-status-attention-bg: rgb(194 135 31 / 0.16);
 }
 
 @theme inline {
