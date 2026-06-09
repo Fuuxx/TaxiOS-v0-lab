@@ -161,3 +161,40 @@
     transform: scale(1.32);
   }
 }
+
+/* ===========================================================================
+ * Dark mode — status material.
+ *
+ * The status disc and quiet chip are built from a white porcelain gradient
+ * (rgba(255,255,255,0.96) + a full-white inset top edge) which becomes a
+ * bright white pill on every table row in dark mode. Re-skin to a graphite
+ * disc with a hairline light rim so the colored status glyph carries the tone.
+ * ======================================================================== */
+.dark .taxis-quiet-chip {
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.dark .taxis-status-icon-disc {
+  background: linear-gradient(
+    180deg,
+    var(--taxis-workspace-surface-soft),
+    var(--taxis-workspace-surface-deep)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.06),
+    inset 0 0 0 1px var(--taxis-status-icon-ring, var(--taxis-workspace-surface-rim)),
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 18px -12px rgba(0, 0, 0, 0.5);
+}
+
+.dark .taxios-rides-row:hover .taxis-status-icon-disc,
+.dark .taxios-bookings-row:hover .taxis-status-icon-disc {
+  box-shadow:
+    inset 0 1px 0 rgba(226, 232, 240, 0.08),
+    inset 0 0 0 1px var(--taxis-workspace-surface-rim-strong),
+    0 2px 4px rgba(0, 0, 0, 0.45),
+    0 12px 24px -12px rgba(0, 0, 0, 0.6);
+  transform: translateY(-1px);
+}
