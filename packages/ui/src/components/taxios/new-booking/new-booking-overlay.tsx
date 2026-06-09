@@ -1745,8 +1745,8 @@ function VehicleTypeCardPicker({
     <fieldset aria-label={ariaLabel}>
       <div
         className={cn(
-          "grid gap-2",
-          compact ? "sm:grid-cols-2" : "md:grid-cols-2 xl:grid-cols-4",
+          "grid items-stretch gap-3",
+          compact ? "sm:grid-cols-2" : "sm:grid-cols-2 xl:grid-cols-4",
         )}
       >
         {vehicleTypes.map((vehicleType) => {
@@ -1760,7 +1760,7 @@ function VehicleTypeCardPicker({
           return (
             <label
               className={cn(
-                "group flex min-h-[104px] cursor-pointer flex-col justify-between rounded-[18px] border bg-[var(--taxis-workspace-surface)] p-3.5 text-left shadow-[var(--taxis-workspace-shadow-overlay)] transition-all focus-within:border-[var(--taxis-workspace-accent-ring)] focus-within:ring-3 focus-within:ring-[var(--taxis-workspace-focus-ring)]",
+                "group flex h-full min-h-[132px] cursor-pointer flex-col rounded-[var(--taxis-radius-tile)] border bg-[var(--taxis-workspace-surface)] p-4 text-left shadow-[var(--taxis-workspace-shadow-overlay)] transition-all focus-within:border-[var(--taxis-workspace-accent-ring)] focus-within:ring-3 focus-within:ring-[var(--taxis-workspace-focus-ring)]",
                 selected
                   ? "border-[var(--taxis-workspace-accent-ring)] bg-[var(--taxis-workspace-accent-soft)] shadow-[inset_0_0_0_1px_var(--taxis-workspace-accent-ring)]"
                   : "border-[var(--taxis-workspace-surface-rim)] hover:border-[var(--taxis-workspace-surface-rim-strong)] hover:bg-[var(--taxis-workspace-surface-soft)]",
@@ -1775,24 +1775,24 @@ function VehicleTypeCardPicker({
                 onChange={() => onChange(vehicleType.id)}
                 type="radio"
               />
-              <span className="flex items-start justify-between gap-2">
-                <span>
-                  <span className="block font-semibold text-[13px] text-[var(--taxis-workspace-text-strong)]">
-                    {vehicleType.label}
-                  </span>
-                  <span className="mt-1 block font-medium text-[11px] text-[var(--taxis-workspace-text-muted)] leading-snug">
-                    {description}
-                  </span>
+              <span className="flex items-start justify-between gap-2.5">
+                <span className="block min-w-0 font-semibold text-[13.5px] text-[var(--taxis-workspace-text-strong)] leading-snug">
+                  {vehicleType.label}
                 </span>
-                <span className="rounded-full bg-[var(--taxis-workspace-surface-deep)] px-2 py-1 font-semibold text-[10px] text-[var(--taxis-workspace-text-secondary)] ring-1 ring-[var(--taxis-workspace-border)]">
+                <span className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full bg-[var(--taxis-workspace-surface-deep)] px-2.5 py-1 font-semibold text-[10px] text-[var(--taxis-workspace-text-secondary)] ring-1 ring-[var(--taxis-workspace-border)]">
                   <span className="taxis-data-inline">
                     {vehicleType.capacity}
-                  </span>{" "}
+                  </span>
                   {copy.vehicle.typeSeatsLabel}
                 </span>
               </span>
-              <span className="mt-3 inline-flex w-fit rounded-md bg-[var(--taxis-workspace-surface-deep)] px-2.5 py-1 font-semibold text-[10px] text-[var(--taxis-workspace-text-secondary)] ring-1 ring-[var(--taxis-workspace-border)]">
-                {luggageHint}
+              <span className="mt-1.5 block min-w-0 font-medium text-[11.5px] text-[var(--taxis-workspace-text-muted)] leading-snug [display:-webkit-box] [overflow:hidden] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
+                {description}
+              </span>
+              <span className="mt-auto pt-3">
+                <span className="inline-flex w-fit max-w-full items-center truncate rounded-full bg-[var(--taxis-workspace-surface-deep)] px-2.5 py-1 font-semibold text-[10px] text-[var(--taxis-workspace-text-secondary)] ring-1 ring-[var(--taxis-workspace-border)]">
+                  {luggageHint}
+                </span>
               </span>
             </label>
           );
