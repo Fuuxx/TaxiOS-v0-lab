@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { CalendarClock, MapPin, Users } from "lucide-react";
 
 import { RiderAccountScreen } from "@taxios-v2/ui/components/taxios/rider-app/rider-account-screen";
 import {
@@ -12,6 +13,11 @@ import type { RiderTabId } from "@taxios-v2/ui/components/taxios/rider-app/rider
 import { RiderBookScreen } from "@taxios-v2/ui/components/taxios/rider-app/rider-book-screen";
 import { RiderHomeScreen } from "@taxios-v2/ui/components/taxios/rider-app/rider-home-screen";
 import { RiderInboxScreen } from "@taxios-v2/ui/components/taxios/rider-app/rider-inbox-screen";
+import {
+  RiderTextField,
+  RiderTextareaField,
+  RiderVehicleOptionList,
+} from "@taxios-v2/ui/components/taxios/rider-app/rider-primitives";
 import { RiderRequestedScreen } from "@taxios-v2/ui/components/taxios/rider-app/rider-requested-screen";
 import { RiderRidersScreen } from "@taxios-v2/ui/components/taxios/rider-app/rider-riders-screen";
 import { RiderScheduleScreen } from "@taxios-v2/ui/components/taxios/rider-app/rider-schedule-screen";
@@ -107,6 +113,78 @@ const tabForScreen: Record<LabScreen, RiderTabId> = {
   "trips-empty": "trips",
 };
 
+/* ---------------------------------------------------------------------
+ * Static demo nodes for the form-like screens.
+ *
+ * These are plain presentational primitives passed into the screens'
+ * integration slots. The lab holds NO form state — the real TaxiOS app
+ * wires its own form system into the same slots later.
+ * ------------------------------------------------------------------- */
+
+const bookRouteDemo = (
+  <div className="taxis-rider-card space-y-3 p-4">
+    <RiderTextField
+      icon={<MapPin size={16} strokeWidth={2} />}
+      id="demo-book-pickup"
+      label="Abholung"
+      placeholder="Aktueller Standort oder Adresse"
+    />
+    <RiderTextField
+      icon={<MapPin size={16} strokeWidth={2} />}
+      id="demo-book-destination"
+      label="Ziel"
+      placeholder="Wohin soll die Fahrt gehen?"
+    />
+  </div>
+);
+
+const bookDetailsDemo = (
+  <div className="taxis-rider-card space-y-3 p-4">
+    <RiderTextField
+      icon={<Users size={16} strokeWidth={2} />}
+      id="demo-book-passengers"
+      inputMode="numeric"
+      label="Fahrgäste"
+      placeholder="1"
+      type="number"
+    />
+    <RiderTextareaField
+      id="demo-book-note"
+      label="Hinweis für die Fahrerin / den Fahrer (optional)"
+      placeholder="z. B. Eingang Hinterhof, Gepäck, Kindersitz"
+    />
+  </div>
+);
+
+const scheduleDateTimeDemo = (
+  <div className="taxis-rider-card grid grid-cols-2 gap-3 p-4">
+    <RiderTextField
+      icon={<CalendarClock size={16} strokeWidth={2} />}
+      id="demo-schedule-date"
+      label="Datum"
+      type="date"
+    />
+    <RiderTextField id="demo-schedule-time" label="Uhrzeit" type="time" />
+  </div>
+);
+
+const scheduleRouteDemo = (
+  <div className="taxis-rider-card space-y-3 p-4">
+    <RiderTextField
+      icon={<MapPin size={16} strokeWidth={2} />}
+      id="demo-schedule-pickup"
+      label="Abholung"
+      placeholder="Adresse oder Ort"
+    />
+    <RiderTextField
+      icon={<MapPin size={16} strokeWidth={2} />}
+      id="demo-schedule-destination"
+      label="Ziel"
+      placeholder="Wohin soll die Fahrt gehen?"
+    />
+  </div>
+);
+
 function ScreenHeader({ title }: { title: string }) {
   return (
     <div className="flex items-center justify-between gap-3">
@@ -161,9 +239,37 @@ function ScreenContent({
     case "tracking":
       return <RiderTrackingScreen copy={riderAppCopy} payload={riderTrackingPayload} />;
     case "book":
-      return <RiderBookScreen copy={riderAppCopy} payload={riderBookingNowPayload} />;
+      return (
+        <RiderBookScreen
+          copy={riderAppCopy}
+          detailsSlot={bookDetailsDemo}
+          payload={riderBookingNowPayload}
+          routeSlot={bookRouteDemo}
+          vehicleSlot={
+            <RiderVehicleOptionList
+              options={riderBookingNowPayload.vehicleOptions}
+              selectedId={riderBookingNowPayload.vehicleOptions.find((o) => !o.disabled)?.id}
+            />
+          }
+        />
+      );
     case "schedule":
-      return <RiderScheduleScreen copy={riderAppCopy} payload={riderBookingSchedulePayload} />;
+      return (
+        <RiderScheduleScreen
+          copy={riderAppCopy}
+          payload={riderBookingSchedulePayload}
+          routeSlot={scheduleRouteDemo}
+          scheduleSlot={scheduleDateTimeDemo}
+          vehicleSlot={
+            <RiderVehicleOptionList
+              options={riderBookingSchedulePayload.vehicleOptions}
+              selectedId={
+                riderBookingSchedulePayload.vehicleOptions.find((o) => !o.disabled)?.id
+              }
+            />
+          }
+        />
+      );
     case "riders":
       return <RiderRidersScreen payload={riderRidersPayload} />;
     case "riders-no-company":
