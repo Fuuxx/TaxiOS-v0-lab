@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "es2022"],
+    "paths": {
+      "@/*": ["./*"],
+      "@taxios-v2/ui/*": ["../../packages/ui/src/*"]
+    },
+    "plugins": [{ "name": "next" }],
+    "types": ["node"]
+  },
+  "include": [
+    "next-env.d.ts",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "../../registry.json"
+  ],
+  "exclude": ["node_modules"]
+}

@@ -1,7 +1,20 @@
 node_modules
+.pnpm-store
+.turbo
 .next
-out
-.vercel
-.env*
+dist
+storybook-static
+*.tsbuildinfo
+.env
+.env.*
 !.env.example
-*.log
+.DS_Store
+
+# Local scratch / shortcuts (do not ship)
+.codex/
+.tmp/
+*.lnk
+v0-*.json
+
+# Generated Storybook screenshots (local visual references for v0)
+docs/storybook-screenshots/

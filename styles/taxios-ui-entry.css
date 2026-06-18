@@ -1,6 +1,0 @@
-@import "@taxios-v2/ui/styles/globals.css";
-
-@source "../vendor/taxios-ui/src/components/**/*.{ts,tsx}";
-@source "../vendor/taxios-ui/src/lib/**/*.{ts,tsx}";
-@source "../components/**/*.{ts,tsx}";
-@source "../app/**/*.{ts,tsx}";

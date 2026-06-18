@@ -1,0 +1,9 @@
+# Generated registry JSON files (built at build time)
+public/r/
+
+# Next.js
+.next/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

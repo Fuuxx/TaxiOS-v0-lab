@@ -1,0 +1,45 @@
+@import "../../../packages/ui/src/styles/globals.css";
+@import "../../../packages/ui/src/components/taxios/workspace/workspace.css";
+
+@source "../app/**/*.{ts,tsx}";
+@source "../src/**/*.{ts,tsx}";
+
+body {
+  margin: 0;
+}
+
+.taxios-registry-page {
+  min-height: 100dvh;
+  background: var(--taxis-ui-page-bg);
+}
+
+.taxios-registry-shell {
+  width: min(100%, 1180px);
+  margin-inline: auto;
+  padding: 32px;
+}
+
+.taxios-registry-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-block: 20px 28px;
+}
+
+.taxios-registry-demo-frame {
+  overflow: hidden;
+  border: 1px solid var(--taxis-workspace-border);
+  border-radius: 24px;
+  background: var(--taxis-workspace-surface);
+  box-shadow: var(--taxis-workspace-shadow-soft);
+}
+
+.taxios-registry-demo-inner {
+  padding: clamp(20px, 3vw, 36px);
+}
+
+@media (max-width: 720px) {
+  .taxios-registry-shell {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,577 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "taxios-v0-registry",
+  "homepage": "https://taxios-v0-registry.vercel.app",
+  "items": [
+    {
+      "name": "taxios-base",
+      "type": "registry:style",
+      "title": "TaxiOS Base Tokens and Workspace CSS",
+      "description": "TaxiOS token CSS, globals, workspace material, status, table, card, and wizard styles required by registered components and blocks.",
+      "dependencies": [
+        "tailwindcss",
+        "tw-animate-css",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/styles/globals.css",
+          "type": "registry:style",
+          "target": "styles/globals.css"
+        },
+        {
+          "path": "packages/ui/src/styles/tokens.css",
+          "type": "registry:style",
+          "target": "styles/tokens.css"
+        },
+        {
+          "path": "packages/ui/src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "lib/utils.ts"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace.css",
+          "type": "registry:style",
+          "target": "components/taxios/workspace/workspace.css"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/company-workspace/company-workspace-material.css",
+          "type": "registry:style",
+          "target": "components/taxios/company-workspace/company-workspace-material.css"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/company-workspace/company-workspace-status.css",
+          "type": "registry:style",
+          "target": "components/taxios/company-workspace/company-workspace-status.css"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/company-workspace/company-workspace-table.css",
+          "type": "registry:style",
+          "target": "components/taxios/company-workspace/company-workspace-table.css"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace-foundation.css",
+          "type": "registry:style",
+          "target": "components/taxios/workspace/workspace-foundation.css"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace-chrome.css",
+          "type": "registry:style",
+          "target": "components/taxios/workspace/workspace-chrome.css"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace-avatars.css",
+          "type": "registry:style",
+          "target": "components/taxios/workspace/workspace-avatars.css"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace-cards.css",
+          "type": "registry:style",
+          "target": "components/taxios/workspace/workspace-cards.css"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace-wizard.css",
+          "type": "registry:style",
+          "target": "components/taxios/workspace/workspace-wizard.css"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace-motion.css",
+          "type": "registry:style",
+          "target": "components/taxios/workspace/workspace-motion.css"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace-legacy-tables.css",
+          "type": "registry:style",
+          "target": "components/taxios/workspace/workspace-legacy-tables.css"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "TaxiOS Base UI button primitive with operational action hierarchy variants.",
+      "registryDependencies": ["taxios-base"],
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "files": [
+        {
+          "path": "apps/taxios-v0-registry/src/v0/entries/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button-entry.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "TaxiOS badge primitive for compact neutral, secondary, destructive, outline, ghost, and link treatments.",
+      "registryDependencies": ["taxios-base"],
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "TaxiOS token-backed input primitive.",
+      "registryDependencies": ["taxios-base"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "TaxiOS label primitive for form controls.",
+      "registryDependencies": ["taxios-base"],
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/ui/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/label.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "TaxiOS card primitive and subcomponents.",
+      "registryDependencies": ["taxios-base"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/ui/card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "TaxiOS semantic table primitive and subcomponents.",
+      "registryDependencies": ["taxios-base"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/ui/table.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "workspace-surface",
+      "type": "registry:component",
+      "title": "WorkspaceSurface",
+      "description": "TaxiOS porcelain workspace surface wrapper.",
+      "registryDependencies": ["taxios-base"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace-primitives.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/workspace/workspace-primitives.tsx"
+        }
+      ]
+    },
+    {
+      "name": "workspace-inner-card",
+      "type": "registry:component",
+      "title": "WorkspaceInnerCard",
+      "description": "TaxiOS inner-card workspace primitive.",
+      "registryDependencies": ["workspace-surface"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace-primitives.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/workspace/workspace-primitives.tsx"
+        }
+      ]
+    },
+    {
+      "name": "workspace-section-header",
+      "type": "registry:component",
+      "title": "WorkspaceSectionHeader",
+      "description": "TaxiOS compact section header for workspace surfaces.",
+      "registryDependencies": ["workspace-surface"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace-primitives.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/workspace/workspace-primitives.tsx"
+        }
+      ]
+    },
+    {
+      "name": "workspace-entity-card",
+      "type": "registry:component",
+      "title": "WorkspaceEntityCard",
+      "description": "TaxiOS entity-card system for repeated workspace entities and metrics.",
+      "registryDependencies": ["workspace-surface"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace-entity-card.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/workspace/workspace-entity-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "workspace-table",
+      "type": "registry:component",
+      "title": "WorkspaceTable",
+      "description": "TaxiOS workspace table shell, scroll container, table, row, and cells.",
+      "registryDependencies": ["workspace-surface"],
+      "files": [
+        {
+          "path": "apps/taxios-v0-registry/src/v0/entries/workspace-table.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/workspace/workspace-table-entry.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace-table.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/workspace/workspace-table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "workspace-wizard",
+      "type": "registry:component",
+      "title": "WorkspaceWizard",
+      "description": "TaxiOS workspace wizard overlay, panel, sections, rail, footer, and status grid primitives.",
+      "registryDependencies": ["button", "workspace-surface"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace-wizard.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/workspace/workspace-wizard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "workspace-status-chips",
+      "type": "registry:component",
+      "title": "Workspace Status Chips",
+      "description": "TaxiOS workspace status tone helper functions and chip class mappings.",
+      "registryDependencies": ["taxios-base"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/taxios/company-workspace/company-workspace-status.ts",
+          "type": "registry:component",
+          "target": "components/taxios/company-workspace/company-workspace-status.ts"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/workspace/workspace-status.ts",
+          "type": "registry:component",
+          "target": "components/taxios/workspace/workspace-status.ts"
+        }
+      ]
+    },
+    {
+      "name": "ride-detail-drawer",
+      "type": "registry:block",
+      "title": "Ride Detail Drawer",
+      "description": "Self-contained TaxiOS ride detail drawer block with inline types, mock data, and simplified avatar. No dashboard internals required.",
+      "registryDependencies": ["button", "workspace-surface", "workspace-status-chips"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "apps/taxios-v0-registry/src/v0/blocks/ride-detail-drawer.tsx",
+          "type": "registry:block",
+          "target": "app/ride-detail-drawer/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:block",
+      "title": "Empty State",
+      "description": "TaxiOS workspace empty state block for operational pages.",
+      "registryDependencies": ["button", "workspace-surface"],
+      "files": [
+        {
+          "path": "apps/taxios-v0-registry/src/v0/blocks/empty-state.tsx",
+          "type": "registry:block",
+          "target": "app/empty-state/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loading-state",
+      "type": "registry:block",
+      "title": "Loading State",
+      "description": "TaxiOS compact loading state block using workspace material tokens.",
+      "registryDependencies": ["workspace-surface"],
+      "files": [
+        {
+          "path": "apps/taxios-v0-registry/src/v0/blocks/loading-state.tsx",
+          "type": "registry:block",
+          "target": "app/loading-state/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:block",
+      "title": "Data Table",
+      "description": "TaxiOS operational data table block using WorkspaceTable components and status chips.",
+      "registryDependencies": ["workspace-table", "workspace-status-chips", "button"],
+      "files": [
+        {
+          "path": "apps/taxios-v0-registry/src/v0/blocks/data-table.tsx",
+          "type": "registry:block",
+          "target": "app/data-table/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "booking-wizard-shell",
+      "type": "registry:block",
+      "title": "Booking Wizard Shell",
+      "description": "TaxiOS booking wizard shell block using WorkspaceWizard components.",
+      "registryDependencies": ["workspace-wizard", "input", "label", "button"],
+      "files": [
+        {
+          "path": "apps/taxios-v0-registry/src/v0/blocks/booking-wizard-shell.tsx",
+          "type": "registry:block",
+          "target": "app/booking-wizard-shell/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "company-workspace-pr46-lab",
+      "type": "registry:block",
+      "title": "Company Workspace PR #46 Lab",
+      "description": "TaxiOS v0 Lab snapshot for the current Company Workspace UI-system state after PR #46 / merge commit 2698991c214595e17e0b3228dc84935b0b27fa76. Fixture-only, no Convex, Clerk, backend, or v0-generated code.",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "workspace-surface",
+        "workspace-status-chips",
+        "workspace-table",
+        "workspace-wizard"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "apps/taxios-v0-registry/src/v0/layout.tsx",
+          "type": "registry:block",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "apps/taxios-v0-registry/src/v0/blocks/company-workspace-pr46-lab.tsx",
+          "type": "registry:block",
+          "target": "app/page.tsx"
+        },
+        {
+          "path": "packages/ui/src/contracts/company-bookings.ts",
+          "type": "registry:lib",
+          "target": "contracts/company-bookings.ts"
+        },
+        {
+          "path": "packages/ui/src/contracts/company-dashboard.ts",
+          "type": "registry:lib",
+          "target": "contracts/company-dashboard.ts"
+        },
+        {
+          "path": "packages/ui/src/contracts/company-finance.ts",
+          "type": "registry:lib",
+          "target": "contracts/company-finance.ts"
+        },
+        {
+          "path": "packages/ui/src/contracts/company-organization.ts",
+          "type": "registry:lib",
+          "target": "contracts/company-organization.ts"
+        },
+        {
+          "path": "packages/ui/src/contracts/company-reports.ts",
+          "type": "registry:lib",
+          "target": "contracts/company-reports.ts"
+        },
+        {
+          "path": "packages/ui/src/contracts/company-settings.ts",
+          "type": "registry:lib",
+          "target": "contracts/company-settings.ts"
+        },
+        {
+          "path": "packages/ui/src/contracts/new-booking.ts",
+          "type": "registry:lib",
+          "target": "contracts/new-booking.ts"
+        },
+        {
+          "path": "packages/ui/src/contracts/workspace-notifications.ts",
+          "type": "registry:lib",
+          "target": "contracts/workspace-notifications.ts"
+        },
+        {
+          "path": "packages/ui/src/contracts/workspace-search.ts",
+          "type": "registry:lib",
+          "target": "contracts/workspace-search.ts"
+        },
+        {
+          "path": "packages/ui/src/storybook/fixtures/company-dashboard.fixtures.ts",
+          "type": "registry:lib",
+          "target": "storybook/fixtures/company-dashboard.fixtures.ts"
+        },
+        {
+          "path": "packages/ui/src/storybook/fixtures/company-organization.fixtures.ts",
+          "type": "registry:lib",
+          "target": "storybook/fixtures/company-organization.fixtures.ts"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/company-bookings/company-bookings-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/company-bookings/company-bookings-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/company-finance/company-finance-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/company-finance/company-finance-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/company-organization/company-organization-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/company-organization/company-organization-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/company-reports/company-reports-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/company-reports/company-reports-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/company-settings/company-settings-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/company-settings/company-settings-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/company-workspace/company-workspace-shell.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/company-workspace/company-workspace-shell.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/dashboard/company-dashboard-screen.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/dashboard/company-dashboard-screen.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/new-booking/new-booking-overlay.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/new-booking/new-booking-overlay.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/workspace-notifications/workspace-notifications-popover.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/workspace-notifications/workspace-notifications-popover.tsx"
+        },
+        {
+          "path": "packages/ui/src/components/taxios/workspace-search/workspace-search-box.tsx",
+          "type": "registry:component",
+          "target": "components/taxios/workspace-search/workspace-search-box.tsx"
+        }
+      ]
+    },
+    {
+      "name": "taxios-design-context",
+      "type": "registry:page",
+      "title": "TaxiOS Design Context",
+      "description": "Visual design brief, Storybook references, and v0 polish instructions for the TaxiOS porcelain UI system. Read this before opening any lab block.",
+      "registryDependencies": ["taxios-base"],
+      "files": [
+        {
+          "path": "apps/taxios-v0-registry/src/v0/layout.tsx",
+          "type": "registry:page",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "apps/taxios-v0-registry/src/v0/entries/design-context.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        },
+        {
+          "path": "docs/v0-storybook-context.md",
+          "type": "registry:page",
+          "target": "docs/taxios-design-context.md"
+        }
+      ]
+    },
+    {
+      "name": "button-lab",
+      "type": "registry:block",
+      "title": "Button Lab",
+      "description": "TaxiOS Button v0 preview block. Renders all button variants with TaxiOS tokens.",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "apps/taxios-v0-registry/src/v0/layout.tsx",
+          "type": "registry:block",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "apps/taxios-v0-registry/src/v0/entries/button.tsx",
+          "type": "registry:block",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "workspace-table-lab",
+      "type": "registry:block",
+      "title": "Workspace Table Lab",
+      "description": "TaxiOS Workspace Table v0 preview block. Renders an operational data table with TaxiOS workspace tokens.",
+      "registryDependencies": ["workspace-table"],
+      "files": [
+        {
+          "path": "apps/taxios-v0-registry/src/v0/layout.tsx",
+          "type": "registry:block",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "apps/taxios-v0-registry/src/v0/entries/workspace-table.tsx",
+          "type": "registry:block",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ride-detail-drawer-lab",
+      "type": "registry:block",
+      "title": "Ride Detail Drawer Lab",
+      "description": "TaxiOS Ride Detail Drawer v0 preview block. Self-contained drawer with mocked ride data and TaxiOS workspace tokens.",
+      "registryDependencies": ["button", "workspace-surface", "workspace-status-chips"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "apps/taxios-v0-registry/src/v0/layout.tsx",
+          "type": "registry:block",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "apps/taxios-v0-registry/src/v0/blocks/ride-detail-drawer.tsx",
+          "type": "registry:block",
+          "target": "app/page.tsx"
+        }
+      ]
+    }
+  ]
+}
